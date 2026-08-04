@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlte"
+version = "0.1.0"
+description = "Unified interpolation over published non-LTE abundance correction grids"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+fits = ["astropy>=5.0"]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+nlte-correct = "nlte.cli:main_correct"
+nlte-validate = "nlte.cli:main_validate"
+
+[tool.setuptools.packages.find]
+include = ["nlte*"]
+
+[tool.setuptools.package-data]
+nlte = ["manifests/*.toml"]

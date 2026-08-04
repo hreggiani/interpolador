@@ -1,0 +1,159 @@
+# Amarsi et al. 2020, A&A 642, A62 -- non-LTE abundance corrections for GALAH DR3.
+#
+# 22 tables sharing one layout: 11 elements, each with and without coherent
+# scattering in the background opacity.  Everything below the [[tables]] array
+# is shared; each entry overrides the file name, element and scattering flag.
+
+id        = "amarsi2020"
+format    = "tabular"
+reference = "Amarsi et al. 2020, A&A 642, A62"
+ion       = 1
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+notes     = "MARCS models; grid abundance axis is [X/Fe] on the Asplund et al. (2009) scale."
+
+[read]
+delimiter = ","
+
+[columns]
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+abund = "xfe"
+line  = "line"
+value = "abcor"
+
+[abundance]
+kind        = "xfe"
+solar_table = "asplund2009"
+
+[wavelengths]
+unit = "auto"           # sub-1000 entries are published in nm
+
+[quality]
+sentinel = -1e30
+
+[[tables]]
+id = "amarsi2020_li1"
+element = "Li"
+file = "li1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_li1_scatt"
+element = "Li"
+file = "li1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_c1"
+element = "C"
+file = "c1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_c1_scatt"
+element = "C"
+file = "c1_abcor_scatt.csv"
+scattering = true
+
+# The oxygen tables carry a single entry, "777.0", covering the whole 777 nm
+# triplet -- so all three components must resolve to it.
+[[tables]]
+id = "amarsi2020_o1"
+element = "O"
+file = "o1_abcor.csv"
+scattering = false
+wavelengths = { unit = "auto", aliases = { "777.0" = [7771.94, 7774.17, 7775.39] } }
+[[tables]]
+id = "amarsi2020_o1_scatt"
+element = "O"
+file = "o1_abcor_scatt.csv"
+scattering = true
+wavelengths = { unit = "auto", aliases = { "777.0" = [7771.94, 7774.17, 7775.39] } }
+
+[[tables]]
+id = "amarsi2020_na1"
+element = "Na"
+file = "na1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_na1_scatt"
+element = "Na"
+file = "na1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_mg1"
+element = "Mg"
+file = "mg1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_mg1_scatt"
+element = "Mg"
+file = "mg1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_al1"
+element = "Al"
+file = "al1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_al1_scatt"
+element = "Al"
+file = "al1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_si1"
+element = "Si"
+file = "si1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_si1_scatt"
+element = "Si"
+file = "si1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_k1"
+element = "K"
+file = "k1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_k1_scatt"
+element = "K"
+file = "k1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_ca1"
+element = "Ca"
+file = "ca1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_ca1_scatt"
+element = "Ca"
+file = "ca1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_mn1"
+element = "Mn"
+file = "mn1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_mn1_scatt"
+element = "Mn"
+file = "mn1_abcor_scatt.csv"
+scattering = true
+
+[[tables]]
+id = "amarsi2020_ba1"
+element = "Ba"
+file = "ba1_abcor.csv"
+scattering = false
+[[tables]]
+id = "amarsi2020_ba1_scatt"
+element = "Ba"
+file = "ba1_abcor_scatt.csv"
+scattering = true

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# Parsed-grid caches, rebuilt on demand.
+.cache/
+
+# Grid data is large (>500 MB) and redistributed by its original authors;
+# only the manifests describing it are tracked.
+grids/**
+!grids/**/
+!grids/**/*.toml
+
+# Local Claude Code settings.
+.claude/settings.local.json

@@ -1,0 +1,37 @@
+# Osorio et al. 2016, A&A 586, A120 -- non-LTE magnesium.
+#
+# VizieR export, semicolon-separated, with LTE and non-LTE log(EW/lambda) in
+# paired columns per line ("3829LTE", "3829NLTE", ...).  No corrections are
+# published, so they are derived by equivalent-width matching.
+
+id        = "osorio2016_mg"
+format    = "tabular"
+reference = "Osorio et al. 2016, A&A 586, A120"
+element   = "Mg"
+ion       = 1
+file      = "mg1_osorio2016.tsv"
+kind      = "ew_pair"
+flavor    = "1D NLTE - 1D LTE"
+clip_axes = ["vmic"]
+notes     = "Corrections derived by matching log(EW/lambda); strong lines (5172, 5183) saturate and are flagged rather than extrapolated."
+
+[read]
+delimiter = ";"
+comment   = "#"
+
+[columns]
+teff  = "Teff"
+logg  = "logg"
+feh   = "[Fe/H]"
+vmic  = "Vturb"
+abund = "A(Mg)"
+
+[abundance]
+kind = "logeps"
+
+[ew_pattern]
+lte  = "(?P<line>[0-9]+)LTE"
+nlte = "(?P<line>[0-9]+)NLTE"
+
+[wavelengths]
+unit = "angstrom"

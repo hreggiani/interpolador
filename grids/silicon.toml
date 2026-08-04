@@ -1,0 +1,35 @@
+# Amarsi & Asplund 2017, MNRAS 464, 264 -- non-LTE silicon.
+#
+# The published abundance axis is log eps, but its nodes shift with [Fe/H]
+# (log eps - [Fe/H] is always 7.01 ... 9.01), so the grid is only rectilinear
+# when that axis is read as [Si/Fe].  Declaring kind = "xfe" with the paper's
+# solar silicon does exactly that, and queries still come in as log eps.
+
+id        = "amarsi2017_si"
+format    = "tabular"
+reference = "Amarsi & Asplund 2017, MNRAS 464, 264"
+element   = "Si"
+ion       = 1
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+
+[read]
+delimiter = ","
+
+[columns]
+line  = "line"
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+vmic  = "vt"
+abund = "logeps"
+value = "abcor"
+
+[abundance]
+kind  = "xfe"
+solar = 7.51
+
+[wavelengths]
+unit = "nm"
+
+clip_axes = ["vmic"]

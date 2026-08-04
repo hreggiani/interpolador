@@ -1,0 +1,42 @@
+# Matsuno et al. 2024, A&A 688, A72 -- 3D non-LTE magnesium.
+#
+# VizieR ASU export: comma-separated despite the .tsv name, with a units row and
+# a rule row under the header.  No [Fe/H] axis -- A(Mg) carries the abundance.
+# Two correction columns, so this manifest yields two sources.
+
+id        = "matsuno2024_mg"
+format    = "tabular"
+reference = "Matsuno et al. 2024, A&A 688, A72"
+element   = "Mg"
+ion       = 1
+file      = "asu.tsv"
+kind      = "delta"
+clip_axes = ["vmic"]
+notes     = "No [Fe/H] axis. Grid covers dwarfs only (logg 4.0-5.0, Teff 5000-6500)."
+
+[read]
+delimiter = ","
+comment   = "#"
+
+[columns]
+teff  = "Teff"
+logg  = "logg"
+vmic  = "vmic"
+abund = "A(Mg)"
+line  = "line"
+
+[abundance]
+kind = "logeps"
+
+[wavelengths]
+unit = "nm"
+
+[[variants]]
+id_suffix = "1n1l"
+flavor    = "1D NLTE - 1D LTE"
+column    = "1N-1L"
+
+[[variants]]
+id_suffix = "3n1l"
+flavor    = "3D NLTE - 1D LTE"
+column    = "3N-1L"

@@ -1,0 +1,53 @@
+# Amarsi et al. 2016, MNRAS 463, 1518 -- non-LTE iron.
+#
+# Three flavours differing in the model atmospheres used for the non-LTE and LTE
+# sides.  These tables have no [Fe/H] axis: the iron abundance axis *is* the
+# metallicity.  They are also sparse in the teff-logg plane (54 of 104
+# combinations), hence scattered = ["teff", "logg"].  At 8.2M rows each, parsing
+# is slow enough to be worth caching.
+
+id        = "amarsi2016_fe"
+format    = "tabular"
+reference = "Amarsi et al. 2016, MNRAS 463, 1518"
+element   = "Fe"
+kind      = "delta"
+cache     = true
+scattered = ["teff", "logg"]
+clip_axes = ["vmic"]
+ion_column = "species"
+notes     = "No [Fe/H] axis; the A(Fe) axis carries the metallicity. 'clean' flags lines free of blends (28% of rows) -- use require_flag to keep only those."
+
+[read]
+delimiter = "whitespace"
+skiprows  = 1
+
+[columns]
+teff  = "teff"
+logg  = "logg"
+vmic  = "vmic"
+abund = "abnd"
+line  = "wave_nm"
+value = "corr"
+
+[abundance]
+kind = "logeps"
+
+[wavelengths]
+unit = "nm"
+
+[quality]
+flag_column = "clean"
+flag_good   = "yes"
+
+[[tables]]
+id = "amarsi2016_fe_nmarcs_lmarcs"
+file = "nmarcs_lmarcs.txt"
+flavor = "1D NLTE - 1D LTE"
+[[tables]]
+id = "amarsi2016_fe_nmtd_lmarcs"
+file = "nmtd_lmarcs.txt"
+flavor = "<3D> NLTE - 1D LTE"
+[[tables]]
+id = "amarsi2016_fe_nmtd_lmtd"
+file = "nmtd_lmtd.txt"
+flavor = "<3D> NLTE - <3D> LTE"
