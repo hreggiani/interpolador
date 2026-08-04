@@ -1,0 +1,34 @@
+# Wang et al. 2021, 2024 -- 3D non-LTE lithium, via the Breidablik package.
+#
+# Unlike every other source here, the data is not a file in this directory: it
+# ships inside the `breidablik` package (pip install breidablik), which carries
+# the trained networks with the wheel.  The reader uses the installed package,
+# so there is nothing to download or point at, and the source is skipped with a
+# warning if breidablik is not installed.
+#
+# Breidablik's Nlte.nlte_correction already returns a correction to a 1D LTE
+# abundance, so Delta is indexed by the LTE abundance and is read directly.
+#
+# The three line centres are Breidablik's own, in vacuum; they are converted to
+# air here, giving 6103.6, 6707.8 and 8126.4 A -- the same lines as the Amarsi
+# 2020 lithium grid, which makes for a direct 1D-against-3D comparison.
+#
+# Coverage is the Stagger grid the networks were trained on.  In-grid tests use
+# Breidablik's own criterion (distance to the nearest node in its normalised
+# parameter space) rather than a bounding box, so the ragged edges of the grid
+# are respected; the ranges below are only the outer envelope.
+
+id        = "wang2021_li"
+format    = "breidablik_nlte"
+reference = "Wang et al. 2021, MNRAS 500, 2159; Wang et al. 2024"
+element   = "Li"
+ion       = 1
+kind      = "delta"
+flavor    = "3D NLTE - 1D LTE"
+notes     = "Provided by the breidablik package rather than a data file here. Delta is indexed by the 1D LTE abundance. Coverage uses Breidablik's own distance-to-node test; no microturbulence axis."
+
+[axes]
+teff  = [3936.0, 7052.0]
+logg  = [1.5, 5.0]
+feh   = [-2.0, 0.25]
+abund = [-0.5, 4.0]

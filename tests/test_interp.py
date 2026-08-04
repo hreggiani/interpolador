@@ -115,3 +115,25 @@ def test_hybrid_rejects_points_outside_the_hull(hybrid):
     assert not result.in_range[0]
     assert np.isnan(result.value[0])
     assert result.valid_weight[0] == 0     # no meaningless weight is reported
+
+
+def test_vacuum_to_air_reproduces_known_line_centres():
+    from nlte.wavelengths import air_to_vacuum, vacuum_to_air
+
+    # Li I 6707.81, 6103.6 and 8126.4 in air; Breidablik quotes them in vacuum.
+    assert vacuum_to_air(6709.659) == pytest.approx(6707.81, abs=0.01)
+    assert vacuum_to_air(6105.298) == pytest.approx(6103.61, abs=0.01)
+    assert vacuum_to_air(8128.606) == pytest.approx(8126.37, abs=0.01)
+
+
+def test_vacuum_air_conversions_round_trip():
+    from nlte.wavelengths import air_to_vacuum, vacuum_to_air
+
+    wl = np.array([3000.0, 5000.0, 6709.659, 10000.0, 25000.0])
+    assert np.allclose(air_to_vacuum(vacuum_to_air(wl)), wl, atol=1e-6)
+
+
+def test_below_2000_angstrom_is_left_in_vacuum():
+    from nlte.wavelengths import vacuum_to_air
+
+    assert vacuum_to_air(1500.0) == 1500.0

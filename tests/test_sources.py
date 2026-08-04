@@ -215,3 +215,61 @@ def test_missing_external_data_is_skipped_not_fatal(tmp_path):
     with pytest.warns(RuntimeWarning, match="data not found"):
         assert reg.for_element("Na") == []
     assert reg.missing
+
+
+def _breidablik_available() -> bool:
+    try:
+        import breidablik  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
+def test_breidablik_matches_its_own_entry_point(registry):
+    if not _breidablik_available():
+        pytest.skip("breidablik is not installed")
+    from breidablik.interpolate.nlte import Nlte
+
+    from nlte.api import correct
+
+    reference = Nlte()
+    cases = [
+        (5353.0, 4.25, -1.53, 2.85, 670.9659, 6707.807),
+        (5688.0, 4.53, -0.90, 1.66, 610.5298, 6103.608),
+        (6100.0, 4.10, -0.50, 2.20, 812.8606, 8126.371),
+    ]
+    for teff, logg, feh, abund, centre, air in cases:
+        theirs = reference.nlte_correction(teff, logg, feh, abund, center=centre)
+        mine = [c for c in correct("Li", air, abund=abund, teff=teff, logg=logg,
+                                   feh=feh, registry=registry) if c.source == "wang2021_li"]
+        assert mine and mine[0].ok
+        assert mine[0].delta == pytest.approx(theirs, abs=1e-12)
+
+
+def test_breidablik_coverage_test_matches_theirs(registry):
+    if not _breidablik_available():
+        pytest.skip("breidablik is not installed")
+    import warnings as _warnings
+
+    from breidablik.interpolate.grid_check import _grid_check
+
+    from nlte.readers.breidablik import _within_grid
+
+    rng = np.random.default_rng(11)
+    for _ in range(60):
+        teff = float(rng.uniform(3500, 7500))
+        logg = float(rng.uniform(1.0, 5.5))
+        feh = float(rng.uniform(-3.0, 0.8))
+        with _warnings.catch_warnings(record=True) as caught:
+            _warnings.simplefilter("always")
+            _grid_check(teff, logg, feh)
+            theirs = not any("outside of the grid" in str(c.message) for c in caught)
+        assert bool(_within_grid([teff], [logg], [feh])[0]) == theirs
+
+
+def test_lithium_line_centres_convert_from_vacuum_to_air(registry):
+    if not _breidablik_available():
+        pytest.skip("breidablik is not installed")
+    src = registry.get("wang2021_li")
+    got = sorted(ln.wavelength for ln in src.lines)
+    assert got == pytest.approx([6103.608, 6707.807, 8126.371], abs=0.01)

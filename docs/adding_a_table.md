@@ -181,6 +181,14 @@ no nodes to count.
 If a model-backed grid indexes its correction by the LTE abundance, as that one
 does, set `indexed_by = "lte"` on the source.
 
+A grid may also live inside an installed package rather than in a file:
+`format = "breidablik_nlte"` reads the lithium models straight out of the
+`breidablik` distribution, so its manifest names no `file` at all. Reuse the
+upstream package's own coverage test where it has one — Breidablik judges
+whether a star is in-grid by distance to the nearest Stagger node, which a
+bounding box would get wrong at the ragged edges — and convert vacuum
+wavelengths with `nlte.wavelengths.vacuum_to_air`.
+
 ## A genuinely new format
 
 Write a reader returning `GridSource` objects and register it:

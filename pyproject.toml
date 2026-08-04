@@ -16,6 +16,9 @@ dependencies = [
 [project.optional-dependencies]
 fits = ["astropy>=5.0"]
 test = ["pytest>=7.0"]
+# Sources backed by published models rather than tables.
+lithium = ["breidablik>=1.5"]                     # Wang et al. 2021, 2024
+sodium = ["joblib>=1.0", "scikit-learn>=1.0"]     # Canocchi et al. 2026
 
 [project.scripts]
 nlte-correct = "nlte.cli:main_correct"

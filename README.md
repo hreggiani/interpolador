@@ -1,10 +1,10 @@
 # nlte
 
 Interpolation over published non-LTE abundance-correction grids, behind one
-interface. Nine incompatible on-disk formats — IDL `.sav` structs, VizieR
+interface. Ten incompatible on-disk formats — IDL `.sav` structs, VizieR
 exports with three different delimiters, plain CSVs, whitespace tables inside
-tarballs, and trained neural networks — become 43 queryable sources covering 13
-elements.
+tarballs, and two independent sets of trained neural networks — become 44
+queryable sources covering 13 elements.
 
 Several elements are covered by more than one grid, computed with different
 model atmospheres and assumptions, so a query returns **every** source that
@@ -69,10 +69,11 @@ matching equivalent widths, and saturated lines are flagged instead of
 extrapolated.
 
 **Not every grid is a table.** Canocchi et al. 2026 publish 3D non-LTE sodium as
-trained networks mapping (Teff, log g, [Fe/H], REW) to A(Na). Those are wrapped
-behind the same interface — invert the 1D LTE curve of growth to get a reduced
-equivalent width, ask the 3D non-LTE network what abundance it implies — and
-reproduce the authors' own routine exactly.
+trained networks mapping (Teff, log g, [Fe/H], REW) to A(Na), and Wang et al.
+publish 3D non-LTE lithium through the Breidablik package. Both are wrapped
+behind the same interface and reproduce their authors' own routines exactly.
+Install them with `pip install -e '.[lithium,sodium]'`; a source whose models
+are absent is skipped with a warning rather than breaking the element.
 
 **Awkward geometries load correctly.** The iron tables sample 54 of 104
 (teff, log g) pairs and are triangulated in that plane; the silicon grid's
@@ -83,7 +84,8 @@ rectilinear.
 
 | Element | Sources |
 |---|---|
-| Li, Mn, Ba, Ca, Al (6699/7835) | Amarsi et al. 2020, with and without scattering |
+| Mn, Ba, Ca, Al (6699/7835) | Amarsi et al. 2020, with and without scattering |
+| Li | Amarsi 2020; Wang et al. 2021/2024 3D NLTE via [Breidablik](https://github.com/ellawang44/Breidablik) |
 | K | Amarsi 2020; Reggiani et al. 2019 (resonance doublet + 1.5 µm lines) |
 | C | Amarsi 2020; Amarsi et al. 2019 1D and 3D |
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
@@ -125,8 +127,10 @@ design and the full grid inventory.
   by the same amount, which matters only where Δ varies steeply.
 - `amarsi_fe2_3d` is a **3D LTE − 1D LTE** correction, not a non-LTE one.
 - The sodium networks live outside this repository (240 MB); `grids/canocchi2026_na.toml`
-  points at the released distribution, and a manifest whose data is missing is
-  skipped with a warning rather than breaking queries for that element.
+  points at the released distribution. The lithium models ship inside the
+  `breidablik` package itself, so `grids/wang2021_li.toml` names no file at all.
+  A manifest whose data is missing is skipped with a warning rather than
+  breaking queries for that element.
 - Some published nodes are masked in places you would not expect: Amarsi 2020's
   Mg 5711 grid has no value at solar parameters and [Mg/Fe] = 0, so that source
   returns `ok=False` there while Osorio and Matsuno answer.
