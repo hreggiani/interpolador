@@ -60,7 +60,11 @@ class _Match:
 
 
 def sources(element=None, ion=None, registry=None) -> list:
-    """Available sources, optionally filtered by species."""
+    """Available sources, optionally filtered by species.
+
+    ``element`` accepts a species label carrying the ionisation stage --
+    ``"CI"``, ``"FeII"``, ``"Ba 2"`` -- as well as a bare symbol.
+    """
     reg = registry or get_registry()
     if element is None:
         return reg.all()
@@ -137,6 +141,8 @@ def _cluster_lines(entries, tol: float) -> list:
 def line_index(element=None, ion=None, tol=DEFAULT_TOLERANCE, include_blends=True,
                registry=None):
     """Every line that can be corrected, merged across grids.
+
+    ``element`` accepts a species label with the ionisation stage, as elsewhere.
 
     Returns a DataFrame of ``element, ion, wavelength, n_sources, blend,
     sources``.  ``blend`` marks lines where at least one grid tabulates the

@@ -17,7 +17,7 @@ import tomllib
 import warnings
 from pathlib import Path
 
-from .solar import normalize_element
+from .solar import normalize_element, parse_species
 
 #: name -> reader callable ``(manifest: dict, path: Path) -> list[GridSource]``
 READERS: dict = {}
@@ -205,12 +205,16 @@ class Registry:
     def for_element(self, element: str, ion: int | None = None) -> list:
         """All sources for an element, loading only the manifests that match.
 
+        ``element`` may be a species label carrying the stage -- ``"CI"``,
+        ``"FeII"``, ``"Ba 2"`` -- which an explicit ``ion`` overrides.
+
         The ionisation stage is filtered on the loaded sources, not on the
         manifest: one manifest can yield several stages (the iron tables carry
         Fe I and Fe II together, split by ``ion_column``), so filtering earlier
         would both admit the wrong stage and hide the right one.
         """
-        sym = normalize_element(element)
+        sym, parsed_ion = parse_species(element)
+        ion = parsed_ion if ion is None else ion
         out = []
         for m in self.manifests:
             if m.element != sym:

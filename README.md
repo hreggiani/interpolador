@@ -40,9 +40,11 @@ lines as you like. It needs a `species` (or `element`) column, `wavelength`,
 `--col-map abund=A_Fe,vmic=xi` renames columns that differ, and `--keep` carries
 extra ones through.
 
-`species` may name the ionisation stage the way line lists do — `FeI`, `FeII`,
-`BaII`, `Fe 2` — and it is honoured: an Fe I measurement never receives an Fe II
-correction. Species with no grid, and unrecognised ones, are reported per row
+`species` may name the ionisation stage the way line lists do — `CI`, `FeII`,
+`BaII`, `Fe 2`, `Fe_II` — and it is honoured: an Fe I measurement never receives
+an Fe II correction. The same labels work anywhere an element is accepted, in
+the CLI and in Python: `correct("CI", ...)`, `sources("FeII")`,
+`line_index("BaII")`. Species with no grid, and unrecognised ones, are reported per row
 rather than stopping the run.
 
 Output is one row per measurement and source, or one `delta_<source>` column per

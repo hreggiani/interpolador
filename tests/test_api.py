@@ -277,3 +277,28 @@ def test_keep_can_carry_the_species_column_through(registry):
     out = correct_frame(frame, registry=registry, keep=["id", "species"])
     assert (out.species == "FeI").all()
     assert (out.id == "star1").all()
+
+
+def test_species_labels_work_at_every_entry_point(registry):
+    # A line list labels carbon as "CI", not "C"; every public entry point that
+    # takes an element should accept that form.
+    from nlte import line_index, sources as list_sources
+
+    star = dict(teff=5966, logg=3.76, feh=-0.513, vmic=1.265)
+    assert correct("CI", 6587.61, abund=8.0, registry=registry, **star)
+    assert find_lines("CI", 6587.61, registry=registry)
+    assert list_sources("CI", registry=registry)
+    assert len(line_index("CI", registry=registry)) > 0
+    assert len(line_index("BaII", registry=registry)) > 0
+
+
+def test_species_label_selects_the_stage_everywhere(registry):
+    from nlte import sources as list_sources
+
+    fe1 = {s.id for s in list_sources("FeI", registry=registry)}
+    fe2 = {s.id for s in list_sources("FeII", registry=registry)}
+    assert fe1 and fe2 and not (fe1 & fe2)
+    assert all(s.ion == 1 for s in list_sources("FeI", registry=registry))
+    assert all(s.ion == 2 for s in list_sources("FeII", registry=registry))
+    # An explicit ion overrides the label.
+    assert all(s.ion == 2 for s in list_sources("FeI", ion=2, registry=registry))
