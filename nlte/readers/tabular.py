@@ -410,7 +410,8 @@ def read_tabular(manifest: dict, path: Path) -> list:
             grids = [
                 make_grid(nodes, values[i], scattered_names=scattered,
                           scattered_nodes=scat_nodes, clip_axes=clip,
-                          min_valid_weight=manifest.get("min_valid_weight"))
+                          min_valid_weight=manifest.get("min_valid_weight"),
+                          max_node_distance=manifest.get("max_node_distance"))
                 for i in range(len(labels))
             ]
             suffix = variant.get("id_suffix", "")

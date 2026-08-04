@@ -1,0 +1,54 @@
+# Caliskan et al. 2025, A&A 696, A210 -- non-LTE copper on MARCS models.
+#
+# VizieR export (tab-separated), one correction column: the recommended
+# "LCAO+Free" hydrogen-collision recipe, combining asymptotic LCAO rates for
+# charge transfer with a free-electron model for the rest.
+#
+# The abundance axis is [Cu/Fe] *in LTE* -- the column is literally
+# "[Cu/Fe]LTE" -- so Delta is indexed by the LTE abundance and is read directly
+# rather than solved for.  A(Cu)_sun = 4.18 is the paper's own adopted value
+# (Asplund et al. 2021), used to turn a query's A(Cu) into [Cu/Fe].
+#
+# The grid was computed as two disjoint blocks: giants at Teff 4000-5000 with
+# log g 0.5-2.5, and dwarfs/subgiants at Teff 5000-7000 with log g 3.5-5.0.
+# Nothing was computed between them, so the (Teff, log g) plane is triangulated
+# (77 of 117 combinations are populated) with max_node_distance guarding the
+# empty region: without it the triangulation would fill its convex hull and
+# answer confidently for, say, a Teff 6000 star at log g 2.0, where no model
+# exists.  The threshold is about 1.5 node spacings in normalised units, so it
+# still interpolates the one-dex log g seam at Teff 5000 where the two blocks
+# nearly meet.
+
+id        = "caliskan2025_cu"
+format    = "tabular"
+reference = "Caliskan et al. 2025, A&A 696, A210"
+element   = "Cu"
+ion       = 1
+file      = "cu_corrections_caliskan2025.tsv"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+scattered = ["teff", "logg"]
+clip_axes = ["vmic"]
+max_node_distance = 0.15
+notes     = "LCAO+Free hydrogen-collision rates. Delta is indexed by the LTE abundance. Computed as two disjoint blocks (giants and dwarfs) with nothing between; queries in the gap are reported out of range."
+
+[read]
+delimiter = "tab"
+comment   = "#"
+
+[columns]
+teff  = "Teff"
+logg  = "logg"
+feh   = "[Fe/H]"
+vmic  = "Vmic"
+abund = "[Cu/Fe]LTE"
+line  = "Line"
+value = "LCAO+Free"
+
+[abundance]
+kind       = "xfe"
+solar      = 4.18        # Asplund et al. (2021), as adopted by the paper
+indexed_by = "lte"
+
+[wavelengths]
+unit = "nm"

@@ -88,6 +88,13 @@ them. You do not need a complete rectangle.
 — need `scattered = ["teff", "logg"]`. Those axes are then triangulated instead
 of gridded, and the rest stays rectilinear.
 
+If the sparsity is a *hole* rather than a ragged edge — the copper grid was
+computed as separate giant and dwarf blocks with nothing between — also set
+`max_node_distance` (in normalised units, roughly 1.5 node spacings is a good
+start). A triangulation otherwise fills its whole convex hull: without the guard
+the copper grid returns +0.233 dex for a Teff 6000, log g 2.0 star, a place no
+model was ever computed.
+
 **Abundance axes that shift with [Fe/H].** If the file's abundance column is log
 eps but its nodes track metallicity (the silicon grid runs log eps − [Fe/H] =
 7.01 … 9.01), set `kind = "xfe"` with `stored = "logeps"`. The reader converts

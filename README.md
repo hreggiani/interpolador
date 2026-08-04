@@ -4,7 +4,7 @@ Interpolation over published non-LTE abundance-correction grids, behind one
 interface. Ten incompatible on-disk formats — IDL `.sav` structs, VizieR
 exports with three different delimiters, plain CSVs, whitespace tables inside
 tarballs, and two independent sets of trained neural networks — become 44
-queryable sources covering 13 elements.
+queryable sources covering 14 elements.
 
 Several elements are covered by more than one grid, computed with different
 model atmospheres and assumptions, so a query returns **every** source that
@@ -78,7 +78,9 @@ are absent is skipped with a warning rather than breaking the element.
 **Awkward geometries load correctly.** The iron tables sample 54 of 104
 (teff, log g) pairs and are triangulated in that plane; the silicon grid's
 abundance axis shifts with [Fe/H] and is reparametrised to [Si/Fe] to become
-rectilinear.
+rectilinear. Where a grid was computed as two disjoint blocks — the copper grid
+covers giants and dwarfs but nothing between — `max_node_distance` stops the
+triangulation filling the gap with confident nonsense.
 
 ## Coverage
 
@@ -90,6 +92,7 @@ rectilinear.
 | C | Amarsi 2020; Amarsi et al. 2019 1D and 3D |
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
 | Na | Amarsi 2020; Canocchi et al. 2026 3D NLTE and 3D LTE (neural networks) |
+| Cu | Caliskan et al. 2025 (LCAO+Free collision rates) |
 | Mg | Amarsi 2020; Osorio et al. 2016 (EW-matched); Matsuno et al. 2024 1D and 3D |
 | Al (3961 etc.) | Nordlander & Lind 2017, MARCS and ⟨3D⟩ (EW-matched) |
 | Si | Amarsi 2020; Amarsi & Asplund 2017 |

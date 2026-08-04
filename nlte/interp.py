@@ -177,7 +177,8 @@ class HybridGrid:
     """
 
     def __init__(self, nodes, rect_axes, values, names=None, rect_names=None,
-                 clip_axes=(), min_valid_weight: float = DEFAULT_MIN_VALID_WEIGHT):
+                 clip_axes=(), min_valid_weight: float = DEFAULT_MIN_VALID_WEIGHT,
+                 max_node_distance: float | None = None):
         self.nodes = np.asarray(nodes, dtype=float)
         if self.nodes.ndim != 2:
             raise ValueError("nodes must be 2-D (n_nodes, n_scattered)")
@@ -199,6 +200,13 @@ class HybridGrid:
             else [f"x{i}" for i in range(len(self.rect_axes))]
         )
         self.min_valid_weight = float(min_valid_weight)
+        # Optional guard against interpolating across a hole. A triangulation
+        # fills its convex hull, so a grid computed as two disjoint blocks --
+        # the copper grid covers giants and dwarfs but nothing between -- would
+        # otherwise answer confidently in the empty region separating them.
+        self.max_node_distance = (
+            None if max_node_distance is None else float(max_node_distance)
+        )
 
         self._lo = self.nodes.min(axis=0)
         span = self.nodes.max(axis=0) - self._lo
@@ -236,6 +244,12 @@ class HybridGrid:
         scaled = (pts[:, :n_scat] - self._lo) / self._scale
         simplex = self._tri.find_simplex(scaled)
         found = simplex >= 0
+        if self.max_node_distance is not None and found.any():
+            reference = (self.nodes - self._lo) / self._scale
+            gap = np.sqrt(
+                ((scaled[:, None, :] - reference[None, :, :]) ** 2).sum(axis=2)
+            ).min(axis=1)
+            found &= gap <= self.max_node_distance
         safe_simplex = np.where(found, simplex, 0)
 
         transform = self._tri.transform[safe_simplex]

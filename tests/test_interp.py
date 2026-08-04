@@ -137,3 +137,27 @@ def test_below_2000_angstrom_is_left_in_vacuum():
     from nlte.wavelengths import vacuum_to_air
 
     assert vacuum_to_air(1500.0) == 1500.0
+
+
+def test_max_node_distance_refuses_to_fill_a_hole(hybrid):
+    # A triangulation fills its convex hull. For a grid computed as two disjoint
+    # blocks, that means answering confidently where nothing was computed.
+    nodes = np.array([[4000.0, 1.5], [4500.0, 1.5], [4000.0, 2.0], [4500.0, 2.0],
+                      [6000.0, 4.5], [6500.0, 4.5], [6000.0, 5.0], [6500.0, 5.0]])
+    rect = [np.array([0.0, 1.0])]
+    values = np.tile(np.array([1.0, 2.0]), (len(nodes), 1))
+
+    unguarded = HybridGrid(nodes, rect, values, names=["teff", "logg"],
+                           rect_names=["abund"])
+    guarded = HybridGrid(nodes, rect, values, names=["teff", "logg"],
+                         rect_names=["abund"], max_node_distance=0.15)
+
+    gap = [[5200.0, 3.0, 0.5]]
+    assert unguarded(gap).in_range[0]              # hull-filling, no warning
+    assert not guarded(gap).in_range[0]
+    assert np.isnan(guarded(gap).value[0])
+
+    # Points on the blocks themselves are unaffected.
+    on_node = [[4000.0, 1.5, 0.5]]
+    assert guarded(on_node).in_range[0]
+    assert np.isclose(guarded(on_node).value[0], 1.5)

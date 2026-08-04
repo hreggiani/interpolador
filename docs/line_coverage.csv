@@ -44,6 +44,18 @@ C,1,9628.0,2,False,amarsi_c1_1d amarsi_c1_3d
 C,1,9658.0,2,False,amarsi_c1_1d amarsi_c1_3d
 Ca,1,5868.0,2,False,amarsi2020_ca1 amarsi2020_ca1_scatt
 Ca,1,6500.0,2,False,amarsi2020_ca1 amarsi2020_ca1_scatt
+Cu,1,3011.0,1,False,caliskan2025_cu
+Cu,1,3248.0,1,False,caliskan2025_cu
+Cu,1,3274.0,1,False,caliskan2025_cu
+Cu,1,4023.0,1,False,caliskan2025_cu
+Cu,1,4063.0,1,False,caliskan2025_cu
+Cu,1,5106.0,1,False,caliskan2025_cu
+Cu,1,5153.0,1,False,caliskan2025_cu
+Cu,1,5218.0,1,False,caliskan2025_cu
+Cu,1,5220.0,1,False,caliskan2025_cu
+Cu,1,5700.0,1,False,caliskan2025_cu
+Cu,1,5782.0,1,False,caliskan2025_cu
+Cu,1,8093.0,1,False,caliskan2025_cu
 Fe,1,2250.79,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 Fe,1,2259.51,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 Fe,1,2265.054,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1

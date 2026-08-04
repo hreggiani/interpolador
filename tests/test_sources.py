@@ -273,3 +273,27 @@ def test_lithium_line_centres_convert_from_vacuum_to_air(registry):
     src = registry.get("wang2021_li")
     got = sorted(ln.wavelength for ln in src.lines)
     assert got == pytest.approx([6103.608, 6707.807, 8126.371], abs=0.01)
+
+
+def test_copper_grid_is_indexed_by_the_lte_abundance(registry):
+    src = registry.get("caliskan2025_cu")
+    assert src.indexed_by == "lte"
+    assert src.abund_kind == "xfe" and src.abund_solar == pytest.approx(4.18)
+    assert len(src.lines) == 12
+
+
+def test_copper_grid_refuses_the_gap_between_giants_and_dwarfs(registry):
+    # The grid was computed as two disjoint blocks; nothing lies between them.
+    from nlte.api import correct
+
+    def ask(teff, logg):
+        got = [c for c in correct("Cu", 5105.5, abund=3.18, teff=teff, logg=logg,
+                                  feh=-1.0, vmic=1.0, registry=registry)
+               if c.source == "caliskan2025_cu"]
+        assert got
+        return got[0]
+
+    assert ask(4500, 1.5).ok            # giant block
+    assert ask(6000, 4.5).ok            # dwarf block
+    assert not ask(6000, 2.0).ok        # nothing was computed here
+    assert not ask(6000, 2.0).in_range

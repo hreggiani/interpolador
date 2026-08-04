@@ -226,7 +226,7 @@ class GridSource:
 
 
 def make_grid(axes: dict, values: np.ndarray, scattered_names=(), scattered_nodes=None,
-              clip_axes=(), min_valid_weight=None):
+              clip_axes=(), min_valid_weight=None, max_node_distance=None):
     """Build the right interpolator for a set of axes.
 
     ``axes`` maps axis name to nodes, in the order matching ``values``.  If
@@ -238,6 +238,8 @@ def make_grid(axes: dict, values: np.ndarray, scattered_names=(), scattered_node
     if not scattered_names:
         return RectGrid(list(axes.values()), values, names=list(axes),
                         clip_axes=clip_axes, **kw)
+    if max_node_distance is not None:
+        kw["max_node_distance"] = max_node_distance
     rect_names = [n for n in axes if n not in scattered_names]
     return HybridGrid(
         nodes=scattered_nodes,
