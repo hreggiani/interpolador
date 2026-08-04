@@ -1,0 +1,18 @@
+# Amarsi et al. 2016, MNRAS 455, 3735 -- non-LTE oxygen on MARCS models.
+#
+# A different struct layout from the abcor_*.sav files: one microturbulence axis
+# and an [O/Fe] abundance axis, with the solar oxygen of the calculation in
+# LGEPS_SOLAR.
+
+id        = "amarsi2016_o1_marcs"
+format    = "oxygen_sav"
+reference = "Amarsi et al. 2016, MNRAS 455, 3735"
+element   = "O"
+ion       = 1
+file      = "oxygen_marcs.sav"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+clip_axes = ["vmic"]
+
+[abundance]
+kind = "xfe"

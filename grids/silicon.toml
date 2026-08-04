@@ -10,6 +10,7 @@ format    = "tabular"
 reference = "Amarsi & Asplund 2017, MNRAS 464, 264"
 element   = "Si"
 ion       = 1
+file      = "nlte_silicon.csv"
 kind      = "delta"
 flavor    = "1D NLTE - 1D LTE"
 
@@ -26,8 +27,9 @@ abund = "logeps"
 value = "abcor"
 
 [abundance]
-kind  = "xfe"
-solar = 7.51
+kind   = "xfe"
+stored = "logeps"      # the file's column is log eps; grid it as [Si/Fe]
+solar  = 7.51
 
 [wavelengths]
 unit = "nm"

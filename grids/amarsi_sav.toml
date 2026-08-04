@@ -1,0 +1,55 @@
+# Amarsi et al. carbon, oxygen and Fe II abundance-correction grids (IDL saves).
+#
+# All five share the `grid` struct schema: an ABCOR cube indexed by
+# (line, vturb_top, vturb_base, feh, logg, teff, lgeps), with the solar
+# abundance of the calculation carried in the SOLAR field.  Degenerate axes are
+# collapsed automatically -- the Fe II grid is a single [Fe/H] and a single
+# vturb_top.
+
+format    = "amarsi_sav"
+kind      = "delta"
+clip_axes = ["vmic", "vmic_lte"]
+
+[abundance]
+kind = "logeps"
+
+[[tables]]
+id        = "amarsi_c1_1d"
+element   = "C"
+ion       = 1
+file      = "abcor_c1_1d-1dl.sav"
+flavor    = "1D NLTE - 1D LTE"
+reference = "Amarsi et al. 2019, A&A 624, A111"
+
+[[tables]]
+id        = "amarsi_c1_3d"
+element   = "C"
+ion       = 1
+file      = "abcor_c1_3d-atl.sav"
+flavor    = "3D NLTE - 1D LTE (ATLAS)"
+reference = "Amarsi et al. 2019, A&A 624, A111"
+
+[[tables]]
+id        = "amarsi_o1_1d"
+element   = "O"
+ion       = 1
+file      = "abcor_o1_1d-1dl.sav"
+flavor    = "1D NLTE - 1D LTE"
+reference = "Amarsi et al. 2019, A&A 624, A111"
+
+[[tables]]
+id        = "amarsi_o1_3d"
+element   = "O"
+ion       = 1
+file      = "abcor_o1_3d-atl.sav"
+flavor    = "3D NLTE - 1D LTE (ATLAS)"
+reference = "Amarsi et al. 2019, A&A 624, A111"
+
+[[tables]]
+id        = "amarsi_fe2_3d"
+element   = "Fe"
+ion       = 2
+file      = "abcor_g_fe2_3dl-atl.sav"
+flavor    = "3D LTE - 1D LTE (ATLAS)"
+reference = "Amarsi et al. 2019, A&A 630, A104"
+notes     = "Single [Fe/H] = -1 and a single vturb_top; both are reported as fixed parameters."

@@ -122,10 +122,15 @@ class RectGrid:
         self._corners = np.array(list(product((0, 1), repeat=len(self.axes))), dtype=np.intp)
 
     def _resolve_clip(self, clip_axes) -> list[bool]:
+        # Names that are not axes here are ignored: a manifest may clip an axis
+        # that this particular grid collapsed away as degenerate.
         flags = [False] * len(self.axes)
         for key in clip_axes:
-            i = self.names.index(key) if isinstance(key, str) else int(key)
-            flags[i] = True
+            if isinstance(key, str):
+                if key in self.names:
+                    flags[self.names.index(key)] = True
+            else:
+                flags[int(key)] = True
         return flags
 
     @property
@@ -262,7 +267,10 @@ class HybridGrid:
                 rect_idx.append(idx[d] + off)
             for v in range(n_vert):
                 row = c * n_vert + v
-                weights[row] = np.clip(bary[:, v], 0.0, None) * corner_w
+                # Outside the hull the barycentric coordinates are meaningless,
+                # so zero them: the point is reported out of range with no weight
+                # rather than with a nonsensical one.
+                weights[row] = np.where(found, np.clip(bary[:, v], 0.0, None), 0.0) * corner_w
                 gathered[row] = self.values[(vertices[:, v], *rect_idx)]
 
         value, total = _combine(weights, gathered, self.min_valid_weight)

@@ -17,6 +17,7 @@ import hashlib
 import json
 import re
 import tarfile
+import warnings
 from pathlib import Path
 
 import numpy as np
@@ -70,19 +71,33 @@ def _is_separator_row(values) -> bool:
     return all(c == "" or set(c) <= {"-"} for c in cells)
 
 
-def read_table(path: Path, spec: dict) -> pd.DataFrame:
-    """Read the data file into a DataFrame, honouring the manifest's read rules."""
+def read_table(path: Path, spec: dict, usecols=None) -> pd.DataFrame:
+    """Read the data file into a DataFrame, honouring the manifest's read rules.
+
+    ``usecols`` is passed through by callers that know which columns they need;
+    the iron tables are 2.4 GB on disk and carry four columns of line data that
+    the interpolator never touches.
+    """
     path = _ensure_extracted(Path(path))
     kwargs = {
         "sep": _delimiter(spec),
         "comment": spec.get("comment"),
         "skiprows": spec.get("skiprows", 0),
-        "engine": "python" if _delimiter(spec) == r"\s+" else "c",
+        # The C engine handles r"\s+" natively and is far faster than the Python
+        # engine, which matters at tens of millions of rows (the iron tables).
+        "engine": "c",
     }
     if spec.get("header") == "none":
         kwargs["header"] = None
         kwargs["names"] = spec["names"]
-    df = pd.read_csv(path, **{k: v for k, v in kwargs.items() if v is not None})
+    if usecols:
+        kwargs["usecols"] = lambda c: str(c).strip() in set(usecols)
+    with warnings.catch_warnings():
+        # A leftover column-name row inside the data makes pandas chunk-infer
+        # mixed dtypes; those rows are dropped as non-numeric axis rows later,
+        # and low_memory=False is not an option on a 2.4 GB file.
+        warnings.simplefilter("ignore", pd.errors.DtypeWarning)
+        df = pd.read_csv(path, **{k: v for k, v in kwargs.items() if v is not None})
     df.columns = [str(c).strip() for c in df.columns]
     if len(df) and _is_separator_row(df.iloc[0].values):
         df = df.iloc[1:]
@@ -137,6 +152,35 @@ def _axis_columns(manifest: dict) -> dict:
         raise ValueError("manifest [columns] must map 'abund'")
     axes["abund"] = cols["abund"]
     return axes
+
+
+def _to_native_abundance(df: pd.DataFrame, manifest: dict, element: str) -> pd.DataFrame:
+    """Reparametrise the abundance column into the axis the grid is rectilinear in.
+
+    The silicon table stores log eps, but its nodes shift with [Fe/H] (log eps -
+    [Fe/H] is always 7.01 ... 9.01), so it is only a rectangular grid when read
+    as [Si/Fe].  Declaring ``stored = "logeps"`` alongside ``kind = "xfe"`` asks
+    for that conversion; tables already storing [X/Fe] need nothing.
+    """
+    ab = manifest.get("abundance", {})
+    kind = ab.get("kind", "logeps")
+    stored = ab.get("stored", kind)
+    if stored == kind:
+        return df
+
+    if stored != "logeps":
+        raise ValueError(f"cannot convert a '{stored}' abundance column to '{kind}'")
+    zero = resolve_solar(element, ab) if kind == "xfe" else ab.get("zero_point")
+    if zero is None:
+        raise ValueError(f"converting log eps to '{kind}' needs a solar value or zero_point")
+    feh_col = manifest["columns"].get("feh")
+    if feh_col is None:
+        raise ValueError(f"converting log eps to '{kind}' needs a [Fe/H] column")
+
+    col = manifest["columns"]["abund"]
+    df = df.copy()
+    df[col] = df[col].to_numpy(dtype=float) - float(zero) - df[feh_col].to_numpy(dtype=float)
+    return df
 
 
 def _build_arrays(df: pd.DataFrame, manifest: dict, value_columns: dict):
@@ -194,6 +238,15 @@ def _clean_values(df: pd.DataFrame, manifest: dict, columns) -> pd.DataFrame:
         if sentinel is not None:
             v = v.mask(v <= float(sentinel) * (1 - 1e-6) if sentinel < 0 else v == sentinel)
         df[col] = v
+
+    # Axis columns must be numeric: a stray header or ruler row left in the file
+    # would otherwise introduce a NaN node and corrupt every axis lookup.
+    axis_cols = [c for c in _axis_columns(manifest).values() if c in df.columns]
+    if axis_cols:
+        for col in axis_cols:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+        df = df.dropna(subset=axis_cols)
+
     flag_col = quality.get("flag_column")
     if flag_col and manifest.get("require_flag", False):
         good = str(quality.get("flag_good", "yes"))
@@ -251,13 +304,26 @@ def _store_cache(path: Path, manifest: dict, payload: dict) -> None:
         pass
 
 
-def _prepare(manifest: dict, path: Path, value_columns: dict, ion_col=None):
+def _prepare(manifest: dict, path: Path, value_columns: dict, element: str, ion_col=None):
     """Read, clean and grid a table, going through the on-disk cache if enabled.
 
     The Amarsi 2016 iron tables are 8.2M rows each; parsing them takes seconds,
     while reloading the gridded arrays takes milliseconds.
     """
+    path = _ensure_extracted(Path(path))   # before stat()-ing it for the cache key
     cached = _load_cache(path, manifest)
+
+    def needed():
+        cols = set(_axis_columns(manifest).values()) | set(value_columns.values())
+        if manifest["columns"].get("line"):
+            cols.add(manifest["columns"]["line"])
+        if ion_col:
+            cols.add(ion_col)
+        flag = manifest.get("quality", {}).get("flag_column")
+        if flag and manifest.get("require_flag", False):
+            cols.add(flag)
+        return cols
+
     if cached is not None:
         blocks = []
         for gi in range(int(cached["n_groups"])):
@@ -276,8 +342,9 @@ def _prepare(manifest: dict, path: Path, value_columns: dict, ion_col=None):
             ))
         return blocks
 
-    df = read_table(path, manifest.get("read", {}))
+    df = read_table(path, manifest.get("read", {}), usecols=needed())
     df = _clean_values(df, manifest, value_columns.values())
+    df = _to_native_abundance(df, manifest, element)
     groups = (
         [(int(re.search(r"(\d+)$", str(k)).group(1)), g) for k, g in df.groupby(ion_col)]
         if ion_col else [(int(manifest.get("ion", 1)), df)]
@@ -318,7 +385,7 @@ def read_tabular(manifest: dict, path: Path) -> list:
         {"column": manifest["columns"]["value"], "flavor": manifest.get("flavor", "NLTE - LTE")}
     ]
     value_columns = {str(i): v["column"] for i, v in enumerate(variants)}
-    blocks = _prepare(manifest, path, value_columns, ion_col)
+    blocks = _prepare(manifest, path, value_columns, element, ion_col)
 
     sources = []
     for ion, nodes, scattered, scat_nodes, labels, arrays in blocks:
@@ -374,6 +441,7 @@ def _read_ew_pair(manifest: dict, path: Path, element: str) -> list:
         value_columns[f"lte{i}"] = e["lte"]
         value_columns[f"nlte{i}"] = e["nlte"]
     df = _clean_values(df, manifest, value_columns.values())
+    df = _to_native_abundance(df, manifest, element)
 
     nodes, scattered, scat_nodes, _, arrays = _build_arrays(
         df, {**manifest, "columns": {k: v for k, v in manifest["columns"].items() if k != "line"}},

@@ -96,6 +96,32 @@ def _lines_from_labels(labels, wavelengths=None) -> list:
     return lines
 
 
+def _oxygen_lines(labels, lmin, lmax) -> list:
+    """Line list for ``oxygen_marcs.sav``, resolving its blended entry.
+
+    Entries are labelled in nm ("777.2"), and one of them ("777 all") covers the
+    whole triplet.  Its integration window contains the windows of the resolved
+    components, so the blend is detected from the data and made reachable by a
+    query at any component's wavelength.
+    """
+    centres = []
+    for label in labels:
+        digits = "".join(c for c in label if c.isdigit() or c == ".").strip(".")
+        centres.append(float(digits) * 10.0)
+
+    lines = []
+    for i, label in enumerate(labels):
+        inside = [
+            j for j in range(len(labels))
+            if j != i and lmin[i] <= lmin[j] and lmax[j] <= lmax[i]
+        ]
+        match = tuple(centres[j] for j in inside) if inside else (centres[i],)
+        lines.append(Line(
+            wavelength=centres[i], label=str(label), blend=bool(inside), match=match,
+        ))
+    return lines
+
+
 def _abundance_kwargs(manifest: dict, element: str, grid_solar: float | None) -> dict:
     ab = manifest.get("abundance", {})
     kind = ab.get("kind", "logeps")
@@ -194,8 +220,7 @@ def read_oxygen_sav(manifest: dict, path: Path) -> list:
         axes, values, fixed = _arrange(cube[i], source_axes)
         grids.append(make_grid(axes, values, clip_axes=clip))
 
-    wl = [float(x) * 10.0 for x in labels]   # published in nm
-    lines = [Line(wavelength=w, label=lab) for w, lab in zip(wl, labels)]
+    lines = _oxygen_lines(labels, _axis(g["LMIN"]), _axis(g["LMAX"]))
     return [GridSource(
         id=manifest["id"],
         kind="delta",

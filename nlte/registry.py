@@ -32,6 +32,25 @@ def register_reader(name: str):
     return wrap
 
 
+_READERS_LOADED = False
+
+
+def ensure_readers() -> None:
+    """Import the built-in readers and any plugins, once per process.
+
+    Deferred because the readers import from this module; called by every entry
+    point that can reach a reader, so a directly constructed :class:`Registry`
+    behaves the same as the shared one.
+    """
+    global _READERS_LOADED
+    if _READERS_LOADED:
+        return
+    _READERS_LOADED = True
+    from . import readers  # noqa: F401  -- registers the built-in formats
+
+    _load_entry_point_readers()
+
+
 def _load_entry_point_readers() -> None:
     """Let third-party packages contribute readers via the 'nlte.readers' group."""
     try:
@@ -114,6 +133,7 @@ class Registry:
     """Index of available sources; loads each manifest at most once."""
 
     def __init__(self, root=None):
+        ensure_readers()
         self.root = Path(root) if root is not None else default_root()
         self._manifests: list | None = None
         self._loaded: dict = {}       # manifest path -> list[GridSource]
@@ -211,8 +231,6 @@ def get_registry() -> Registry:
     """The process-wide registry."""
     global _REGISTRY
     if _REGISTRY is None:
-        from . import readers  # noqa: F401  -- registers the built-in formats
-        _load_entry_point_readers()
         _REGISTRY = Registry()
     return _REGISTRY
 
@@ -220,8 +238,6 @@ def get_registry() -> Registry:
 def set_grid_root(root) -> Registry:
     """Point the registry at a different grid directory."""
     global _REGISTRY
-    from . import readers  # noqa: F401
-    _load_entry_point_readers()
     _REGISTRY = Registry(root)
     return _REGISTRY
 

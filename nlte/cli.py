@@ -1,0 +1,194 @@
+"""Command-line entry points.
+
+``nlte-correct``
+    Corrects a table of measurements, writing one row per measurement and
+    source (or one column per source with ``--wide``).
+
+``nlte-validate``
+    Loads manifests, prints what each source covers, and re-queries the grids at
+    their own nodes to prove the axes were assembled correctly.
+"""
+
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+
+import numpy as np
+
+from .api import DEFAULT_TOLERANCE, correct_frame
+from .interp import RectGrid
+from .registry import get_registry, set_grid_root
+
+
+def _read_any(path: Path):
+    import pandas as pd
+
+    if path.suffix.lower() in (".fits", ".fit", ".fts"):
+        from astropy.table import Table
+
+        return Table.read(path).to_pandas()
+    if path.suffix.lower() in (".parquet", ".pq"):
+        return pd.read_parquet(path)
+    sep = "\t" if path.suffix.lower() in (".tsv", ".tab") else None
+    return pd.read_csv(path, sep=sep, engine="python")
+
+
+def _write_any(df, path: Path) -> None:
+    if path.suffix.lower() in (".fits", ".fit", ".fts"):
+        from astropy.table import Table
+
+        Table.from_pandas(df).write(path, overwrite=True)
+    elif path.suffix.lower() in (".parquet", ".pq"):
+        df.to_parquet(path, index=False)
+    else:
+        df.to_csv(path, index=False)
+
+
+def _parse_col_map(text) -> dict:
+    if not text:
+        return {}
+    out = {}
+    for piece in text.split(","):
+        canonical, _, actual = piece.partition("=")
+        if not actual:
+            raise SystemExit(f"--col-map entry {piece!r} must look like canonical=column")
+        out[canonical.strip()] = actual.strip()
+    return out
+
+
+def main_correct(argv=None) -> int:
+    p = argparse.ArgumentParser(
+        prog="nlte-correct",
+        description="Apply published non-LTE abundance corrections to a table of "
+                    "measurements, reporting every grid that covers each line.",
+    )
+    p.add_argument("input", type=Path, help="CSV / TSV / FITS / Parquet table")
+    p.add_argument("-o", "--output", type=Path, required=True)
+    p.add_argument("--col-map", default="",
+                   help="rename input columns, e.g. 'abund=A_Fe,vmic=xi,wavelength=lambda'")
+    p.add_argument("--keep", default="",
+                   help="comma-separated input columns to carry through, e.g. 'star,snr'")
+    p.add_argument("--sources", default="",
+                   help="comma-separated source ids to restrict to (default: all)")
+    p.add_argument("--tol", type=float, default=DEFAULT_TOLERANCE,
+                   help="line-matching tolerance in Angstrom (default: %(default)s)")
+    p.add_argument("--mode", choices=("selfconsistent", "direct"), default="selfconsistent",
+                   help="solve A_nlte - Delta(A_nlte) = A_lte, or read Delta at A_lte")
+    p.add_argument("--min-valid-weight", type=float, default=None,
+                   help="fraction of interpolation weight that must land on valid "
+                        "grid nodes (default: 0.5)")
+    p.add_argument("--no-blends", action="store_true",
+                   help="skip grid entries that represent several lines at once")
+    p.add_argument("--wide", action="store_true",
+                   help="pivot to one delta_<source> column per source")
+    p.add_argument("--grids", type=Path, default=None, help="grid root directory")
+    args = p.parse_args(argv)
+
+    if args.grids:
+        set_grid_root(args.grids)
+
+    df = _read_any(args.input)
+    out = correct_frame(
+        df,
+        mode=args.mode,
+        tol=args.tol,
+        include_blends=not args.no_blends,
+        sources=[s.strip() for s in args.sources.split(",") if s.strip()] or None,
+        min_valid_weight=args.min_valid_weight,
+        columns=_parse_col_map(args.col_map),
+        keep=[c.strip() for c in args.keep.split(",") if c.strip()],
+    )
+
+    if args.wide:
+        index = [c for c in out.columns if c in ("row", "element", "wavelength")]
+        out = (
+            out.pivot_table(index=index, columns="source", values="delta", aggfunc="first")
+            .add_prefix("delta_")
+            .reset_index()
+        )
+        merged = df.reset_index(names="row")
+        out = merged.merge(out, on="row", how="left").drop(columns=["row"])
+
+    _write_any(out, args.output)
+    usable = int(out.filter(like="delta").notna().to_numpy().sum()) if args.wide else int(out.ok.sum())
+    print(f"wrote {args.output} ({len(out)} rows, {usable} usable corrections)")
+    return 0
+
+
+def _node_round_trip(grid, rng, n=200):
+    """Query a grid at its own nodes; returns the largest disagreement."""
+    if isinstance(grid, RectGrid):
+        shape = grid.values.shape
+        idx = np.column_stack([rng.integers(0, s, n) for s in shape])
+        pts = np.column_stack([grid.axes[d][idx[:, d]] for d in range(len(shape))])
+        truth = grid.values[tuple(idx.T)]
+    else:
+        rshape = grid.values.shape[1:]
+        ni = rng.integers(0, grid.nodes.shape[0], n)
+        ri = np.column_stack([rng.integers(0, s, n) for s in rshape])
+        pts = np.column_stack(
+            [grid.nodes[ni]] + [grid.rect_axes[d][ri[:, d]] for d in range(len(rshape))]
+        )
+        truth = grid.values[(ni, *ri.T)]
+    got = grid(pts).value
+    m = np.isfinite(truth)
+    if not m.any():
+        return None
+    return float(np.nanmax(np.abs(got[m] - truth[m])))
+
+
+def main_validate(argv=None) -> int:
+    p = argparse.ArgumentParser(
+        prog="nlte-validate",
+        description="Load grid manifests, report coverage, and verify that each "
+                    "grid reproduces its own tabulated values at its nodes.",
+    )
+    p.add_argument("manifest", nargs="*", type=Path,
+                   help="manifests to check (default: every one under the grid root)")
+    p.add_argument("--grids", type=Path, default=None, help="grid root directory")
+    p.add_argument("--quick", action="store_true", help="skip the node round-trip check")
+    args = p.parse_args(argv)
+
+    reg = set_grid_root(args.grids) if args.grids else get_registry()
+    wanted = {m.resolve() for m in args.manifest} or None
+    manifests = [m for m in reg.manifests if wanted is None or m.path.resolve() in wanted]
+    if not manifests:
+        print("no manifests found", file=sys.stderr)
+        return 1
+
+    rng = np.random.default_rng(0)
+    failures = 0
+    for manifest in manifests:
+        try:
+            loaded = reg._load(manifest)
+        except Exception as exc:                      # a bad manifest must be loud
+            print(f"FAIL {manifest.base_id}: {type(exc).__name__}: {exc}")
+            failures += 1
+            continue
+        for src in loaded:
+            print(src.describe())
+            if args.quick:
+                print()
+                continue
+            errs = []
+            for grid in src.grids[:8]:
+                for part in (grid if isinstance(grid, tuple) else (grid,)):
+                    e = _node_round_trip(part, rng)
+                    if e is not None:
+                        errs.append(e)
+            if not errs:
+                print("  round-trip: no finite nodes sampled\n")
+            elif max(errs) < 1e-6:
+                print(f"  round-trip: OK (max |error| = {max(errs):.2e})\n")
+            else:
+                print(f"  round-trip: FAILED (max |error| = {max(errs):.2e})\n")
+                failures += 1
+
+    print(f"{len(manifests)} manifest(s) checked, {failures} failure(s)")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":  # pragma: no cover
+    raise SystemExit(main_correct())

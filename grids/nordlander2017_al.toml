@@ -1,0 +1,32 @@
+# Nordlander & Lind 2017, A&A 607, A75 -- non-LTE aluminium.
+#
+# Publishes paired ltegrid/nltegrid structs of LOGEW rather than corrections, so
+# corrections come from equivalent-width matching.
+#
+# The ABUND axis is an offset grid running -2.06 to 1.94 in steps of 0.2, i.e.
+# its zero node sits at -0.06 rather than 0.  That is consistent with nodes laid
+# down on a solar A(Al) of 6.37 and quoted relative to 6.43; zero_point below
+# encodes the assumed reference, so A(Al) = zero_point + [Fe/H] + node.  A shift
+# in this constant moves the abundance at which Delta is read by the same
+# amount, which matters only where Delta varies steeply with abundance.
+
+format    = "nordlander_sav"
+element   = "Al"
+ion       = 1
+kind      = "ew_pair"
+reference = "Nordlander & Lind 2017, A&A 607, A75"
+clip_axes = ["vmic"]
+
+[abundance]
+kind       = "offset"
+zero_point = 6.43
+
+[[tables]]
+id     = "nordlander2017_al_marcs"
+file   = "NLTE_Al_MARCS_NordlanderLind2017.sav"
+flavor = "1D NLTE - 1D LTE"
+
+[[tables]]
+id     = "nordlander2017_al_mean3d"
+file   = "NLTE_Al_mean3D_NordlanderLind2017.sav"
+flavor = "<3D> NLTE - <3D> LTE"

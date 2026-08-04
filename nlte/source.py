@@ -140,12 +140,13 @@ class GridSource:
         return self._first_grid().bounds()
 
     def abundance_bounds(self, feh=None) -> tuple:
-        """Abundance range of the grid expressed as log eps."""
+        """Abundance range of the grid expressed as log eps.
+
+        For an [X/Fe] or offset axis the range depends on [Fe/H], so passing an
+        array of metallicities returns arrays.
+        """
         lo, hi = self.bounds()["abund"]
-        return (
-            float(self.to_logeps(lo, feh)),
-            float(self.to_logeps(hi, feh)),
-        )
+        return self.to_logeps(lo, feh), self.to_logeps(hi, feh)
 
     def geometry(self) -> str:
         return "hybrid" if isinstance(self._first_grid(), HybridGrid) else "rectilinear"

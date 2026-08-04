@@ -17,9 +17,15 @@ clip_axes = ["vmic"]
 ion_column = "species"
 notes     = "No [Fe/H] axis; the A(Fe) axis carries the metallicity. 'clean' flags lines free of blends (28% of rows) -- use require_flag to keep only those."
 
+# Only nmtd_lmarcs carries a column-name row under the "#" comment line, so the
+# names are declared here and applied to all three; the stray row in that one
+# file is dropped as a non-numeric axis row.
 [read]
 delimiter = "whitespace"
-skiprows  = 1
+comment   = "#"
+header    = "none"
+names     = ["teff", "logg", "abnd", "vmic", "species", "wave_nm",
+             "E_low", "loggf", "wave_min", "wave_max", "clean", "corr"]
 
 [columns]
 teff  = "teff"
