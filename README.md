@@ -13,7 +13,7 @@ covers the line rather than picking a winner.
 ```python
 from nlte import correct
 
-for c in correct("O", 7771.94, abund=8.69, teff=5777, logg=4.44, feh=0.0, vmic=1.0):
+for c in correct("OI", 7771.94, abund=8.69, teff=5777, logg=4.44, feh=0.0, vmic=1.0):
     print(f"{c.source:22s} {c.flavor:26s} {c.delta:+.3f}")
 ```
 
@@ -40,12 +40,14 @@ lines as you like. It needs a `species` (or `element`) column, `wavelength`,
 `--col-map abund=A_Fe,vmic=xi` renames columns that differ, and `--keep` carries
 extra ones through.
 
-`species` may name the ionisation stage the way line lists do — `CI`, `FeII`,
-`BaII`, `Fe 2`, `Fe_II` — and it is honoured: an Fe I measurement never receives
-an Fe II correction. The same labels work anywhere an element is accepted, in
-the CLI and in Python: `correct("CI", ...)`, `sources("FeII")`,
-`line_index("BaII")`. Species with no grid, and unrecognised ones, are reported per row
-rather than stopping the run.
+**Always label the ionisation stage** — `CI`, `OI`, `FeI`, `FeII`, `BaII` (also
+`Fe 2`, `Fe_II`). The stage is honoured everywhere an element is accepted, in the
+CLI and in Python: `correct("CI", ...)`, `sources("FeII")`, `line_index("BaII")`.
+It is not cosmetic: an Fe I measurement must never receive an Fe II correction,
+and Fe I 7320.676 sits 0.02 Å from Fe II 7320.653, so a bare `Fe` there matches
+both stages and warns. Every table written back out names the species in full,
+in a `species` column. Species with no grid, and unrecognised ones, are reported
+per row rather than stopping the run.
 
 Output is one row per measurement and source, or one `delta_<source>` column per
 source with `--wide`; either way every input row survives. See
@@ -71,14 +73,14 @@ One line, every grid that covers it:
 
 ```python
 res = correct("FeI", 5232.94, abund=6.94, teff=5966, logg=3.76, feh=-0.513, vmic=1.265)
-to_frame(res)[["source", "flavor", "delta", "a_nlte", "ok", "valid_weight"]]
+to_frame(res)[["species", "source", "flavor", "delta", "a_nlte", "ok"]]
 ```
 
 ```
-                         source               flavor     delta   a_nlte    ok
-amarsi2016_fe_nmarcs_lmarcs_fe1     1D NLTE - 1D LTE -0.000128 6.939872  True
-  amarsi2016_fe_nmtd_lmarcs_fe1   <3D> NLTE - 1D LTE  0.121029 7.061029  True
-    amarsi2016_fe_nmtd_lmtd_fe1 <3D> NLTE - <3D> LTE -0.012534 6.927466  True
+species                          source               flavor     delta   a_nlte    ok
+    FeI amarsi2016_fe_nmarcs_lmarcs_fe1     1D NLTE - 1D LTE -0.000128 6.939872  True
+    FeI   amarsi2016_fe_nmtd_lmarcs_fe1   <3D> NLTE - 1D LTE  0.121029 7.061029  True
+    FeI     amarsi2016_fe_nmtd_lmtd_fe1 <3D> NLTE - <3D> LTE -0.012534 6.927466  True
 ```
 
 A whole line list, then reshaped however you like:
@@ -98,9 +100,9 @@ out[out.ok].pivot_table(index="row", columns="source", values="delta")
 Checking what exists before you rely on it:
 
 ```python
-line_index("Mg")                    # every Mg line and the grids covering it
-[s.id for s in sources("Mg")]       # 5 grids
-print(sources("Mg")[0].describe())  # axes, ranges, coverage, caveats
+line_index("MgI")                    # every Mg I line and the grids covering it
+[s.id for s in sources("MgI")]       # 5 grids
+print(sources("MgI")[0].describe())  # axes, ranges, coverage, caveats
 ```
 
 Two setup notes. The kernel has to be the environment the package is installed

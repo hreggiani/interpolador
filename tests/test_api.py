@@ -1,10 +1,12 @@
 """Query behaviour, and physical sanity against published values."""
 
+import warnings
+
 import numpy as np
 import pandas as pd
 import pytest
 
-from nlte import correct, correct_frame, find_lines
+from nlte import correct, correct_frame, find_lines, to_frame
 
 pytestmark = pytest.mark.grids
 
@@ -302,3 +304,33 @@ def test_species_label_selects_the_stage_everywhere(registry):
     assert all(s.ion == 2 for s in list_sources("FeII", registry=registry))
     # An explicit ion overrides the label.
     assert all(s.ion == 2 for s in list_sources("FeI", ion=2, registry=registry))
+
+
+def test_results_always_name_the_ionisation_stage(registry):
+    got = correct("CI", 6587.61, abund=8.0, teff=5966, logg=3.76, feh=-0.513,
+                  vmic=1.265, registry=registry)
+    assert got and all(c.species == "CI" for c in got)
+    assert to_frame(got).species.eq("CI").all()
+
+
+def test_line_index_names_the_stage(registry):
+    from nlte import line_index
+
+    frame = line_index("Ba", registry=registry)
+    assert (frame.species == "BaII").all()
+    assert {"species", "element", "ion"} <= set(frame.columns)
+
+
+def test_unlabelled_element_spanning_two_stages_warns(registry):
+    # Fe I 7320.676 and Fe II 7320.653 are 0.02 A apart.
+    with pytest.warns(RuntimeWarning, match="more than one ionisation stage"):
+        got = correct("Fe", 7320.665, abund=6.9, teff=5966, logg=3.76, feh=-0.513,
+                      vmic=1.265, registry=registry)
+    assert {c.species for c in got} == {"FeI", "FeII"}
+
+    # Labelling it resolves the ambiguity with no warning.
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)
+        labelled = correct("FeII", 7320.665, abund=6.9, teff=5966, logg=3.76,
+                           feh=-0.513, vmic=1.265, registry=registry)
+    assert {c.species for c in labelled} == {"FeII"}

@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from .interp import HybridGrid, RectGrid
-from .solar import solar_abundance
+from .solar import format_species, solar_abundance
 
 #: Canonical stellar-parameter axis names, in the order interpolators expect.
 PARAM_AXES = ("teff", "logg", "feh", "vmic")
@@ -89,6 +89,11 @@ class GridSource:
             raise ValueError(f"{self.id}: an 'offset' abundance axis needs abund_zero_point")
 
     # -- parameters ------------------------------------------------------
+
+    @property
+    def species(self) -> str:
+        """Element with its ionisation stage, e.g. ``"FeII"``."""
+        return format_species(self.element, self.ion)
 
     @property
     def param_axes(self) -> tuple:
@@ -181,7 +186,7 @@ class GridSource:
         return (
             f"{self.id}\n"
             f"  reference:  {self.reference}\n"
-            f"  species:    {self.element} {self.ion}   flavour: {self.flavor}"
+            f"  species:    {self.species}   flavour: {self.flavor}"
             f"   scattering: {self.scattering}\n"
             f"  kind:       {self.kind}   geometry: {self.geometry()}\n"
             f"  abundance:  {self.abund_kind}"

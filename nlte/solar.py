@@ -95,6 +95,21 @@ def parse_species(species: str):
     return normalize_element(text), None
 
 
+_TO_ROMAN = {v: k for k, v in _ROMAN.items()}
+
+
+def format_species(element: str, ion=None) -> str:
+    """Species label with the ionisation stage, e.g. ``("Fe", 2)`` -> ``"FeII"``.
+
+    Every table this package writes names species this way, so a stage is never
+    left implicit; the form round-trips through :func:`parse_species`.
+    """
+    symbol = normalize_element(element)
+    if ion is None:
+        return symbol
+    return symbol + _TO_ROMAN.get(int(ion), str(int(ion)))
+
+
 def solar_abundance(element: str, table: str = DEFAULT_TABLE) -> float:
     """Solar A(X) on the named scale."""
     sym = normalize_element(element)

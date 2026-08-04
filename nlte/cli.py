@@ -159,16 +159,16 @@ def _line_coverage_markdown(frame, csv_name: str) -> str:
         "| Species | Lines | Range (A) | Sources |",
         "|---|---:|---|---|",
     ]
-    for (sym, ion), block in frame.groupby(["element", "ion"], sort=False):
+    for species, block in frame.groupby("species", sort=False):
         ids = sorted({s for row in block.sources for s in row.split()})
         out.append(
-            f"| {sym} {ion} | {len(block)} | "
+            f"| {species} | {len(block)} | "
             f"{block.wavelength.min():.1f}-{block.wavelength.max():.1f} | {len(ids)} |"
         )
-    out += ["", f"**{len(frame)} lines** over {frame.groupby(['element', 'ion']).ngroups} species.", ""]
+    out += ["", f"**{len(frame)} lines** over {frame.species.nunique()} species.", ""]
 
-    for (sym, ion), block in frame.groupby(["element", "ion"], sort=False):
-        out += [f"## {sym} {ion}", ""]
+    for species, block in frame.groupby("species", sort=False):
+        out += [f"## {species}", ""]
         if len(block) > MAX_MARKDOWN_LINES:
             out += [
                 f"{len(block)} lines spanning {block.wavelength.min():.1f}-"

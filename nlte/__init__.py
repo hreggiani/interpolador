@@ -1,7 +1,7 @@
 """Unified interpolation over published non-LTE abundance-correction grids.
 
     >>> from nlte import correct
-    >>> for c in correct("Mg", 5711.09, abund=7.60, teff=5777, logg=4.44,
+    >>> for c in correct("MgI", 5711.09, abund=7.60, teff=5777, logg=4.44,
     ...                  feh=0.0, vmic=1.0):
     ...     print(c.source, c.delta)
 

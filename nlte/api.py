@@ -9,13 +9,14 @@ spread between literature sources stays visible.
 
 from __future__ import annotations
 
+import warnings
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass
 
 import numpy as np
 
 from .registry import get_registry
-from .solar import normalize_element, parse_species
+from .solar import format_species, normalize_element, parse_species
 from .solve import solve_delta, solve_ew_match
 
 #: Default line-matching tolerance, in Angstrom.  Grids round their line labels
@@ -31,6 +32,7 @@ class Correction:
 
     source: str
     reference: str
+    species: str                # element with its ionisation stage, e.g. "FeII"
     element: str
     ion: int
     flavor: str
@@ -96,6 +98,19 @@ def find_lines(element, wavelength, ion=None, tol=DEFAULT_TOLERANCE,
                     best = (d, i, candidate)
         if best is not None:
             matches.append(_Match(src, best[1], best[2]))
+
+    # An unlabelled element can straddle two stages -- Fe I 7320.676 and
+    # Fe II 7320.653 sit 0.02 A apart -- so say so rather than quietly
+    # returning corrections from both.
+    if ion is None and len({m.source.ion for m in matches}) > 1:
+        stages = sorted({m.source.ion for m in matches})
+        warnings.warn(
+            f"{wavelength} A matches more than one ionisation stage of {element} "
+            f"({', '.join(format_species(element, i) for i in stages)}); "
+            "label the species to pick one",
+            RuntimeWarning,
+            stacklevel=2,
+        )
     return matches
 
 
@@ -173,6 +188,7 @@ def line_index(element=None, ion=None, tol=DEFAULT_TOLERANCE, include_blends=Tru
             ids = sorted({source_id for _, source_id, _ in cluster})
             best = max((wl for wl, _, _ in cluster), key=lambda w: (_decimals(w), w))
             rows.append({
+                "species": format_species(sym, stage),
                 "element": sym,
                 "ion": stage,
                 "wavelength": round(best, 3),
@@ -197,7 +213,8 @@ def _missing_params(src, params: dict) -> list:
 def _blank(match, params, a_lte, note) -> Correction:
     src, line = match.source, match.source.lines[match.line_index]
     return Correction(
-        source=src.id, reference=src.reference, element=src.element, ion=src.ion,
+        source=src.id, reference=src.reference,
+        species=format_species(src.element, src.ion), element=src.element, ion=src.ion,
         flavor=src.flavor, wavelength=float("nan"), wavelength_grid=match.grid_wavelength,
         line_label=line.label, delta=float("nan"), a_nlte=float("nan"),
         a_lte=float(np.asarray(a_lte).reshape(-1)[0]), ok=False, in_range=False,
@@ -313,7 +330,8 @@ def _corrections_for(match, params, a_lte, mode, wavelength, min_valid_weight=No
                 if weight[i] > 0 else "grid nodes here are masked"
             )
         out.append(Correction(
-            source=src.id, reference=src.reference, element=src.element, ion=src.ion,
+            source=src.id, reference=src.reference,
+            species=format_species(src.element, src.ion), element=src.element, ion=src.ion,
             flavor=src.flavor, wavelength=float(wavelength[i]),
             wavelength_grid=match.grid_wavelength, line_label=line.label,
             delta=float(delta[i]), a_nlte=float(a_nlte[i]), a_lte=float(a_lte[i]),
@@ -408,7 +426,8 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
         if not matches:
             for idx in block.index:
                 rows.append((idx, Correction(
-                    source="", reference="", element=str(element), ion=0, flavor="",
+                    source="", reference="", species=str(element),
+                    element=str(element), ion=0, flavor="",
                     wavelength=float(wavelength), wavelength_grid=float("nan"),
                     line_label="", delta=float("nan"), a_nlte=float("nan"),
                     a_lte=float(df.at[idx, "abund"]), ok=False, in_range=False,
