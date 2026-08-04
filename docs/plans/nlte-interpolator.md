@@ -201,3 +201,48 @@ FITS via astropy. Flags: `--sources`, `--tol`, `--mode {selfconsistent,direct}`,
    malformed or moved grid fails loudly rather than at query time.
 
 Run: `/Users/hreggiani/Trabalho/CODES/uv/new/bin/python -m pytest tests/`
+
+---
+
+## As built
+
+Implemented in commits `24adaef` and `9151472`; 40 sources across 12 elements, 53 tests passing.
+Everything above holds except where noted here.
+
+**Where the data disagreed with the plan**
+
+- **The Amarsi 2020 CSVs are also sparse in (teff, log g)** — 289 of 351 pairs, with a varying number
+  of [Fe/H] per pair — not the full boxes the inventory assumed. Missing rows load as NaN and the
+  masked-corner renormalisation covers it, so no `HybridGrid` was needed there.
+- **The sub-1000 entries in those CSVs are duplicate alias rows, not blends**: `568.0` carries values
+  identical to `5683`/`5688`. Only the oxygen grid's `777.0` genuinely needs a wavelength alias, since
+  it is that file's sole entry.
+- **`oxygen_marcs.sav` labels its blended entry `777 all`**, which no numeric parse handles; the blend
+  and its components are now detected from the `LMIN`/`LMAX` integration windows.
+- **Two of the three iron tables have no column-name row** (only `nmtd_lmarcs` does). Rather than a
+  read spec per file, axis columns are coerced to numeric and non-numeric rows dropped.
+- **`amarsi_fe2_3d` is a 3D LTE − 1D LTE correction**, not a non-LTE one — labelled as such.
+
+**Design additions not in the plan**
+
+- **`[[tables]]` manifest expansion**: one manifest describes a family of tables differing in a few
+  keys, so the 22 Amarsi 2020 CSVs are one file rather than 22.
+- **`abundance.stored`**: declares that a column holds log eps while the axis is parametrised as
+  [X/Fe]. Silicon needs this; without it the grid loads and round-trips but reads 71% empty and
+  returns nothing for real stars. `nlte-validate`'s coverage figure is what exposes this class of bug.
+- **Trial abundances are clamped** to the grid's abundance range inside the solve. The iterates are
+  internal, and solar A(Mg) sits exactly on the Matsuno grid's top node, so the first iterate stepped
+  outside and returned nothing. Whether the *measurement* is in range is judged separately.
+- **`min_valid_weight` is queryable** (API and `--min-valid-weight`), so a heavily masked cell can be
+  inspected rather than only rejected.
+- **`Line.match`** carries every wavelength that reaches an entry, which is how blends resolve.
+- **`ion_column`** splits a table into one source per ionisation stage (the iron tables carry Fe I and
+  Fe II together).
+
+**Verification results** — solar 777 nm oxygen triplet: −0.134 and −0.138 from two independent grids
+(published ≈ −0.15); Fe I positive and growing toward low metallicity; Al 3961 +1.5 dex in a very
+metal-poor giant; Si 3905 +0.22 in a metal-poor dwarf. Node round-trip error is exactly 0.0 for all 40
+sources. The iron tables load in ~60 s cold and ~5 s from the `.npz` cache.
+
+**Still open** — the Nordlander & Lind aluminium zero point (`zero_point = 6.43`) remains the assumed
+value flagged in the plan; it has not been checked against the paper's published solar corrections.
