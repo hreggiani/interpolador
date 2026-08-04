@@ -55,6 +55,57 @@ nlte-validate                    # load every manifest, report coverage, verify 
 nlte-lines -o coverage.md        # every line that can be corrected, per element
 ```
 
+## In a notebook or IPython
+
+Same functions, no files in between:
+
+```python
+import warnings; warnings.filterwarnings("ignore")   # quiets a scikit-learn pickle warning
+import pandas as pd
+from nlte import correct, correct_frame, to_frame, line_index, sources
+```
+
+One line, every grid that covers it:
+
+```python
+res = correct("FeI", 5232.94, abund=6.94, teff=5966, logg=3.76, feh=-0.513, vmic=1.265)
+to_frame(res)[["source", "flavor", "delta", "a_nlte", "ok", "valid_weight"]]
+```
+
+```
+                         source               flavor     delta   a_nlte    ok
+amarsi2016_fe_nmarcs_lmarcs_fe1     1D NLTE - 1D LTE -0.000128 6.939872  True
+  amarsi2016_fe_nmtd_lmarcs_fe1   <3D> NLTE - 1D LTE  0.121029 7.061029  True
+    amarsi2016_fe_nmtd_lmtd_fe1 <3D> NLTE - <3D> LTE -0.012534 6.927466  True
+```
+
+A whole line list, then reshaped however you like:
+
+```python
+df  = pd.read_csv("teste_interpolador_in.csv", encoding="utf-8-sig")
+out = correct_frame(df, keep=["id", "species"])       # 402 rows, 325 usable
+
+out[out.ok].groupby(["species", "source"]).delta.agg(["mean", "count"]).round(3)
+out[out.ok].pivot_table(index="row", columns="source", values="delta")
+```
+
+`out.row` indexes back into the input, so `df.loc[out.row]` lines the two up.
+`correct` and `correct_frame` take the same options as the CLI: `mode="direct"`,
+`tol=`, `min_valid_weight=`, `sources=[...]`.
+
+Checking what exists before you rely on it:
+
+```python
+line_index("Mg")                    # every Mg line and the grids covering it
+[s.id for s in sources("Mg")]       # 5 grids
+print(sources("Mg")[0].describe())  # axes, ranges, coverage, caveats
+```
+
+Two setup notes. The kernel has to be the environment the package is installed
+in (`python -m ipykernel install --user --name nlte` from it, if it is not
+listed). Without installing, `sys.path.insert(0, "/path/to/interpolador")`
+before the import works just as well.
+
 ## What it does that a lookup table does not
 
 **Corrections are solved self-consistently.** Published Δ = A(NLTE) − A(LTE) is

@@ -264,3 +264,16 @@ def test_cli_wide_output_keeps_every_input_row(tmp_path, registry):
     assert delta_cols
     assert got.loc[got.species == "Sc", delta_cols].isna().all().all()
     assert got.loc[got.species == "FeI", delta_cols].notna().any().any()
+
+
+def test_keep_can_carry_the_species_column_through(registry):
+    # correct_frame derives `element` from `species`; keeping `species` must
+    # still work, so it is copied rather than renamed away.
+    frame = pd.DataFrame({
+        "id": ["star1"], "species": ["FeI"], "wavelength": [5232.94],
+        "abund": [6.94], "teff": [5966], "logg": [3.76],
+        "feh": [-0.513], "vmic": [1.265],
+    })
+    out = correct_frame(frame, registry=registry, keep=["id", "species"])
+    assert (out.species == "FeI").all()
+    assert (out.id == "star1").all()

@@ -381,7 +381,8 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
     # "species" is the usual column name in a line list, and carries the
     # ionisation stage; "element" is accepted as a plainer alias.
     if "element" not in df.columns and "species" in df.columns:
-        df = df.rename(columns={"species": "element"})
+        # Copy rather than rename, so `keep=["species"]` still finds it.
+        df = df.assign(element=df["species"])
     required = {"element", "wavelength", "abund"}
     if not required.issubset(df.columns):
         raise ValueError(f"frame is missing columns: {sorted(required - set(df.columns))}")
