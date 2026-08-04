@@ -147,13 +147,18 @@ element = "Mn"
 file = "mn1_abcor_scatt.csv"
 scattering = true
 
+# The file name says "ba1", but 4554.03, 5853.67, 6141.71 and 6496.90 are the
+# Ba II lines -- that is the numbering of the source's own file set, not the
+# ionisation stage. Declared as Ba 2 so a query for "BaII" reaches them.
 [[tables]]
-id = "amarsi2020_ba1"
+id = "amarsi2020_ba2"
 element = "Ba"
+ion = 2
 file = "ba1_abcor.csv"
 scattering = false
 [[tables]]
-id = "amarsi2020_ba1_scatt"
+id = "amarsi2020_ba2_scatt"
 element = "Ba"
+ion = 2
 file = "ba1_abcor_scatt.csv"
 scattering = true

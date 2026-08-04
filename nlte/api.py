@@ -15,7 +15,7 @@ from dataclasses import asdict, dataclass
 import numpy as np
 
 from .registry import get_registry
-from .solar import normalize_element
+from .solar import normalize_element, parse_species
 from .solve import solve_delta, solve_ew_match
 
 #: Default line-matching tolerance, in Angstrom.  Grids round their line labels
@@ -69,8 +69,13 @@ def sources(element=None, ion=None, registry=None) -> list:
 
 def find_lines(element, wavelength, ion=None, tol=DEFAULT_TOLERANCE,
                include_blends=True, source_ids=None, registry=None) -> list:
-    """Every (source, line) pair matching a wavelength, nearest line per source."""
-    element = normalize_element(element)
+    """Every (source, line) pair matching a wavelength, nearest line per source.
+
+    ``element`` may carry the ionisation stage -- ``"FeII"``, ``"Fe 2"`` -- which
+    is how line lists usually label a species.  An explicit ``ion`` wins.
+    """
+    element, parsed_ion = parse_species(element)
+    ion = parsed_ion if ion is None else ion
     matches = []
     for src in sources(element, ion, registry):
         if source_ids is not None and src.id not in source_ids:
@@ -372,15 +377,27 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
     import pandas as pd
 
     df = frame.rename(columns={v: k for k, v in (columns or {}).items()})
+    df.columns = [str(c).lstrip("\ufeff") for c in df.columns]
+    # "species" is the usual column name in a line list, and carries the
+    # ionisation stage; "element" is accepted as a plainer alias.
+    if "element" not in df.columns and "species" in df.columns:
+        df = df.rename(columns={"species": "element"})
     required = {"element", "wavelength", "abund"}
     if not required.issubset(df.columns):
         raise ValueError(f"frame is missing columns: {sorted(required - set(df.columns))}")
 
     rows = []
     for (element, wavelength), block in df.groupby(["element", "wavelength"], sort=False):
-        matches = find_lines(element, float(wavelength), tol=tol,
-                             include_blends=include_blends, source_ids=sources,
-                             registry=registry)
+        try:
+            matches = find_lines(element, float(wavelength), tol=tol,
+                                 include_blends=include_blends, source_ids=sources,
+                                 registry=registry)
+        except KeyError:
+            # An unrecognised species must not abandon the rest of the table.
+            matches = []
+            note = f"unrecognised species {element!r}"
+        else:
+            note = "no grid covers this line"
         if not matches:
             for idx in block.index:
                 rows.append((idx, Correction(
@@ -388,8 +405,7 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
                     wavelength=float(wavelength), wavelength_grid=float("nan"),
                     line_label="", delta=float("nan"), a_nlte=float("nan"),
                     a_lte=float(df.at[idx, "abund"]), ok=False, in_range=False,
-                    valid_weight=0.0, converged=False,
-                    note="no grid covers this line",
+                    valid_weight=0.0, converged=False, note=note,
                 )))
             continue
 

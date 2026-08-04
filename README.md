@@ -34,9 +34,21 @@ nlte-correct measurements.csv -o corrected.csv --keep star
 nlte-correct measurements.csv -o wide.csv --wide          # one column per source
 ```
 
-The input needs `element`, `wavelength`, `abund` and whatever stellar parameters
-the grids require (`--col-map abund=A_Fe,vmic=xi` renames them). Output is one
-row per measurement and source. See `examples/demo_measurements.csv`.
+The input is a line list: one row per measurement, as many stars, elements and
+lines as you like. It needs a `species` (or `element`) column, `wavelength`,
+`abund`, and whatever stellar parameters the grids require;
+`--col-map abund=A_Fe,vmic=xi` renames columns that differ, and `--keep` carries
+extra ones through.
+
+`species` may name the ionisation stage the way line lists do — `FeI`, `FeII`,
+`BaII`, `Fe 2` — and it is honoured: an Fe I measurement never receives an Fe II
+correction. Species with no grid, and unrecognised ones, are reported per row
+rather than stopping the run.
+
+Output is one row per measurement and source, or one `delta_<source>` column per
+source with `--wide`; either way every input row survives. See
+`teste_interpolador_in.csv` for a realistic multi-species input and
+`examples/demo_measurements.csv` for a minimal one.
 
 ```bash
 nlte-validate                    # load every manifest, report coverage, verify axes

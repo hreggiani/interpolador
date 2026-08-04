@@ -7,6 +7,8 @@ tables are only the fallback for sources that do not state one.
 
 from __future__ import annotations
 
+import re
+
 # Asplund, Grevesse, Sauval & Scott (2009), photospheric A(X) = log eps.
 ASPLUND2009 = {
     "H": 12.00, "He": 10.93, "Li": 1.05, "Be": 1.38, "B": 2.70,
@@ -63,6 +65,34 @@ def normalize_element(element: str) -> str:
     if key not in _CANON:
         raise KeyError(f"unknown element {element!r}")
     return _CANON[key]
+
+
+_ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6}
+
+_SPECIES = re.compile(r"^([A-Z][a-z]?)[\s_\-]*([IVX]+|\d+)?$")
+
+
+def parse_species(species: str):
+    """Split a species label into ``(element, ion)``.
+
+    Accepts the forms line lists actually use -- ``"Fe"``, ``"FeI"``, ``"Fe II"``,
+    ``"Fe_2"``, ``"BaII"`` -- returning ``ion=None`` when the label names only an
+    element.  Parsing is case-sensitive on the symbol, which is what separates
+    ``"Si"`` (silicon) from ``"SI"`` (S I).
+    """
+    text = str(species).strip()
+    match = _SPECIES.match(text)
+    if match:
+        symbol, stage = match.group(1), match.group(2)
+        if symbol in ATOMIC_NUMBER:
+            if stage is None:
+                return symbol, None
+            if stage.isdigit():
+                return symbol, int(stage)
+            if stage in _ROMAN:
+                return symbol, _ROMAN[stage]
+    # Fall back to the whole label as an element, so "FE" or "fe" still resolve.
+    return normalize_element(text), None
 
 
 def solar_abundance(element: str, table: str = DEFAULT_TABLE) -> float:

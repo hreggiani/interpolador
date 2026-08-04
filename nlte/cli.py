@@ -32,7 +32,8 @@ def _read_any(path: Path):
     if path.suffix.lower() in (".parquet", ".pq"):
         return pd.read_parquet(path)
     sep = "\t" if path.suffix.lower() in (".tsv", ".tab") else None
-    return pd.read_csv(path, sep=sep, engine="python")
+    # utf-8-sig strips the byte-order mark VizieR and Excel exports carry.
+    return pd.read_csv(path, sep=sep, engine="python", encoding="utf-8-sig")
 
 
 def _write_any(df, path: Path) -> None:
@@ -67,7 +68,9 @@ def main_correct(argv=None) -> int:
     p.add_argument("input", type=Path, help="CSV / TSV / FITS / Parquet table")
     p.add_argument("-o", "--output", type=Path, required=True)
     p.add_argument("--col-map", default="",
-                   help="rename input columns, e.g. 'abund=A_Fe,vmic=xi,wavelength=lambda'")
+                   help="rename input columns, e.g. 'abund=A_Fe,vmic=xi,wavelength=lambda'. "
+                        "An 'element' or 'species' column may carry the ionisation "
+                        "stage, as in FeII or Fe 2.")
     p.add_argument("--keep", default="",
                    help="comma-separated input columns to carry through, e.g. 'star,snr'")
     p.add_argument("--sources", default="",
@@ -102,14 +105,19 @@ def main_correct(argv=None) -> int:
     )
 
     if args.wide:
-        index = [c for c in out.columns if c in ("row", "element", "wavelength")]
-        out = (
-            out.pivot_table(index=index, columns="source", values="delta", aggfunc="first")
+        # Pivot on the row number alone.  Including element or wavelength in the
+        # index would collide with the input's own columns on the merge back,
+        # and dropping all-NaN groups would silently lose every measurement no
+        # grid covers -- the output must keep one row per input row.
+        wide = (
+            out[out.source != ""]
+            .pivot_table(index="row", columns="source", values="delta", aggfunc="first")
             .add_prefix("delta_")
-            .reset_index()
         )
-        merged = df.reset_index(names="row")
-        out = merged.merge(out, on="row", how="left").drop(columns=["row"])
+        out = (
+            df.reset_index(drop=True)
+            .join(wide.reindex(range(len(df))))
+        )
 
     _write_any(out, args.output)
     usable = int(out.filter(like="delta").notna().to_numpy().sum()) if args.wide else int(out.ok.sum())

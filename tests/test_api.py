@@ -167,3 +167,100 @@ def test_line_index_can_be_restricted(registry):
     from nlte import line_index
 
     assert set(line_index("Si", registry=registry).element) == {"Si"}
+
+
+def test_species_labels_carry_the_ionisation_stage():
+    from nlte.solar import parse_species
+
+    assert parse_species("FeII") == ("Fe", 2)
+    assert parse_species("MnI") == ("Mn", 1)
+    assert parse_species("Fe 2") == ("Fe", 2)
+    assert parse_species("Fe_II") == ("Fe", 2)
+    assert parse_species("C") == ("C", None)
+    # Case on the symbol is what separates silicon from S I.
+    assert parse_species("Si") == ("Si", None)
+    assert parse_species("SI") == ("S", 1)
+    with pytest.raises(KeyError):
+        parse_species("Xx")
+
+
+def test_ion_stage_selects_the_right_sources(registry):
+    # One manifest yields both stages of iron, so filtering has to happen on the
+    # loaded sources: Fe I measurements must never get an Fe II correction.
+    fe1 = {c.source for c in correct("FeI", 5232.94, abund=5.3, registry=registry,
+                                     **METAL_POOR_DWARF)}
+    fe2 = {c.source for c in correct("FeII", 4923.92, abund=5.3, registry=registry,
+                                     **METAL_POOR_DWARF)}
+    assert fe1 and not any(s.endswith("fe2") for s in fe1)
+    assert fe2 and all("fe1" not in s for s in fe2)
+
+
+def test_barium_lines_are_reachable_as_ba_two(registry):
+    # The Amarsi file is named "ba1" but 4554/5854/6142/6497 are Ba II lines.
+    got = correct("BaII", 6496.9, abund=1.3, teff=5966, logg=3.76, feh=-0.51,
+                  vmic=1.27, registry=registry)
+    assert got and any(c.ok for c in got)
+
+
+def test_correct_frame_accepts_a_species_column(registry):
+    frame = pd.DataFrame({
+        "species": ["FeI", "BaII", "Sc"],
+        "wavelength": [5232.94, 6496.9, 4314.08],
+        "abund": [6.9, 1.3, 2.8],
+        "teff": [5966] * 3, "logg": [3.76] * 3,
+        "feh": [-0.51] * 3, "vmic": [1.27] * 3,
+    })
+    out = correct_frame(frame, registry=registry)
+    assert out.ok.any()
+    # An element no grid covers must not abandon the rest of the table.
+    scandium = out[out.row == 2]
+    assert len(scandium) == 1 and not scandium.ok.iloc[0]
+    assert "no grid" in scandium.note.iloc[0]
+
+
+def test_correct_frame_reports_an_unrecognised_species(registry):
+    frame = pd.DataFrame({
+        "species": ["Xx"], "wavelength": [5000.0], "abund": [1.0],
+        "teff": [5777], "logg": [4.4], "feh": [0.0], "vmic": [1.0],
+    })
+    out = correct_frame(frame, registry=registry)
+    assert len(out) == 1 and not out.ok[0]
+    assert "unrecognised species" in out.note[0]
+
+
+def test_correct_frame_handles_many_rows_and_species(registry):
+    from pathlib import Path
+
+    example = Path(__file__).resolve().parents[1] / "teste_interpolador_in.csv"
+    if not example.exists():
+        pytest.skip("example input not present")
+    frame = pd.read_csv(example, encoding="utf-8-sig")
+    out = correct_frame(frame, registry=registry, keep=["id"])
+    assert len(out) >= len(frame)
+    assert out.ok.sum() > 200
+    assert set(out.row) == set(range(len(frame)))
+
+
+def test_cli_wide_output_keeps_every_input_row(tmp_path, registry):
+    # The wide pivot must not drop measurements no grid covers, and must not
+    # collide with the input's own wavelength column.
+    from nlte.cli import main_correct
+
+    src = tmp_path / "in.csv"
+    src.write_text(
+        "species,wavelength,abund,teff,logg,feh,vmic\n"
+        "FeI,5232.94,6.9,5966,3.76,-0.51,1.27\n"
+        "Sc,4314.08,2.8,5966,3.76,-0.51,1.27\n"
+        "BaII,6496.9,1.3,5966,3.76,-0.51,1.27\n"
+    )
+    out = tmp_path / "out.csv"
+    assert main_correct([str(src), "-o", str(out), "--wide"]) == 0
+
+    got = pd.read_csv(out)
+    assert len(got) == 3
+    assert not any(c.endswith(("_x", "_y")) for c in got.columns)
+    assert "wavelength" in got.columns
+    delta_cols = [c for c in got.columns if c.startswith("delta_")]
+    assert delta_cols
+    assert got.loc[got.species == "Sc", delta_cols].isna().all().all()
+    assert got.loc[got.species == "FeI", delta_cols].notna().any().any()

@@ -203,17 +203,22 @@ class Registry:
         return self._loaded[key]
 
     def for_element(self, element: str, ion: int | None = None) -> list:
-        """All sources for an element, loading only the manifests that match."""
+        """All sources for an element, loading only the manifests that match.
+
+        The ionisation stage is filtered on the loaded sources, not on the
+        manifest: one manifest can yield several stages (the iron tables carry
+        Fe I and Fe II together, split by ``ion_column``), so filtering earlier
+        would both admit the wrong stage and hide the right one.
+        """
         sym = normalize_element(element)
         out = []
         for m in self.manifests:
-            if m.element != sym or (ion is not None and m.ion != ion):
+            if m.element != sym:
                 continue
             out.extend(self._load(m))
-        out.extend(
-            s for s in self._extra.values()
-            if s.element == sym and (ion is None or s.ion == ion)
-        )
+        out.extend(s for s in self._extra.values() if s.element == sym)
+        if ion is not None:
+            out = [s for s in out if s.ion == ion]
         return out
 
     def get(self, source_id: str):
