@@ -15,3 +15,7 @@ grids/**
 
 # Local Claude Code settings.
 .claude/settings.local.json
+
+# Generated outputs from example runs.
+teste_interpolador_out.csv
+teste_interpolador_wide.csv
