@@ -263,6 +263,11 @@ def main_validate(argv=None) -> int:
             print(f"FAIL {manifest.base_id}: {type(exc).__name__}: {exc}")
             failures += 1
             continue
+        if not loaded:
+            why = reg.missing.get(manifest.key, "reader returned no sources")
+            print(f"FAIL {manifest.base_id}: {why}\n")
+            failures += 1
+            continue
         for src in loaded:
             print(src.describe())
             if args.quick:

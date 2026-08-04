@@ -50,6 +50,8 @@ def test_every_source_loads_and_round_trips(registry, test_all):
     checked = 0
     for manifest in _all_manifests(registry, test_all):
         for src in registry._load(manifest):
+            if getattr(src._first_grid(), "values", None) is None:
+                continue          # model-backed source; no nodes to round-trip
             errors = [
                 e for grid in src.grids[:6]
                 for part in (grid if isinstance(grid, tuple) else (grid,))
@@ -151,3 +153,65 @@ def test_two_potassium_grids_agree_on_the_resonance_line(registry):
         if {"reggiani2019_k", "amarsi2020_k1"} <= set(got):
             assert abs(got["reggiani2019_k"] - got["amarsi2020_k1"]) < 0.05
             assert got["reggiani2019_k"] < 0        # K I resonance line, always negative
+
+
+def _sodium_networks_available(registry) -> bool:
+    try:
+        return bool(registry.get("canocchi2026_na_3dnlte"))
+    except KeyError:
+        return False
+
+
+def test_network_backed_source_presents_the_interpolator_surface(registry):
+    # The sodium grid is trained networks, not a table; it must still describe
+    # itself and answer queries like any other source.
+    if not _sodium_networks_available(registry):
+        pytest.skip("Canocchi sodium networks not present on this machine")
+    src = registry.get("canocchi2026_na_3dnlte")
+    assert src.geometry() == "neural network"
+    assert np.isnan(src.coverage())          # no tabulated nodes to count
+    assert src.indexed_by == "lte"
+    assert set(src.bounds()) == {"teff", "logg", "feh", "vmic", "abund"}
+    assert "coverage:   n/a" in src.describe()
+
+
+def test_sodium_network_corrections_are_sane(registry):
+    if not _sodium_networks_available(registry):
+        pytest.skip("Canocchi sodium networks not present on this machine")
+    from nlte.api import correct
+
+    # 3D NLTE - 1D LTE for Na is negative for all but the most metal-poor stars.
+    got = [c for c in correct("Na", 5682.67, abund=6.22, teff=6000, logg=4.5,
+                              feh=0.0, vmic=1.0, registry=registry)
+           if c.source == "canocchi2026_na_3dnlte"]
+    assert got and got[0].ok
+    assert -0.5 < got[0].delta < 0.0
+
+
+def test_sodium_network_rejects_queries_outside_training_range(registry):
+    if not _sodium_networks_available(registry):
+        pytest.skip("Canocchi sodium networks not present on this machine")
+    from nlte.api import correct
+
+    got = [c for c in correct("Na", 5682.67, abund=6.22, teff=8000, logg=4.5,
+                              feh=0.0, vmic=1.0, registry=registry)
+           if c.source == "canocchi2026_na_3dnlte"]
+    assert got and not got[0].ok and not got[0].in_range
+
+
+def test_missing_external_data_is_skipped_not_fatal(tmp_path):
+    # A manifest pointing at a distribution that is not on this machine must not
+    # break every query for that element.
+    from nlte.registry import Registry
+
+    (tmp_path / "gone.toml").write_text(
+        'id = "gone_na"\nformat = "canocchi_ffnn"\nelement = "Na"\n'
+        'file = "no/such/directory"\n'
+        '[axes]\nteff = [4000, 6500]\nlogg = [1.5, 5]\nfeh = [-4, 0.5]\n'
+        'vmic = [0.5, 3]\nabund = [1.72, 7.72]\n'
+        '[[lines]]\ntag = 5682\nwavelength = 5682.67\nrew_range = [-9, -3.5]\n'
+    )
+    reg = Registry(tmp_path)
+    with pytest.warns(RuntimeWarning, match="data not found"):
+        assert reg.for_element("Na") == []
+    assert reg.missing

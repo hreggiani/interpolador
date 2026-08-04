@@ -169,6 +169,18 @@ nlte = "(?P<line>[0-9]+)NLTE"
 Use `[[ew_lines]]` entries (`label`, `lte`, `nlte`) instead if the column names
 do not follow a pattern.
 
+## Grids that are not tables at all
+
+Some grids ship trained models instead of a cube of numbers. `format =
+"canocchi_ffnn"` handles the Canocchi et al. 2026 sodium networks, and its
+reader shows the pattern: anything exposing `__call__(points) -> InterpResult`
+and `bounds()` plugs into the solvers, the query API and the CLI unchanged. Set
+`geometry_label` and leave `values = None` so coverage reporting knows there are
+no nodes to count.
+
+If a model-backed grid indexes its correction by the LTE abundance, as that one
+does, set `indexed_by = "lte"` on the source.
+
 ## A genuinely new format
 
 Write a reader returning `GridSource` objects and register it:

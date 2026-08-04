@@ -1,9 +1,10 @@
 # nlte
 
 Interpolation over published non-LTE abundance-correction grids, behind one
-interface. Eight incompatible on-disk formats — IDL `.sav` structs, VizieR
+interface. Nine incompatible on-disk formats — IDL `.sav` structs, VizieR
 exports with three different delimiters, plain CSVs, whitespace tables inside
-tarballs — become 40 queryable sources covering 12 elements.
+tarballs, and trained neural networks — become 43 queryable sources covering 13
+elements.
 
 Several elements are covered by more than one grid, computed with different
 model atmospheres and assumptions, so a query returns **every** source that
@@ -67,6 +68,12 @@ magnesium grids give LTE and non-LTE EWs, not corrections; those are derived by
 matching equivalent widths, and saturated lines are flagged instead of
 extrapolated.
 
+**Not every grid is a table.** Canocchi et al. 2026 publish 3D non-LTE sodium as
+trained networks mapping (Teff, log g, [Fe/H], REW) to A(Na). Those are wrapped
+behind the same interface — invert the 1D LTE curve of growth to get a reduced
+equivalent width, ask the 3D non-LTE network what abundance it implies — and
+reproduce the authors' own routine exactly.
+
 **Awkward geometries load correctly.** The iron tables sample 54 of 104
 (teff, log g) pairs and are triangulated in that plane; the silicon grid's
 abundance axis shifts with [Fe/H] and is reparametrised to [Si/Fe] to become
@@ -80,13 +87,13 @@ rectilinear.
 | K | Amarsi 2020; Reggiani et al. 2019 (resonance doublet + 1.5 µm lines) |
 | C | Amarsi 2020; Amarsi et al. 2019 1D and 3D |
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
-| Na | Amarsi 2020 |
+| Na | Amarsi 2020; Canocchi et al. 2026 3D NLTE and 3D LTE (neural networks) |
 | Mg | Amarsi 2020; Osorio et al. 2016 (EW-matched); Matsuno et al. 2024 1D and 3D |
 | Al (3961 etc.) | Nordlander & Lind 2017, MARCS and ⟨3D⟩ (EW-matched) |
 | Si | Amarsi 2020; Amarsi & Asplund 2017 |
 | Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE |
 
-**2338 lines over 13 species.** [docs/line_coverage.md](docs/line_coverage.md)
+**2346 lines over 13 species.** [docs/line_coverage.md](docs/line_coverage.md)
 lists every one with the grids that cover it, and
 [docs/line_coverage.csv](docs/line_coverage.csv) is the machine-readable version;
 both are regenerated with `nlte-lines`. From Python, `nlte.line_index()` returns
@@ -117,6 +124,9 @@ design and the full grid inventory.
   assumed solar reference; a shift there moves the abundance at which Δ is read
   by the same amount, which matters only where Δ varies steeply.
 - `amarsi_fe2_3d` is a **3D LTE − 1D LTE** correction, not a non-LTE one.
+- The sodium networks live outside this repository (240 MB); `grids/canocchi2026_na.toml`
+  points at the released distribution, and a manifest whose data is missing is
+  skipped with a warning rather than breaking queries for that element.
 - Some published nodes are masked in places you would not expect: Amarsi 2020's
   Mg 5711 grid has no value at solar parameters and [Mg/Fe] = 0, so that source
   returns `ok=False` there while Osorio and Matsuno answer.

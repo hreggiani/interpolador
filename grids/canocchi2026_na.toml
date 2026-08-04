@@ -1,0 +1,83 @@
+# Canocchi et al. 2026 -- 3D non-LTE sodium (Stagger + Balder).
+#
+# Published as trained feedforward networks rather than a table of corrections:
+# one network per line and model flavour, mapping (Teff, log g, [Fe/H], REW) to
+# A(Na).  A correction is obtained by inverting the 1D LTE curve of growth to
+# turn the measured 1D LTE abundance into a reduced equivalent width, then
+# asking the 3D non-LTE network what abundance that width implies -- so, as with
+# the potassium grid, Delta is indexed by the LTE abundance.
+#
+# `file` points outside the repository at the released distribution; the network
+# set is 240 MB and is not duplicated here.  Move or symlink it into grids/ and
+# change this line if you want the project self-contained.
+#
+# Wavelengths are the air line centres used by the authors' own line list (the
+# ReadMe quotes vacuum values for the same lines).  The REW ladders per line are
+# theirs, from interp_tools.gen_abund_to_rew.
+
+id              = "canocchi2026_na"
+format          = "canocchi_ffnn"
+reference       = "Canocchi et al. 2026 (3D NLTE Na, Stagger/Balder)"
+element         = "Na"
+ion             = 1
+file            = "~/OneDrive/nlte/correction_grids/na_3d_nlte/ffnn"
+reference_model = "1DLTE"
+notes           = "Networks, not a tabulated grid. Delta is indexed by the 1D LTE abundance. Queries outside the training ranges return no value rather than the extrapolation the authors' routines print a warning for."
+
+[axes]
+teff  = [4000.0, 6500.0]
+logg  = [1.5, 5.0]
+feh   = [-4.0, 0.5]
+vmic  = [0.5, 3.0]
+abund = [1.72, 7.72]
+
+[[variants]]
+id_suffix = "3dnlte"
+target    = "3DNLTE"
+flavor    = "3D NLTE - 1D LTE"
+
+[[variants]]
+id_suffix = "3dlte"
+target    = "3DLTE"
+flavor    = "3D LTE - 1D LTE"
+
+[[lines]]
+tag = 4982
+wavelength = 4982.841
+rew_range = [-10.0, -4.0]
+[[lines]]
+tag = 5682
+wavelength = 5682.670
+rew_range = [-9.0, -3.5]
+[[lines]]
+tag = 5688
+wavelength = 5688.229
+rew_range = [-9.0, -3.5]
+[[lines]]
+tag = 5889
+wavelength = 5889.974
+rew_range = [-7.0, -2.8]
+[[lines]]
+tag = 5895
+wavelength = 5895.952
+rew_range = [-7.0, -2.8]
+[[lines]]
+tag = 6154
+wavelength = 6154.230
+rew_range = [-10.0, -4.0]
+[[lines]]
+tag = 6160
+wavelength = 6160.750
+rew_range = [-10.0, -4.0]
+[[lines]]
+tag = 8183
+wavelength = 8183.292
+rew_range = [-9.0, -3.5]
+[[lines]]
+tag = 8194
+wavelength = 8194.826
+rew_range = [-9.0, -3.5]
+[[lines]]
+tag = 10747
+wavelength = 10747.408
+rew_range = [-11.0, -4.8]

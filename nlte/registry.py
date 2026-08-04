@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import os
 import tomllib
+import warnings
 from pathlib import Path
 
 from .solar import normalize_element
@@ -108,7 +109,11 @@ class Manifest:
     @property
     def datafile(self) -> Path:
         name = self.data.get("file")
-        return self.path.parent / name if name else self.path
+        if not name:
+            return self.path
+        # A manifest may point outside the repository at a large released
+        # distribution rather than duplicating it here.
+        return (self.path.parent / Path(name).expanduser()).resolve()
 
     def __repr__(self) -> str:
         return f"<Manifest {self.base_id} ({self.element} {self.ion}) at {self.path.name}>"
@@ -138,6 +143,7 @@ class Registry:
         self._manifests: list | None = None
         self._loaded: dict = {}       # manifest path -> list[GridSource]
         self._extra: dict = {}        # id -> GridSource registered in memory
+        self.missing: dict = {}       # manifest key -> why its data could not be read
 
     # -- discovery -------------------------------------------------------
 
@@ -177,7 +183,20 @@ class Registry:
                     f"{manifest.path.name}: no reader for format {manifest.format!r}; "
                     f"known formats are {sorted(READERS)}"
                 ) from None
-            sources = reader(manifest.data, manifest.datafile)
+            try:
+                sources = reader(manifest.data, manifest.datafile)
+            except FileNotFoundError as exc:
+                # A manifest may point outside the repository at a large released
+                # distribution.  If that data is not on this machine, skip the
+                # source loudly rather than breaking every query for the element.
+                self.missing[key] = str(exc)
+                warnings.warn(
+                    f"{manifest.base_id}: data not found ({exc}); skipping this source",
+                    RuntimeWarning,
+                    stacklevel=2,
+                )
+                self._loaded[key] = []
+                return self._loaded[key]
             for s in sources:
                 s.path = str(manifest.datafile)
             self._loaded[key] = list(sources)

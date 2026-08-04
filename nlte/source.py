@@ -155,13 +155,20 @@ class GridSource:
         return self.to_logeps(lo, feh), self.to_logeps(hi, feh)
 
     def geometry(self) -> str:
-        return "hybrid" if isinstance(self._first_grid(), HybridGrid) else "rectilinear"
+        grid = self._first_grid()
+        label = getattr(grid, "geometry_label", None)
+        if label:
+            return label
+        return "hybrid" if isinstance(grid, HybridGrid) else "rectilinear"
 
     def coverage(self) -> float:
         """Fraction of grid nodes that carry a usable value, averaged over lines."""
         fracs = []
         for g in self.grids:
             for part in (g if isinstance(g, tuple) else (g,)):
+                # Model-backed sources have no tabulated nodes to count.
+                if getattr(part, "values", None) is None:
+                    return float("nan")
                 fracs.append(float(np.isfinite(part.values).mean()))
         return float(np.mean(fracs)) if fracs else float("nan")
 
@@ -181,7 +188,8 @@ class GridSource:
             + (f" (zero point {self._zero():g})" if self.abund_kind != "logeps" else "")
             + f"\n  axes:       {axes}{fixed}\n"
             f"  lines:      {len(self.lines)} ({span})\n"
-            f"  coverage:   {self.coverage() * 100:.1f}% of nodes valid"
+            + (f"  coverage:   {self.coverage() * 100:.1f}% of nodes valid"
+               if np.isfinite(self.coverage()) else "  coverage:   n/a (model-backed)")
             + (f"\n  notes:      {self.notes}" if self.notes else "")
         )
 
