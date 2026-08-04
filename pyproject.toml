@@ -20,6 +20,7 @@ test = ["pytest>=7.0"]
 [project.scripts]
 nlte-correct = "nlte.cli:main_correct"
 nlte-validate = "nlte.cli:main_validate"
+nlte-lines = "nlte.cli:main_lines"
 
 [tool.setuptools.packages.find]
 include = ["nlte*"]

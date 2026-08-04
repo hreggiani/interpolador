@@ -39,6 +39,7 @@ row per measurement and source. See `examples/demo_measurements.csv`.
 
 ```bash
 nlte-validate                    # load every manifest, report coverage, verify axes
+nlte-lines -o coverage.md        # every line that can be corrected, per element
 ```
 
 ## What it does that a lookup table does not
@@ -85,7 +86,11 @@ rectilinear.
 | Si | Amarsi 2020; Amarsi & Asplund 2017 |
 | Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE |
 
-`nlte.sources()` lists them with axes, line counts and coverage.
+**2338 lines over 13 species.** [docs/line_coverage.md](docs/line_coverage.md)
+lists every one with the grids that cover it, and
+[docs/line_coverage.csv](docs/line_coverage.csv) is the machine-readable version;
+both are regenerated with `nlte-lines`. From Python, `nlte.line_index()` returns
+the same table and `nlte.sources()` lists the grids with axes and coverage.
 
 ## Install
 

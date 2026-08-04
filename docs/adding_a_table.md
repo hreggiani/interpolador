@@ -16,6 +16,11 @@ nlte-validate grids/path/to/your.toml
 
 which prints the axes, bounds, line count and node coverage it inferred, then
 re-queries the grid at its own nodes to prove the axes were assembled correctly.
+Once it loads, regenerate the line list so the new grid shows up there too:
+
+```bash
+nlte-lines -o docs/line_coverage.md
+```
 
 ## A tabular grid
 

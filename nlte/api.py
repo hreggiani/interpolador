@@ -90,6 +90,92 @@ def find_lines(element, wavelength, ion=None, tol=DEFAULT_TOLERANCE,
     return matches
 
 
+def _decimals(value: float) -> int:
+    """How precisely a wavelength was published, for picking a representative."""
+    text = f"{value:.6f}".rstrip("0")
+    return len(text.partition(".")[2])
+
+
+def _cluster_lines(entries, tol: float) -> list:
+    """Group ``(wavelength, source, blend)`` entries into physical lines.
+
+    Two entries from the same grid are always different lines -- the iron list
+    holds lines far closer together than the matching tolerance -- so groups are
+    merged only when they share no source.  Merging is agglomerative and takes
+    the closest admissible pair first, because a greedy left-to-right pass
+    misassigns a coarser grid's value: with oxygen entries at 6156, 6157 and
+    6158, the 6158 from one grid would otherwise be swept into the 6157 group
+    and the line would appear twice in the output.
+    """
+    groups = {}
+    for wl, source_id, blend in entries:
+        groups.setdefault(round(wl, 6), []).append((wl, source_id, blend))
+    ordered = [groups[k] for k in sorted(groups)]
+
+    while len(ordered) > 1:
+        best, best_gap = None, None
+        for i in range(len(ordered) - 1):
+            left, right = ordered[i], ordered[i + 1]
+            gap = right[0][0] - left[0][0]
+            if gap > tol:
+                continue
+            if {s for _, s, _ in left} & {s for _, s, _ in right}:
+                continue
+            if best_gap is None or gap < best_gap:
+                best, best_gap = i, gap
+        if best is None:
+            break
+        ordered[best : best + 2] = [ordered[best] + ordered[best + 1]]
+    return ordered
+
+
+def line_index(element=None, ion=None, tol=DEFAULT_TOLERANCE, include_blends=True,
+               registry=None):
+    """Every line that can be corrected, merged across grids.
+
+    Returns a DataFrame of ``element, ion, wavelength, n_sources, blend,
+    sources``.  ``blend`` marks lines where at least one grid tabulates the
+    feature together with its neighbours rather than on its own.
+    The same physical line is tabulated at different precisions by different
+    grids -- 5711.0 here, 5711.09 there -- so wavelengths within ``tol`` are
+    merged into one row and the most precisely published value is reported.
+
+    Loading every source is unavoidable here, which means reading the large iron
+    tables; they come from the on-disk cache after the first run.
+    """
+    import pandas as pd
+
+    found = {}
+    for src in sources(element, ion, registry):
+        for line in src.lines:
+            if line.blend and not include_blends:
+                continue
+            for wl in line.match:
+                if np.isfinite(wl):
+                    found.setdefault((src.element, src.ion), []).append(
+                        (float(wl), src.id, line.blend)
+                    )
+
+    rows = []
+    for (sym, stage), entries in found.items():
+        for cluster in _cluster_lines(entries, tol):
+            ids = sorted({source_id for _, source_id, _ in cluster})
+            best = max((wl for wl, _, _ in cluster), key=lambda w: (_decimals(w), w))
+            rows.append({
+                "element": sym,
+                "ion": stage,
+                "wavelength": round(best, 3),
+                "n_sources": len(ids),
+                "blend": any(b for _, _, b in cluster),
+                "sources": " ".join(ids),
+            })
+
+    frame = pd.DataFrame(rows)
+    if frame.empty:
+        return frame
+    return frame.sort_values(["element", "ion", "wavelength"]).reset_index(drop=True)
+
+
 def _missing_params(src, params: dict) -> list:
     return [
         p for p in src.required_params

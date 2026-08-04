@@ -14,6 +14,7 @@ from .api import (
     correct,
     correct_frame,
     find_lines,
+    line_index,
     sources,
     to_frame,
 )
@@ -25,6 +26,7 @@ __all__ = [
     "correct",
     "correct_frame",
     "find_lines",
+    "line_index",
     "sources",
     "to_frame",
     "Correction",

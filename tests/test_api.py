@@ -131,3 +131,39 @@ def test_correct_frame_marks_lines_no_grid_covers(registry):
     out = correct_frame(frame, registry=registry)
     assert len(out) == 1 and not out.ok[0]
     assert "no grid" in out.note[0]
+
+
+def test_line_index_lists_every_correctable_line(registry):
+    from nlte import line_index
+
+    frame = line_index(registry=registry)
+    assert {"element", "ion", "wavelength", "n_sources", "blend", "sources"} <= set(frame.columns)
+    assert (frame.wavelength > 1000).all()
+    assert (frame.n_sources >= 1).all()
+    # One row per physical line: a wavelength must not appear twice for a species.
+    assert not frame.duplicated(["element", "ion", "wavelength"]).any()
+
+
+def test_line_index_merges_the_same_line_across_grids(registry):
+    from nlte import line_index
+
+    mg = line_index("Mg", registry=registry)
+    row = mg[np.isclose(mg.wavelength, 5711.09, atol=0.2)]
+    assert len(row) == 1, "5711 should be one line, not one per grid"
+    assert row.iloc[0].n_sources >= 3
+
+
+def test_line_index_keeps_distinct_lines_from_one_grid_apart(registry):
+    # The Amarsi oxygen grids list 6156, 6157, 6158 and 6160 -- neighbours closer
+    # together than the matching tolerance, which must not be merged.
+    from nlte import line_index
+
+    o = line_index("O", registry=registry)
+    near = o[(o.wavelength > 6150) & (o.wavelength < 6165)]
+    assert len(near) == 4
+
+
+def test_line_index_can_be_restricted(registry):
+    from nlte import line_index
+
+    assert set(line_index("Si", registry=registry).element) == {"Si"}
