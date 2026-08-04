@@ -52,6 +52,7 @@ kind   = "logeps"                     # "logeps" | "xfe" | "offset"
 # stored = "logeps"                   # if the column is log eps but the axis is [X/Fe]
 # solar  = 7.51                       # or solar_table = "asplund2009"
 # zero_point = 6.43                   # for an "offset" axis
+# indexed_by = "nlte"                 # "lte" if Delta is tabulated against A(LTE)
 
 [wavelengths]
 unit = "nm"                           # "angstrom" | "nm" | "auto"
@@ -92,6 +93,34 @@ correctly and 29% when not.
 
 **Splitting by ionisation stage:** `ion_column = "species"` yields one source per
 ion, with the ion parsed from values like `Fe1`, `Fe2`.
+
+**Which abundance is Delta indexed by?** Most published grids tabulate Δ against
+the *model* (non-LTE) abundance, so a measured LTE abundance has to be solved
+for — that is the default, `indexed_by = "nlte"`. Some tabulate against the LTE
+abundance instead (the potassium grid's column is literally `abund_LTE`); set
+`indexed_by = "lte"` and Δ is read directly, with the solve mode ignored for
+that source.
+
+If the table ships `ew_lte` and `ew_nlte` alongside the correction you can settle
+this from the data rather than guessing. Take one (Teff, log g, [Fe/H], vmic,
+line) block and test both inversions against the tabulated Δ:
+
+```python
+A, lte, nlte, abcor = block.abund, np.log10(block.ew_lte), np.log10(block.ew_nlte), block.abcor
+indexed_by_lte  = np.interp(lte, nlte, A) - A     # solve ew_nlte(A') = ew_lte(A)
+indexed_by_nlte = A - np.interp(nlte, lte, A)     # solve ew_lte(A'') = ew_nlte(A)
+```
+
+Whichever reproduces `abcor` with the smaller RMS is the convention. For the
+potassium grid this gave 0.023 dex against 0.058, which is decisive.
+
+**Irregular sampling that blocks interpolation:** `min_valid_weight` (default
+0.5) sets how much of a cell's interpolation weight must land on valid nodes.
+Grids whose abundance nodes shift between metallicities, or that are missing
+scattered points, leave many cells valid on one side only and get rejected.
+Lower it per source — and justify the number by measuring, as
+`grids/reggiani2019_k.toml` does, rather than picking one that makes the output
+look full. A query can override it with `min_valid_weight=`.
 
 **Slow files:** set `cache = true` to store the gridded arrays in `.cache/` next
 to the data, keyed by file mtime and manifest content. The iron tables go from

@@ -62,6 +62,10 @@ class GridSource:
     abund_kind: str = "logeps"
     abund_solar: float | None = None  # A(X)_sun used by an "xfe" axis
     abund_zero_point: float | None = None   # zero point of an "offset" axis
+    #: Which abundance the tabulated Delta is indexed by.  Most grids tabulate
+    #: against the model (non-LTE) abundance, so a measured LTE abundance has to
+    #: be solved for; a grid indexed by the LTE abundance is read directly.
+    indexed_by: str = "nlte"
     solar_table: str | None = None
     scattering: bool | None = None
     fixed: dict = field(default_factory=dict)   # collapsed length-1 axes
@@ -73,6 +77,8 @@ class GridSource:
     def __post_init__(self):
         if self.abund_kind not in ABUND_KINDS:
             raise ValueError(f"{self.id}: unknown abund_kind {self.abund_kind!r}")
+        if self.indexed_by not in ("nlte", "lte"):
+            raise ValueError(f"{self.id}: indexed_by must be 'nlte' or 'lte'")
         if self.axis_names[-1] != "abund":
             raise ValueError(f"{self.id}: abundance must be the last axis")
         if len(self.lines) != len(self.grids):

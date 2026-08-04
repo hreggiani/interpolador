@@ -112,3 +112,42 @@ def test_blended_entries_are_reachable_by_their_components(registry):
     blends = [ln for ln in src.lines if ln.blend]
     assert blends, "the oxygen grid's combined triplet entry was not detected"
     assert len(blends[0].match) > 1
+
+
+def test_potassium_grid_is_indexed_by_the_lte_abundance(registry):
+    # Verified numerically against the tabulated equivalent widths; see the
+    # manifest.  A grid indexed this way must ignore the solve mode.
+    src = registry.get("reggiani2019_k")
+    assert src.indexed_by == "lte"
+
+    from nlte.api import correct
+    star = dict(teff=4600, logg=1.5, feh=-2.5, vmic=1.8, abund=2.8)
+    exact = [c for c in correct("K", 7698.96, mode="selfconsistent", registry=registry, **star)
+             if c.source == "reggiani2019_k"][0]
+    direct = [c for c in correct("K", 7698.96, mode="direct", registry=registry, **star)
+              if c.source == "reggiani2019_k"][0]
+    assert exact.ok and exact.delta == direct.delta
+
+
+def test_potassium_labels_map_to_real_wavelengths(registry):
+    # The published labels drop the decimal on the infrared lines: 151631 is
+    # 15163.1 A, not 151631 A.
+    src = registry.get("reggiani2019_k")
+    by_label = {ln.label: ln.wavelength for ln in src.lines}
+    assert by_label["151631"] == pytest.approx(15163.1)
+    assert by_label["151632"] == pytest.approx(15163.2)
+    assert by_label["7698"] == pytest.approx(7698.96)
+
+
+def test_two_potassium_grids_agree_on_the_resonance_line(registry):
+    # Reggiani 2019 and Amarsi 2020 are independent calculations; agreement is
+    # evidence the units, abundance conversion and indexing are all right.
+    from nlte.api import correct
+
+    for star in (dict(teff=5777, logg=4.44, feh=0.0, vmic=1.0, abund=5.03),
+                 dict(teff=4600, logg=1.5, feh=-2.5, vmic=1.8, abund=2.8)):
+        got = {c.source: c.delta for c in correct("K", 7698.96, registry=registry, **star)
+               if c.ok}
+        if {"reggiani2019_k", "amarsi2020_k1"} <= set(got):
+            assert abs(got["reggiani2019_k"] - got["amarsi2020_k1"]) < 0.05
+            assert got["reggiani2019_k"] < 0        # K I resonance line, always negative

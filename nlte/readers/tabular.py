@@ -130,13 +130,24 @@ def parse_wavelength(label, unit: str = "angstrom") -> float:
 
 
 def _make_lines(labels, spec: dict) -> list:
+    """Turn the file's line identifiers into :class:`Line` entries.
+
+    An alias overrides the parsed value: it lists the real wavelengths an entry
+    covers, which handles both blends (one entry, several components) and labels
+    that are not wavelengths at all, such as the potassium grid's ``151631`` for
+    15163.1 A.  The first alias becomes the representative wavelength.
+    """
     unit = spec.get("unit", "angstrom")
     aliases = {str(k): v for k, v in spec.get("aliases", {}).items()}
     lines = []
     for label in labels:
         text = label if isinstance(label, str) else f"{label:g}"
-        wl = parse_wavelength(label, unit)
-        match = tuple(float(x) for x in aliases[text]) if text in aliases else (wl,)
+        if text in aliases:
+            match = tuple(float(x) for x in np.atleast_1d(aliases[text]))
+            wl = match[0]
+        else:
+            wl = parse_wavelength(label, unit)
+            match = (wl,)
         blend = bool(re.search(r"combin|blend", text, re.IGNORECASE)) or len(match) > 1
         lines.append(Line(wavelength=wl, label=text, blend=blend, match=match))
     return lines
@@ -260,6 +271,7 @@ def _common_kwargs(manifest: dict, element: str) -> dict:
     return {
         "reference": manifest.get("reference", ""),
         "element": element,
+        "indexed_by": ab.get("indexed_by", "nlte"),
         "abund_kind": kind,
         "abund_solar": resolve_solar(element, ab) if kind == "xfe" else None,
         "abund_zero_point": ab.get("zero_point") if kind == "offset" else None,
@@ -397,7 +409,8 @@ def read_tabular(manifest: dict, path: Path) -> list:
             values = arrays[str(vi)]
             grids = [
                 make_grid(nodes, values[i], scattered_names=scattered,
-                          scattered_nodes=scat_nodes, clip_axes=clip)
+                          scattered_nodes=scat_nodes, clip_axes=clip,
+                          min_valid_weight=manifest.get("min_valid_weight"))
                 for i in range(len(labels))
             ]
             suffix = variant.get("id_suffix", "")
@@ -452,9 +465,11 @@ def _read_ew_pair(manifest: dict, path: Path, element: str) -> list:
     grids = [
         (
             make_grid(nodes, arrays[f"lte{i}"][0], scattered_names=scattered,
-                      scattered_nodes=scat_nodes, clip_axes=clip),
+                      scattered_nodes=scat_nodes, clip_axes=clip,
+                      min_valid_weight=manifest.get("min_valid_weight")),
             make_grid(nodes, arrays[f"nlte{i}"][0], scattered_names=scattered,
-                      scattered_nodes=scat_nodes, clip_axes=clip),
+                      scattered_nodes=scat_nodes, clip_axes=clip,
+                      min_valid_weight=manifest.get("min_valid_weight")),
         )
         for i in range(len(entries))
     ]

@@ -1,0 +1,80 @@
+# Reggiani et al. 2019, A&A 627, A177 -- non-LTE potassium.
+#
+# Two things set this grid apart from the others here:
+#
+# 1. Its correction is tabulated against the *LTE* abundance (`abund_LTE`), not
+#    the model non-LTE abundance.  Verified numerically against the tabulated
+#    equivalent widths: inverting ew_nlte at ew_lte(A) reproduces `abcor` with an
+#    RMS of 0.023 dex, while the opposite convention gives 0.058.  So
+#    indexed_by = "lte" below, and the correction is read directly at the
+#    measured abundance rather than solved for.
+#
+# 2. The abundance nodes track [Fe/H] (abund_LTE - [Fe/H] is 3.83 ... 6.33), so
+#    as with silicon the axis is only rectilinear when read as [K/Fe].
+#
+# The grid is sparse in the (Teff, log g) plane -- 76 of 169 combinations, and it
+# carries a handful of points at specific stars' parameters (5777/4.44,
+# 4550/1.6, 4300/1.5) alongside the regular nodes -- so that plane is
+# triangulated rather than gridded.
+
+id        = "reggiani2019_k"
+format    = "tabular"
+reference = "Reggiani et al. 2019, A&A 627, A177"
+element   = "K"
+ion       = 1
+file      = "nlte_KI_Reggiani2019.txt"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+scattered = ["teff", "logg"]
+clip_axes = ["vmic"]
+
+# This grid needs a lower interpolation-weight threshold than the default 0.5.
+# Its abundance sampling is irregular: the [K/Fe] nodes sit half a step apart at
+# three metallicities ([Fe/H] = -2.25, -1.75, -1.25) relative to the rest, and
+# individual models are missing scattered abundance points, so many cells carry
+# valid data on only one side.
+#
+# Measured against 1-D interpolation over each model's own tabulated abundances
+# (11745 probes on the 7698 and 15163.1 lines):
+#
+#   threshold   answered   median |err|   p95      max
+#   0.50            50%      0.0003       0.0117   0.0367 dex
+#   0.25            74%      0.0005       0.0173   0.0463 dex
+#   0.10            89%      0.0005       0.0201   0.0564 dex
+#
+# 0.25 nearly halves the number of unanswered queries while keeping the error
+# well under the systematic uncertainty of the corrections themselves.  Results
+# still report `valid_weight`, so a value that leaned on few nodes stays visible,
+# and a query can override this with min_valid_weight.
+min_valid_weight = 0.25
+notes     = "Delta is indexed by the LTE abundance, so it is read directly rather than solved self-consistently. Includes points computed at specific stars' parameters."
+
+[read]
+delimiter = ","
+
+[columns]
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+vmic  = "vt"
+abund = "abund_LTE"
+line  = "line"
+value = "abcor"
+
+[abundance]
+kind       = "xfe"
+stored     = "logeps"     # the column is A(K); grid it as [K/Fe]
+solar      = 5.03         # Asplund et al. (2009)
+indexed_by = "lte"
+
+[wavelengths]
+unit = "angstrom"
+
+# The published labels drop the decimal point on the infrared lines, and the
+# resonance doublet is labelled to the nearest Angstrom.
+[wavelengths.aliases]
+"7664"   = [7664.90]
+"7698"   = [7698.96]
+"15168"  = [15168.4]
+"151631" = [15163.1]
+"151632" = [15163.2]

@@ -177,7 +177,8 @@ def read_amarsi_sav(manifest: dict, path: Path) -> list:
     grids, axes, fixed = [], None, {}
     for i in range(len(labels)):
         axes, values, fixed = _arrange(cube[i], source_axes)
-        grids.append(make_grid(axes, values, clip_axes=clip))
+        grids.append(make_grid(axes, values, clip_axes=clip,
+                               min_valid_weight=manifest.get("min_valid_weight")))
 
     return [GridSource(
         id=manifest["id"],
@@ -218,7 +219,8 @@ def read_oxygen_sav(manifest: dict, path: Path) -> list:
     grids, axes, fixed = [], None, {}
     for i in range(len(labels)):
         axes, values, fixed = _arrange(cube[i], source_axes)
-        grids.append(make_grid(axes, values, clip_axes=clip))
+        grids.append(make_grid(axes, values, clip_axes=clip,
+                               min_valid_weight=manifest.get("min_valid_weight")))
 
     lines = _oxygen_lines(labels, _axis(g["LMIN"]), _axis(g["LMAX"]))
     return [GridSource(
@@ -263,7 +265,8 @@ def read_nordlander_sav(manifest: dict, path: Path) -> list:
         pair = []
         for tag in ("lte", "nlte"):
             axes, values, fixed = _arrange(cubes[tag][i], source_axes)
-            pair.append(make_grid(axes, values, clip_axes=clip))
+            pair.append(make_grid(axes, values, clip_axes=clip,
+                                  min_valid_weight=manifest.get("min_valid_weight")))
         grids.append(tuple(pair))
 
     return [GridSource(

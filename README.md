@@ -55,6 +55,12 @@ the surviving interpolation weights renormalised, with `valid_weight` reporting
 how much weight survived. A cell that is mostly missing returns NaN and says so
 rather than quietly averaging two corners out of sixteen.
 
+**Correction conventions are per grid, not assumed.** Most tables index Δ by the
+model abundance and get the self-consistent solve; the Reggiani 2019 potassium
+grid indexes it by the LTE abundance and is read directly. Which convention a
+table uses can be settled from its own equivalent-width columns — see
+[docs/adding_a_table.md](docs/adding_a_table.md).
+
 **Grids that publish equivalent widths are usable.** The aluminium and Osorio
 magnesium grids give LTE and non-LTE EWs, not corrections; those are derived by
 matching equivalent widths, and saturated lines are flagged instead of
@@ -69,7 +75,8 @@ rectilinear.
 
 | Element | Sources |
 |---|---|
-| Li, K, Mn, Ba, Ca, Al (6699/7835) | Amarsi et al. 2020, with and without scattering |
+| Li, Mn, Ba, Ca, Al (6699/7835) | Amarsi et al. 2020, with and without scattering |
+| K | Amarsi 2020; Reggiani et al. 2019 (resonance doublet + 1.5 µm lines) |
 | C | Amarsi 2020; Amarsi et al. 2019 1D and 3D |
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
 | Na | Amarsi 2020 |

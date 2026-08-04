@@ -124,7 +124,10 @@ def _evaluate_delta(src, line_index, params, a_lte, mode):
     def delta_fn(trial):
         return src.delta_at(line_index, params, np.clip(trial, lo, hi), feh).value
 
-    sol = solve_delta(delta_fn, a_lte, bounds=(np.min(lo), np.max(hi)), mode=mode)
+    # A grid already indexed by the LTE abundance needs no solve -- iterating
+    # would move the lookup off the abundance the table was built against.
+    effective_mode = "direct" if src.indexed_by == "lte" else mode
+    sol = solve_delta(delta_fn, a_lte, bounds=(np.min(lo), np.max(hi)), mode=effective_mode)
     solved = np.where(np.isfinite(sol.a_nlte), sol.a_nlte, a_lte)
     probe = src.delta_at(line_index, params, np.clip(solved, lo, hi), feh)
 
