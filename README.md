@@ -160,7 +160,7 @@ triangulation filling the gap with confident nonsense.
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
 | Na | Amarsi 2020; Canocchi et al. 2026 3D NLTE and 3D LTE (neural networks) |
 | Cu | Caliskan et al. 2025 (LCAO+Free collision rates) |
-| Mg | Amarsi 2020; Osorio et al. 2016 (EW-matched); Matsuno et al. 2024 1D and 3D |
+| Mg | Amarsi 2020; Osorio \& Barklem 2016 (EW-matched); Matsuno et al. 2024 1D and 3D |
 | Al (3961 etc.) | Nordlander & Lind 2017, MARCS and ⟨3D⟩ (EW-matched) |
 | Si | Amarsi 2020; Amarsi & Asplund 2017 |
 | Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE |
@@ -181,6 +181,15 @@ Needs numpy, scipy and pandas (astropy only for FITS input). Grid data is not
 distributed with the package: point `$NLTE_GRIDS` at your grid directory, or
 keep it in `grids/` beside the package. Each manifest names the exact file it
 expects.
+
+## Citing the grids
+
+Every correction comes from someone else's published calculation. The grids each
+result names are listed with full bibliographic detail in
+[docs/references.bib](docs/references.bib) — AAS/ADS BibTeX, keyed by bibcode
+and using the AASTeX journal macros, annotated with the source ids it covers.
+`c.reference` on any result, and the `reference:` line in `nlte-validate`, name
+the paper to cite for that particular number.
 
 ## Adding a table
 

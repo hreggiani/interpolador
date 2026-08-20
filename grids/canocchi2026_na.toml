@@ -1,4 +1,4 @@
-# Canocchi et al. 2026 -- 3D non-LTE sodium (Stagger + Balder).
+# Canocchi et al. 2026, A&A 709, A90 -- 3D non-LTE sodium (Stagger + Balder).
 #
 # Published as trained feedforward networks rather than a table of corrections:
 # one network per line and model flavour, mapping (Teff, log g, [Fe/H], REW) to
@@ -17,7 +17,7 @@
 
 id              = "canocchi2026_na"
 format          = "canocchi_ffnn"
-reference       = "Canocchi et al. 2026 (3D NLTE Na, Stagger/Balder)"
+reference       = "Canocchi et al. 2026, A&A 709, A90"
 element         = "Na"
 ion             = 1
 file            = "~/OneDrive/nlte/correction_grids/na_3d_nlte/ffnn"

@@ -1,4 +1,4 @@
-# Osorio et al. 2016, A&A 586, A120 -- non-LTE magnesium.
+# Osorio & Barklem 2016, A&A 586, A120 -- non-LTE magnesium.
 #
 # VizieR export, semicolon-separated, with LTE and non-LTE log(EW/lambda) in
 # paired columns per line ("3829LTE", "3829NLTE", ...).  No corrections are
@@ -6,7 +6,7 @@
 
 id        = "osorio2016_mg"
 format    = "tabular"
-reference = "Osorio et al. 2016, A&A 586, A120"
+reference = "Osorio & Barklem 2016, A&A 586, A120"
 element   = "Mg"
 ion       = 1
 file      = "mg1_osorio2016.tsv"

@@ -1,0 +1,200 @@
+% Bibliography for the non-LTE abundance-correction grids used by this project.
+%
+% AAS/ADS style: citation keys are ADS bibcodes and journal names use the
+% AASTeX macros (\aap, \mnras, \araa, \ssr), so these entries drop straight
+% into an AASTeX or A&A manuscript. Every field was taken from the publisher's
+% Crossref record rather than transcribed by hand; the bibcodes are constructed
+% from that metadata and checked against the two the grid files state directly
+% (Matsuno 2024 and Caliskan 2025, recorded in their VizieR headers).
+%
+% Each entry is annotated with the source ids it covers; `nlte.sources()` and
+% docs/line_coverage.md name the same ids.
+
+% amarsi2020_* -- 22 CSV grids: Li, C, O, Na, Mg, Al, Si, K, Ca, Mn, Ba,
+% with and without coherent scattering
+@ARTICLE{2020A&A...642A..62A,
+       author = {{Amarsi}, A. M. and {Lind}, K. and {Osorio}, Y. and {Nordlander}, T. and {Bergemann}, M. and {Reggiani}, H. and {Wang}, E. X. and {Buder}, S. and {Asplund}, M. and {Barklem}, P. S. and {Wehrhahn}, A. and {Skúladóttir}, Á. and {Kobayashi}, C. and {Karakas}, A. I. and {Gao}, X. D. and {Bland-Hawthorn}, J. and {De Silva}, G. M. and {Kos}, J. and {Lewis}, G. F. and {Martell}, S. L. and {Sharma}, S. and {Simpson}, J. D. and {Zucker}, D. B. and {Čotar}, K. and {Horner}, J. and {the GALAH Collaboration}},
+        title = "{The GALAH Survey: non-LTE departure coefficients for large spectroscopic surveys}",
+      journal = {\aap},
+         year = 2020,
+       volume = {642},
+        pages = {A62},
+          doi = {10.1051/0004-6361/202038650},
+}
+
+% amarsi_c1_1d, amarsi_c1_3d, amarsi_o1_1d, amarsi_o1_3d, amarsi_fe2_3d
+% -- the abcor_*.sav grids
+@ARTICLE{2019A&A...630A.104A,
+       author = {{Amarsi}, A. M. and {Nissen}, P. E. and {Skúladóttir}, Á.},
+        title = "{Carbon, oxygen, and iron abundances in disk and halo stars}",
+      journal = {\aap},
+         year = 2019,
+       volume = {630},
+        pages = {A104},
+          doi = {10.1051/0004-6361/201936265},
+}
+
+% solar 3D non-LTE carbon; the model atom behind the carbon grids
+@ARTICLE{2019A&A...624A.111A,
+       author = {{Amarsi}, A. M. and {Barklem}, P. S. and {Collet}, R. and {Grevesse}, N. and {Asplund}, M.},
+        title = "{3D non-LTE line formation of neutral carbon in the Sun}",
+      journal = {\aap},
+         year = 2019,
+       volume = {624},
+        pages = {A111},
+          doi = {10.1051/0004-6361/201833603},
+}
+
+% amarsi2016_o1_marcs -- oxygen_marcs.sav
+@ARTICLE{2016MNRAS.455.3735A,
+       author = {{Amarsi}, A. M. and {Asplund}, M. and {Collet}, R. and {Leenaarts}, J.},
+        title = "{Non-LTE oxygen line formation in 3D hydrodynamic model stellar atmospheres}",
+      journal = {\mnras},
+         year = 2016,
+       volume = {455},
+        pages = {3735-3751},
+          doi = {10.1093/mnras/stv2608},
+}
+
+% amarsi2016_fe_nmarcs_lmarcs, _nmtd_lmarcs, _nmtd_lmtd (Fe I and Fe II)
+@ARTICLE{2016MNRAS.463.1518A,
+       author = {{Amarsi}, A. M. and {Lind}, K. and {Asplund}, M. and {Barklem}, P. S. and {Collet}, R.},
+        title = "{Non-LTE line formation of Fe in late-type stars – III. 3D non-LTE analysis of metal-poor stars}",
+      journal = {\mnras},
+         year = 2016,
+       volume = {463},
+        pages = {1518-1533},
+          doi = {10.1093/mnras/stw2077},
+}
+
+% amarsi2017_si -- nlte_silicon.csv
+@ARTICLE{2017MNRAS.464..264A,
+       author = {{Amarsi}, A. M. and {Asplund}, M.},
+        title = "{The solar silicon abundance based on 3D non-LTE calculations}",
+      journal = {\mnras},
+         year = 2017,
+       volume = {464},
+        pages = {264-273},
+          doi = {10.1093/mnras/stw2445},
+}
+
+% nordlander2017_al_marcs, _mean3d -- equivalent-width grids
+@ARTICLE{2017A&A...607A..75N,
+       author = {{Nordlander}, T. and {Lind}, K.},
+        title = "{Non-LTE aluminium abundances in late-type stars}",
+      journal = {\aap},
+         year = 2017,
+       volume = {607},
+        pages = {A75},
+          doi = {10.1051/0004-6361/201730427},
+}
+
+% osorio2016_mg -- mg1_osorio2016.tsv, equivalent-width grid
+@ARTICLE{2016A&A...586A.120O,
+       author = {{Osorio}, Y. and {Barklem}, P. S.},
+        title = "{Mg line formation in late-type stellar atmospheres}",
+      journal = {\aap},
+         year = 2016,
+       volume = {586},
+        pages = {A120},
+          doi = {10.1051/0004-6361/201526958},
+}
+
+% matsuno2024_mg_1n1l, _3n1l
+@ARTICLE{2024A&A...688A..72M,
+       author = {{Matsuno}, T. and {Amarsi}, A. M. and {Carlos}, M. and {Nissen}, P. E.},
+        title = "{3D non-local thermodynamic equilibrium magnesium abundances reveal a distinct halo population}",
+      journal = {\aap},
+         year = 2024,
+       volume = {688},
+        pages = {A72},
+          doi = {10.1051/0004-6361/202450057},
+}
+
+% reggiani2019_k -- nlte_KI_Reggiani2019.txt
+@ARTICLE{2019A&A...627A.177R,
+       author = {{Reggiani}, Henrique and {Amarsi}, Anish M. and {Lind}, Karin and {Barklem}, Paul S. and {Zatsarinny}, Oleg and {Bartschat}, Klaus and {Fursa}, Dmitry V. and {Bray}, Igor and {Spina}, Lorenzo and {Meléndez}, Jorge},
+        title = "{Non-LTE analysis of K I in late-type stars}",
+      journal = {\aap},
+         year = 2019,
+       volume = {627},
+        pages = {A177},
+          doi = {10.1051/0004-6361/201935156},
+}
+
+% caliskan2025_cu -- cu_corrections_caliskan2025.tsv
+@ARTICLE{2025A&A...696A.210C,
+       author = {{Caliskan}, S. and {Amarsi}, A. M. and {Racca}, M. and {Koutsouridou}, I. and {Barklem}, P. S. and {Lind}, K. and {Salvadori}, S.},
+        title = "{Revisiting inelastic Cu + H collisions and the non-LTE Galactic evolution of copper}",
+      journal = {\aap},
+         year = 2025,
+       volume = {696},
+        pages = {A210},
+          doi = {10.1051/0004-6361/202554251},
+}
+
+% canocchi2026_na_3dnlte, _3dlte -- trained networks
+@ARTICLE{2026A&A...709A..90C,
+       author = {{Canocchi}, G. and {Wang}, E. X. and {Amarsi}, A. M. and {Lind}, K. and {Racca}, M.},
+        title = "{3D NLTE sodium abundances in late-type stars}",
+      journal = {\aap},
+         year = 2026,
+       volume = {709},
+        pages = {A90},
+          doi = {10.1051/0004-6361/202558382},
+}
+
+% wang2021_li -- the Breidablik 3D non-LTE lithium models
+@ARTICLE{2021MNRAS.500.2159W,
+       author = {{Wang}, Ella Xi and {Nordlander}, Thomas and {Asplund}, Martin and {Amarsi}, Anish M and {Lind}, Karin and {Zhou}, Yixiao},
+        title = "{3D NLTE spectral line formation of lithium in late-type stars}",
+      journal = {\mnras},
+         year = 2021,
+       volume = {500},
+        pages = {2159-2176},
+          doi = {10.1093/mnras/staa3381},
+}
+
+% wang2021_li -- Breidablik applied to GALAH DR3
+@ARTICLE{2024MNRAS.528.5394W,
+       author = {{Wang}, Ella Xi and {Nordlander}, Thomas and {Buder}, Sven and {Ciucă}, Ioana and {Soen}, Alexander and {Martell}, Sarah and {Ness}, Melissa and {Lind}, Karin and {McKenzie}, Madeleine and {Stello}, Dennis},
+        title = "{3D NLTE Lithium abundances for late-type stars in GALAH DR3}",
+      journal = {\mnras},
+         year = 2024,
+       volume = {528},
+        pages = {5394-5411},
+          doi = {10.1093/mnras/stae385},
+}
+
+% solar scale ASPLUND2009 in nlte/solar.py (the package default)
+@ARTICLE{2009ARA&A..47..481A,
+       author = {{Asplund}, Martin and {Grevesse}, Nicolas and {Sauval}, A. Jacques and {Scott}, Pat},
+        title = "{The Chemical Composition of the Sun}",
+      journal = {\araa},
+         year = 2009,
+       volume = {47},
+        pages = {481-522},
+          doi = {10.1146/annurev.astro.46.060407.145222},
+}
+
+% solar scale ASPLUND2021; the value the copper grid adopts
+@ARTICLE{2021A&A...653A.141A,
+       author = {{Asplund}, M. and {Amarsi}, A. M. and {Grevesse}, N.},
+        title = "{The chemical make-up of the Sun: A 2020 vision}",
+      journal = {\aap},
+         year = 2021,
+       volume = {653},
+        pages = {A141},
+          doi = {10.1051/0004-6361/202140445},
+}
+
+% solar scale GREVESSE1998
+@ARTICLE{1998SSRv...85..161G,
+       author = {{Grevesse}, N. and {Sauval}, A.J.},
+        title = "{Standard Solar Composition}",
+      journal = {\ssr},
+         year = 1998,
+       volume = {85},
+        pages = {161-174},
+          doi = {10.1023/a:1005161325181},
+}

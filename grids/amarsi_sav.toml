@@ -1,4 +1,8 @@
-# Amarsi et al. carbon, oxygen and Fe II abundance-correction grids (IDL saves).
+# Amarsi et al. 2019 (A&A 630, A104) carbon, oxygen and Fe II grids (IDL saves).
+#
+# All five files carry the same 2019-08-27 date and cover exactly the elements of
+# that paper -- carbon, oxygen and iron -- so they are attributed to it rather
+# than to the solar-abundance papers on the individual model atoms.
 #
 # All five share the `grid` struct schema: an ABCOR cube indexed by
 # (line, vturb_top, vturb_base, feh, logg, teff, lgeps), with the solar
@@ -19,7 +23,7 @@ element   = "C"
 ion       = 1
 file      = "abcor_c1_1d-1dl.sav"
 flavor    = "1D NLTE - 1D LTE"
-reference = "Amarsi et al. 2019, A&A 624, A111"
+reference = "Amarsi et al. 2019, A&A 630, A104"
 
 [[tables]]
 id        = "amarsi_c1_3d"
@@ -27,7 +31,7 @@ element   = "C"
 ion       = 1
 file      = "abcor_c1_3d-atl.sav"
 flavor    = "3D NLTE - 1D LTE (ATLAS)"
-reference = "Amarsi et al. 2019, A&A 624, A111"
+reference = "Amarsi et al. 2019, A&A 630, A104"
 
 [[tables]]
 id        = "amarsi_o1_1d"
@@ -35,7 +39,7 @@ element   = "O"
 ion       = 1
 file      = "abcor_o1_1d-1dl.sav"
 flavor    = "1D NLTE - 1D LTE"
-reference = "Amarsi et al. 2019, A&A 624, A111"
+reference = "Amarsi et al. 2019, A&A 630, A104"
 
 [[tables]]
 id        = "amarsi_o1_3d"
@@ -43,7 +47,7 @@ element   = "O"
 ion       = 1
 file      = "abcor_o1_3d-atl.sav"
 flavor    = "3D NLTE - 1D LTE (ATLAS)"
-reference = "Amarsi et al. 2019, A&A 624, A111"
+reference = "Amarsi et al. 2019, A&A 630, A104"
 
 [[tables]]
 id        = "amarsi_fe2_3d"
