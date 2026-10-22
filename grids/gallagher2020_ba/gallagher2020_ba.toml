@@ -1,0 +1,60 @@
+# Gallagher et al. 2020, A&A 634, A55 -- 3D non-LTE Ba II on Stagger models.
+#
+# From the ChETEC-INFRA 3D NLTE pages (barium_corrections_v5.zip, unpacked into
+# barium_corrections_v5/).  The g<logg>mm<[Fe/H]> files collect, per (log g, [Fe/H]),
+# every Stagger model's corrections against Teff; log g and [Fe/H] come from the
+# file name (g45mm10 -> 4.5, -1.0).  The d3t... files hold the same numbers per
+# model and are not read.  The g44 files are the solar model, log g 4.44, which
+# the file name places at 4.40.
+#
+# 3D_corr = A(3D NLTE) - A(1D LTE) and 1D_corr = A(1D NLTE) - A(1D LTE) are both
+# tabulated against A(X), the model abundance, so the default self-consistent
+# solve applies -- NLiTE notes that, unusually, these are indexed by the 3D NLTE
+# abundance.  The 1D side uses each 3D model's own microturbulence (the ximic
+# column, 0.35-2.3 km/s), not a free parameter, so there is no vmic axis.
+#
+# The models sit at 25 (Teff, log g) points, not a rectangle, so that plane is
+# triangulated.  The solar A(Ba) of the calculation is 2.27 (A(X) - [X/Fe] at
+# [Fe/H] = 0 in every file).
+
+id        = "gallagher2020_ba"
+format    = "tabular"
+reference = "Gallagher et al. 2020, A&A 634, A55"
+element   = "Ba"
+ion       = 2
+files     = "barium_corrections_v5/g*mm*_5601_corrected_corrections.txt"
+kind      = "delta"
+scattered = ["teff", "logg"]
+notes     = "Stagger 3D models at 25 (Teff, log g) points, triangulated. The 1D comparison uses each model's own microturbulence, so there is no vmic axis."
+
+[read]
+delimiter = "whitespace"
+skiprows  = [1]                  # the units row under the header
+
+[file_params]
+pattern = '^g(?P<logg>\d+)mm(?P<feh>\d+)_'
+scale   = { logg = 0.1, feh = -0.1 }
+
+[columns]
+line  = "Wavelength"
+teff  = "Teff"
+logg  = "logg"
+feh   = "feh"
+abund = "[X/Fe]"
+
+[abundance]
+kind  = "xfe"
+solar = 2.27
+
+[wavelengths]
+unit = "angstrom"
+
+[[variants]]
+id_suffix = "3dnlte"
+flavor    = "3D NLTE - 1D LTE"
+column    = "3D_corr"
+
+[[variants]]
+id_suffix = "1dnlte"
+flavor    = "1D NLTE - 1D LTE"
+column    = "1D_corr"

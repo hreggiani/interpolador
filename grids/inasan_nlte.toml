@@ -1,0 +1,113 @@
+# INASAN_NLTE database -- 1D non-LTE corrections on MARCS models from the Moscow
+# group (Mashonkina, Pakhomov, Sitnova et al. 2023, MNRAS 524, 3526), one grid per
+# species, each from its own paper (the `reference` of each table below).
+#
+# These are not published files.  The database is only served through the query
+# form at https://spectrum.inasan.ru/nLTE2/, so tools/inasan_pull.py rebuilt each
+# grid by querying the batch form at every node.  The server interpolates linearly
+# in its grids, so at the nodes it returns the tabulated values; nodes it answers
+# with "Out of parameters" are absent from the files.  Nodes are the MARCS grid
+# (Teff step 250 K, log g step 0.5, [Fe/H] step 0.5).
+#
+# The [X/Fe] axes are relative to Anders & Grevesse (1989) photospheric
+# abundances -- the group states it uses them "for consistency with our previous
+# studies" (Mashonkina et al. 2022, MNRAS 509, 3626) -- so the solar values below
+# are those, not the package default.  Fe I, Mg I and Ti II were computed at one
+# fixed [X/Fe] each (0, +0.4, +0.3); the form's [X/Fe] input is nominal for them,
+# so they are declared abundance-independent.
+
+format    = "tabular"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+
+[read]
+delimiter = "whitespace"
+comment   = "#"
+header    = "none"
+names     = ["line", "teff", "logg", "feh", "xfe", "delta", "ew"]
+
+[columns]
+line  = "line"
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+abund = "xfe"
+value = "delta"
+
+[wavelengths]
+unit = "angstrom"
+
+[[tables]]
+id        = "alexeeva2014_na"
+element   = "Na"
+ion       = 1
+file      = "alexeeva2014_na/inasan_nlte_Na1.dat"
+reference = "Alexeeva, Pakhomov & Mashonkina 2014, Astron. Lett. 40, 406 (via INASAN_NLTE)"
+abundance = { kind = "xfe", solar = 6.33 }
+notes     = "Rebuilt from the INASAN_NLTE query form. The server lists each line twice (dwarf and giant grids); they are merged."
+
+[[tables]]
+id        = "mashonkina2013_mg"
+element   = "Mg"
+ion       = 1
+file      = "mashonkina2013_mg/inasan_nlte_Mg1.dat"
+reference = "Mashonkina 2013, A&A 550, A28 (via INASAN_NLTE)"
+columns   = { line = "line", teff = "teff", logg = "logg", feh = "feh", value = "delta" }
+abundance = { independent = true }
+notes     = "Rebuilt from the INASAN_NLTE query form. Computed at [Mg/Fe] = +0.4; does not depend on the Mg abundance."
+
+[[tables]]
+id        = "mashonkina2017_ca"
+element   = "Ca"
+ion       = 1
+file      = "mashonkina2017_ca/inasan_nlte_Ca1.dat"
+reference = "Mashonkina, Sitnova & Belyaev 2017, A&A 605, A53 (via INASAN_NLTE)"
+abundance = { kind = "xfe", solar = 6.36 }
+notes     = "Rebuilt from the INASAN_NLTE query form. [Ca/Fe] nodes 0 and +0.4."
+
+[[tables]]
+id        = "sitnova2016_ti2"
+element   = "Ti"
+ion       = 2
+file      = "sitnova2016_ti/inasan_nlte_Ti2.dat"
+reference = "Sitnova, Mashonkina & Ryabchikova 2016, MNRAS 461, 1000 (via INASAN_NLTE)"
+columns   = { line = "line", teff = "teff", logg = "logg", feh = "feh", value = "delta" }
+abundance = { independent = true }
+notes     = "Rebuilt from the INASAN_NLTE query form. Computed at [Ti/Fe] = +0.3. At [Fe/H] >= -1.5 only cool giants (Teff <= 5000 K, log g <= 2.5) are covered."
+
+[[tables]]
+id        = "mashonkina2011_fe"
+element   = "Fe"
+ion       = 1
+file      = "mashonkina2011_fe/inasan_nlte_Fe1.dat"
+reference = "Mashonkina et al. 2011, A&A 528, A87 (via INASAN_NLTE)"
+columns   = { line = "line", teff = "teff", logg = "logg", feh = "feh", value = "delta" }
+abundance = { independent = true }
+notes     = "Rebuilt from the INASAN_NLTE query form. H I collisions with S_H = 0.5."
+
+[[tables]]
+id        = "mashonkina2022_sr"
+element   = "Sr"
+ion       = 2
+file      = "mashonkina2022_sr/inasan_nlte_Sr2.dat"
+reference = "Mashonkina et al. 2022, MNRAS 509, 3626 (via INASAN_NLTE)"
+abundance = { kind = "xfe", solar = 2.90 }
+notes     = "Rebuilt from the INASAN_NLTE query form. Computed [Sr/Fe] nodes are -1.0..+1.0 for dwarfs and -1.5..+0.5 for giants; the union was queried, so dwarf values at -1.5 and giant values at +1.0 are the server's edge handling."
+
+[[tables]]
+id        = "mashonkina2019_ba"
+element   = "Ba"
+ion       = 2
+file      = "mashonkina2019_ba/inasan_nlte_Ba2.dat"
+reference = "Mashonkina & Belyaev 2019, Astron. Lett. 45, 341 (via INASAN_NLTE)"
+abundance = { kind = "xfe", solar = 2.13 }
+notes     = "Rebuilt from the INASAN_NLTE query form. Computed [Ba/Fe] nodes are -1.0..+0.5 for dwarfs and -1.5..+0.5 for giants; dwarf values at -1.5 are the server's edge handling."
+
+[[tables]]
+id        = "mashonkina2000_eu"
+element   = "Eu"
+ion       = 2
+file      = "mashonkina2000_eu/inasan_nlte_Eu2.dat"
+reference = "Mashonkina & Gehren 2000, A&A 364, 249 (via INASAN_NLTE)"
+abundance = { kind = "xfe", solar = 0.51 }
+notes     = "Rebuilt from the INASAN_NLTE query form. Covers [Fe/H] -4 to 0."

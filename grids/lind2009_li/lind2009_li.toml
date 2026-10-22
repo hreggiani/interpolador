@@ -1,0 +1,46 @@
+# Lind, Asplund & Barklem 2009, A&A 503, 541 -- non-LTE lithium on MARCS models.
+#
+# CDS J/A+A/503/541: one table per line (table2 = 670.7 nm, table3 = 610.3 nm),
+# fixed-width, read through the ReadMe's byte-by-byte layout.
+#
+# The abundance column is the LTE abundance (the ReadMe calls it "LTE lithium
+# abundance"), and the tabulated equivalent widths confirm it for 670.7 nm:
+# inverting W(NLTE) at W(LTE) reproduces Delta with an RMS of 0.013 dex when Delta
+# is indexed by A(LTE), against 0.056 the other way.  For 610.3 nm the test cannot
+# separate the two (0.023 vs 0.027); the same convention is assumed.
+#
+# Corrections are given only for equivalent widths of 0.01-100 pm, so strong-line
+# and very-weak-line nodes are absent.
+
+format    = "tabular"
+reference = "Lind, Asplund & Barklem 2009, A&A 503, 541"
+element   = "Li"
+ion       = 1
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+clip_axes = ["vmic"]
+
+[read]
+format = "cds"
+readme = "ReadMe"
+
+[columns]
+teff  = "Teff"
+logg  = "logg"
+feh   = "[Fe/H]"
+vmic  = "Vturb"
+abund = "A(Li)"
+value = "Delta"
+
+[abundance]
+kind       = "logeps"
+indexed_by = "lte"
+
+[[tables]]
+id   = "lind2009_li_6708"
+file = "table2.dat"
+line = 6707.8
+[[tables]]
+id   = "lind2009_li_6104"
+file = "table3.dat"
+line = 6103.6

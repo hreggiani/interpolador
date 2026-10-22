@@ -1,0 +1,57 @@
+# Merle, Thevenin, Pichon & Bigot 2011, MNRAS 418, 863 -- non-LTE Mg I, Ca I and
+# Ca II for cool giants and supergiants (MARCS, Teff 3500-5250, log g 0.5-2).
+#
+# CDS J/MNRAS/418/863: one fixed-width file per line, named after it (mgi5528.dat,
+# caii8498.dat, ...); the line comes from the file name.  Labels are wavelengths
+# rounded down to the Angstrom.  The aliases below give the real centres where
+# the folder itself states them (the ReadMe, and gaia_lin.f90 for the Gaia RVS
+# lines and the Mg I 8710/8712/8717 blend), and for the two labels that sit a
+# full Angstrom below their line (4702, 5512).
+#
+# [alpha/Fe] is not a free parameter: it follows [Fe/H] (0 at solar, rising to
+# +0.4 at [Fe/H] <= -1, the MARCS standard composition), so the corrections are
+# abundance-independent.  "Delta" is blank where W < 1 mA; those nodes are masked.
+
+format    = "tabular"
+reference = "Merle et al. 2011, MNRAS 418, 863"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+notes     = "Giants and supergiants only (log g 0.5-2). No microturbulence axis. [alpha/Fe] follows [Fe/H], so Delta does not depend on abundance."
+
+[read]
+format = "cds"
+readme = "ReadMe"
+
+[file_params]
+pattern = '(?P<line>\d+[ab]?)\.dat$'
+
+[columns]
+line  = "line"
+teff  = "Teff"
+logg  = "logg"
+feh   = "[Fe/H]"
+value = "Delta"
+
+[abundance]
+independent = true
+
+[[tables]]
+id      = "merle2011_mg1"
+element = "Mg"
+ion     = 1
+files   = "mgi*.dat"
+wavelengths = { unit = "angstrom", aliases = { "4702" = [4702.99], "8473" = [8473.688], "8715" = [8710.169, 8712.678, 8717.812, 8715.255], "8736" = [8736.012] } }
+
+[[tables]]
+id      = "merle2011_ca1"
+element = "Ca"
+ion     = 1
+files   = "cai[0-9]*.dat"
+wavelengths = { unit = "angstrom", aliases = { "5512" = [5512.98], "6169a" = [6169.03], "6169b" = [6169.56], "8525" = [8525.707], "8583" = [8583.318], "8633" = [8633.929] } }
+
+[[tables]]
+id      = "merle2011_ca2"
+element = "Ca"
+ion     = 2
+files   = "caii*.dat"
+wavelengths = { unit = "angstrom", aliases = { "119a" = [11949.0], "8498" = [8498.018], "8542" = [8542.086], "8662" = [8662.135] } }

@@ -1,0 +1,49 @@
+# Korotin et al. 2015, A&A 581, A70 -- non-LTE Ba II on MARCS models.
+#
+# CDS J/A+A/581/A70, table5: fixed-width, one correction column per line and
+# [Ba/Fe] (d1-0.2 ... d4+0.4; lines 1-4 are 4554, 5853, 6141, 6496 A), stacked
+# into a long table by [melt].  Delta is tabulated at the model [Ba/Fe], i.e.
+# against the non-LTE abundance, so the default self-consistent solve applies.
+# The solar Ba abundance is the paper's own, 2.17.
+#
+# Models at [Fe/H] <= -1 are alpha-enhanced (+0.4, flag "a"); [Fe/H] = -0.5 is
+# given both ways, and the alpha-enhanced rows are kept, continuous with the
+# metal-poor side the grid is mostly used for.  Nodes marked "*" in the paper
+# (no calculation) are blank and masked.
+
+id        = "korotin2015_ba"
+format    = "tabular"
+reference = "Korotin et al. 2015, A&A 581, A70"
+element   = "Ba"
+ion       = 2
+file      = "table5.dat"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+clip_axes = ["vmic"]
+notes     = "At [Fe/H] = -0.5 the alpha-enhanced models are used. [Ba/Fe] nodes -0.2, +0.1, +0.4."
+
+[read]
+format = "cds"
+readme = "ReadMe"
+where  = "not (`[Fe/H]` == '-0.5' and a == '')"
+
+[melt]
+pattern     = 'd(?P<line>\d)(?P<abund>[-+]\d\.\d)'
+value       = "delta"
+line_labels = { 1 = "4554.03", 2 = "5853.70", 3 = "6141.71", 4 = "6496.90" }
+
+[columns]
+line  = "line"
+teff  = "Teff"
+logg  = "logg"
+feh   = "[Fe/H]"
+vmic  = "Vt"
+abund = "abund"
+value = "delta"
+
+[abundance]
+kind  = "xfe"
+solar = 2.17
+
+[wavelengths]
+unit = "angstrom"

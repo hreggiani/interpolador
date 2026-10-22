@@ -1,0 +1,27 @@
+# Sitnova, Yakovleva, Belyaev & Mashonkina 2022, MNRAS 515, 1510 -- non-LTE Zn I
+# and Zn II.
+#
+# The two .lst files ship inside the paper's arXiv source (2205.05819), in the
+# group's block layout (see nlte/readers/inasan_lst.py): MARCS models for FGK
+# stars (Teff 4000-6500, log g 0.5-5, [Fe/H] -4 to +0.5) and LLmodels for hot
+# stars (Teff 6600 and up, log g 3-5).  Each file yields one source per ion.
+# Corrections are tabulated at [Zn/Fe] = 0 and do not depend on abundance;
+# EW < 5 mA nodes (EW = Delta = -1 in the file) are masked.
+
+format    = "inasan_lst"
+reference = "Sitnova et al. 2022, MNRAS 515, 1510"
+element   = "Zn"
+flavor    = "1D NLTE - 1D LTE"
+
+[wavelengths]
+unit = "nm"
+
+[[tables]]
+id    = "sitnova2022_zn_marcs"
+file  = "zn_dnlte_marcs_dg.lst"
+notes = "MARCS models, FGK stars. Computed at [Zn/Fe] = 0."
+
+[[tables]]
+id    = "sitnova2022_zn_llhot"
+file  = "zn_dnlte_ll_hot_gamma.lst"
+notes = "LLmodels for hot stars (Teff >= 6600 K). Computed at [Zn/Fe] = 0."

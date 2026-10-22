@@ -1,0 +1,36 @@
+# Bergemann, Kudritzki, Wuerl et al. 2013, ApJ 764, 115 -- non-LTE Si I J-band lines
+# in red supergiants (MARCS RSG models, xi = 2 km/s).
+#
+# The paper's table of corrections for Si I 11984, 11991, 12031, 12103 A, rebuilt
+# as a CSV from the arXiv LaTeX (1212.2649) by tools/latex_tables.py.  The "[Z]"
+# column is the model metallicity and is used as [Fe/H].
+#
+# This is a red-supergiant grid (log g -0.5 to 1.0) for the near infrared; the
+# optical Si I grid NLiTE attributes to this paper is the MPIA database, which is
+# not reproduced here.  Corrections are abundance-independent.
+
+id        = "bergemann2013_si"
+format    = "tabular"
+reference = "Bergemann et al. 2013, ApJ 764, 115"
+element   = "Si"
+ion       = 1
+file      = "si1_jband_nlte_corrections.csv"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+notes     = "Red supergiants only (log g <= 1), J-band lines. xi = 2 km/s, no microturbulence axis."
+
+[read]
+delimiter = ","
+
+[columns]
+line  = "line"
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+value = "delta"
+
+[abundance]
+independent = true
+
+[wavelengths]
+unit = "angstrom"

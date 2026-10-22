@@ -1,0 +1,50 @@
+# Takeda et al. 2005, PASJ 57, 751 -- non-LTE S I and Zn I for representative
+# F, G and K stars (Teff 4500/5500/6500, log g 2/4, [Fe/H] 0 to -4).
+#
+# The printed tables 2 and 3, as published tab-separated on the PASJ site
+# (pasj.asj.or.jp/v57/n5/570510/).  The full grids were electronic tables E1-E4 on
+# the author's former NAO page, which is gone and was never archived, so these
+# 30-model tables are what remains.
+#
+# Each table gives Delta for five H I collision scalings h = +1 ... -3; the
+# authors adopt h = 0, which is the column read here.  The abundance at each model
+# is fixed by [Fe/H] (A(S) = 7.21 + [Fe/H] at solar metallicity, +0.4 dex alpha
+# enhancement below), so the corrections are abundance-independent.  xi = 2 km/s
+# throughout; that axis collapses to a fixed parameter.  "\cdots" (Zn I at
+# 4500/2.0/-1.0, where the calculation failed) and the trailing notes row are
+# dropped as non-numeric.
+
+format    = "tabular"
+reference = "Takeda et al. 2005, PASJ 57, 751"
+ion       = 1
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+notes     = "30 representative models only (Teff 4500/5500/6500, log g 2/4); the full electronic grids are lost. h = 0 (adopted) H I collision scaling. xi = 2 km/s."
+
+[read]
+delimiter = "tab"
+skiprows  = 5
+
+[columns]
+line  = "Line"
+teff  = 'T_{eff}'
+logg  = '\log g'
+feh   = "[Fe/H]"
+vmic  = '\xi'
+value = '\Delta_{0}'
+
+[abundance]
+independent = true
+
+[wavelengths]
+unit = "angstrom"
+
+[[tables]]
+id      = "takeda2005_s1"
+element = "S"
+file    = "table2_s1_nlte_corrections.tsv"
+
+[[tables]]
+id      = "takeda2005_zn1"
+element = "Zn"
+file    = "table3_zn1_nlte_corrections.tsv"

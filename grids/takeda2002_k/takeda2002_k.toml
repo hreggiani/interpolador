@@ -1,0 +1,47 @@
+# Takeda et al. 2002, PASJ 54, 275 -- non-LTE K I 7698.98 (Kurucz models, xi = 2).
+#
+# The grid exists only as the printed table (main + "Continued"), so
+# tools/latex_tables.py rebuilds it as a CSV from the arXiv LaTeX
+# (astro-ph/0110165): 100 models, Teff 4500-6500 by 500, log g 1-5, [Fe/H] 0 to -3,
+# three abundances each.
+#
+# Per model and abundance the table gives the input abundance A^a, the LTE and
+# non-LTE equivalent widths it produces, and the abundances an NLTE (A^N) and an
+# LTE (A^L) analysis of that non-LTE width return; Delta = A^N - A^L.  So Delta
+# belongs to the model (non-LTE) abundance A^a, and the default self-consistent
+# solve applies.
+#
+# A^a tracks [Fe/H] with an alpha-like enhancement: [K/Fe] = -0.3/0/+0.3 at solar
+# metallicity and +0.2/+0.5/+0.8 below (taking the middle solar node, 5.12, as
+# A(K)_sun).  Between [Fe/H] = 0 and -1 the two sets do not line up, so cells
+# there have valid corners on one side only and many queries go unanswered;
+# from [Fe/H] = -1 down the grid is rectilinear.
+
+id        = "takeda2002_k"
+format    = "tabular"
+reference = "Takeda et al. 2002, PASJ 54, 275"
+element   = "K"
+ion       = 1
+file      = "k1_7698_nlte_corrections.csv"
+kind      = "delta"
+flavor    = "1D NLTE - 1D LTE"
+notes     = "Rebuilt from the printed table. xi = 2 km/s, no microturbulence axis. [K/Fe] nodes differ between [Fe/H] = 0 and <= -1, so that interval is sparsely answered."
+
+[read]
+delimiter = ","
+
+[columns]
+line  = "line"
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+abund = "a_model"
+value = "delta"
+
+[abundance]
+kind   = "xfe"
+stored = "logeps"
+solar  = 5.12
+
+[wavelengths]
+unit = "angstrom"

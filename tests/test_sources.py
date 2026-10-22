@@ -297,3 +297,70 @@ def test_copper_grid_refuses_the_gap_between_giants_and_dwarfs(registry):
     assert ask(6000, 4.5).ok            # dwarf block
     assert not ask(6000, 2.0).ok        # nothing was computed here
     assert not ask(6000, 2.0).in_range
+
+
+# ---------------------------------------------------------------- NLiTE-list grids
+
+
+def _point(src, **params):
+    return np.array([[params[n] for n in src.axis_names]])
+
+
+def test_inasan_grid_reproduces_the_server_at_a_node(registry):
+    # +0.156 is what spectrum.inasan.ru/nLTE2 returned for this node when the
+    # grid was rebuilt; Fe I there does not depend on abundance.
+    from nlte.api import correct
+
+    for abund in (4.0, 4.5, 6.0):
+        (c,) = correct("FeI", 5171.61, abund=abund, teff=5000, logg=2.0, feh=-3.0,
+                       sources=["mashonkina2011_fe"], registry=registry)
+        assert c.ok and c.in_range and c.delta == pytest.approx(0.156)
+
+
+def test_inasan_sodium_joins_the_dwarf_and_giant_halves(registry):
+    # The server lists each Na I line twice: one entry is the dwarf grid, the
+    # other the giant grid.  Merged, the lines reach the cool giants.
+    src = registry.get("alexeeva2014_na")
+    assert sorted(ln.wavelength for ln in src.lines) == [5682.64, 5688.2, 5889.95, 5895.92]
+    assert src.bounds()["teff"] == (4000.0, 6500.0) and src.bounds()["logg"] == (0.5, 5.0)
+    d1 = src.lines.index(next(ln for ln in src.lines if ln.wavelength == 5895.92))
+    giant = src.grids[d1](_point(src, teff=4500, logg=1.5, feh=-3.0, abund=0.0))
+    assert np.isfinite(giant.value).all()
+
+
+def test_gallagher_reproduces_its_solar_model(registry):
+    # barium_corrections_v5: Teff 5770, log g 4.44, [M/H] 0, 4554 A, [Ba/Fe] = 0
+    # -> 3D_corr = 0.049, 1D_corr = -0.028.
+    for suffix, expected in (("3dnlte", 0.049), ("1dnlte", -0.028)):
+        src = registry.get(f"gallagher2020_ba_{suffix}")
+        i = next(k for k, ln in enumerate(src.lines) if abs(ln.wavelength - 4554.03) < 0.1)
+        got = src.grids[i](_point(src, teff=5770, logg=4.4, feh=0.0, abund=0.0)).value[0]
+        assert got == pytest.approx(expected)
+
+
+def test_korotin_keeps_the_alpha_enhanced_models_at_minus_half(registry):
+    # table5 lists [Fe/H] = -0.5 twice; the "a" (alpha-enhanced) row has -0.09
+    # for 5853 A at [Ba/Fe] = +0.1, the solar-composition row -0.08.
+    src = registry.get("korotin2015_ba")
+    i = next(k for k, ln in enumerate(src.lines) if ln.label == "5853.70")
+    got = src.grids[i](_point(src, teff=5000, logg=2.0, feh=-0.5, vmic=1.0, abund=0.1)).value[0]
+    assert got == pytest.approx(-0.09)
+
+
+def test_lind2022_resolves_shared_line_identifiers(registry):
+    # 7877 is Mg II 7877.054 and 7878 is Mg I 7877.48: the first strengthens with
+    # Teff like the other Mg II lines, the second weakens like Mg I.
+    mg1, mg2 = registry.get("lind2022_mg1"), registry.get("lind2022_mg2")
+    assert 7877.054 in [ln.wavelength for ln in mg2.lines]
+    assert 7877.48 in [ln.wavelength for ln in mg1.lines]
+    assert {ln.wavelength for ln in mg1.lines}.isdisjoint(ln.wavelength for ln in mg2.lines)
+    # [X/Fe] is printed with one decimal; the axis is snapped back to 0.25 steps.
+    nodes = mg1.abund_nodes
+    assert np.allclose(nodes / 0.25, np.round(nodes / 0.25))
+
+
+def test_abundance_independent_sources_say_so(registry):
+    for sid in ("mashonkina2011_fe", "merle2011_mg1", "takeda2005_s1",
+                "bergemann2012_sr_sr2", "sitnova2022_zn_marcs_zn1"):
+        src = registry.get(sid)
+        assert src.abund_independent and src.indexed_by == "lte", sid

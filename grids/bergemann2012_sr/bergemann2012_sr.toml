@@ -1,0 +1,36 @@
+# Bergemann, Hansen, Bautista & Ruchti 2012, A&A 546, A90 -- non-LTE Sr I and Sr II
+# (MAFAGS-OS models).
+#
+# The CDS catalogue holds only a ReadMe; the grids are the paper's tables of
+# corrections for Sr I 4607 and Sr II 4077, 10036 (Sr II 4215 is not tabulated),
+# rebuilt as a CSV from the arXiv LaTeX (1207.2451) by tools/latex_tables.py.
+# Teff 4400-6400, log g 2.2-4.6, [Fe/H] -3.9 to 0; "--" (no model) is masked.
+#
+# Corrections were computed by matching non-LTE equivalent widths with LTE
+# abundances at scaled-solar Sr, so they are abundance-independent.
+
+id         = "bergemann2012_sr"
+format     = "tabular"
+reference  = "Bergemann et al. 2012, A&A 546, A90"
+element    = "Sr"
+file       = "sr_nlte_corrections.csv"
+kind       = "delta"
+flavor     = "1D NLTE - 1D LTE"
+ion_column = "species"
+notes      = "Rebuilt from the printed tables. No microturbulence axis. Sr II 4215 is not tabulated."
+
+[read]
+delimiter = ","
+
+[columns]
+line  = "line"
+teff  = "teff"
+logg  = "logg"
+feh   = "feh"
+value = "delta"
+
+[abundance]
+independent = true
+
+[wavelengths]
+unit = "angstrom"
