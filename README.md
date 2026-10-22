@@ -96,8 +96,8 @@ with no usable value keeps its row with NaN; a species with none listed gets a
 single NaN row. The full output says why a value is missing and what other
 grids offer. `ep` and `gf` come from the input (`ep`/`elo`, `gf`/`loggf`
 columns) when present, else from the Amarsi 2022 iron line list, else NaN. In
-Python: `standard_frame(out, df)`, with `out = correct_frame(df)`; the source
-choice is `nlte.STANDARD_SOURCES`.
+Python, `correct_frame` returns both tables; the source choice is
+`nlte.STANDARD_SOURCES`.
 
 ## In a notebook or IPython
 
@@ -127,13 +127,17 @@ A whole line list, then reshaped however you like:
 
 ```python
 df  = pd.read_csv("teste_interpolador_in.csv", encoding="utf-8-sig")
-out = correct_frame(df, keep=["id"])                  # 450 rows, 341 usable
+out, std = correct_frame(df, keep=["id"])             # full: 530 rows, 341 usable
+                                                      # standard: 304 rows, 116 usable
 
 out[out.ok].groupby(["species", "source"]).delta.agg(["mean", "count"]).round(3)
 out[out.ok].pivot_table(index="row", columns="source", values="delta")
 ```
 
 `out.row` indexes back into the input, so `df.loc[out.row]` lines the two up.
+`std` is the standard output, the same table the CLI writes to `_std`:
+`std.to_csv("corrected_std.csv", index=False)` saves it.
+
 `correct` and `correct_frame` take the same options as the CLI: `mode="direct"`,
 `tol=`, `min_valid_weight=`, `sources=[...]`.
 

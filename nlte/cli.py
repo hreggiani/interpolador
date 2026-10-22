@@ -22,7 +22,6 @@ import numpy as np
 from .api import DEFAULT_TOLERANCE, correct_frame, line_index
 from .interp import RectGrid
 from .registry import get_registry, set_grid_root
-from .standard import standard_frame
 
 
 def _read_any(path: Path):
@@ -97,7 +96,7 @@ def main_correct(argv=None) -> int:
 
     df = _read_any(args.input)
     col_map = _parse_col_map(args.col_map)
-    out = correct_frame(
+    out, std = correct_frame(
         df,
         mode=args.mode,
         tol=args.tol,
@@ -107,7 +106,6 @@ def main_correct(argv=None) -> int:
         columns=col_map,
         keep=[c.strip() for c in args.keep.split(",") if c.strip()],
     )
-    std = standard_frame(out, df, columns=col_map)
 
     if args.wide:
         # Pivot on the row number alone.  Including element or wavelength in the

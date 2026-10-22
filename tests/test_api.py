@@ -109,7 +109,7 @@ def test_correct_frame_produces_one_row_per_source(registry):
         "teff": [5777, 5777], "logg": [4.44, 4.44],
         "feh": [0.0, 0.0], "vmic": [1.0, 1.0],
     })
-    out = correct_frame(frame, registry=registry, keep=["star"])
+    out, _ = correct_frame(frame, registry=registry, keep=["star"])
     assert len(out) > len(frame)
     assert {"source", "delta", "a_nlte", "ok", "note", "star"} <= set(out.columns)
     assert out.ok.any()
@@ -121,7 +121,7 @@ def test_correct_frame_renames_columns(registry):
         "element": ["O"], "lambda": [7771.94], "A_X": [8.69],
         "teff": [5777], "logg": [4.44], "feh": [0.0], "xi": [1.0],
     })
-    out = correct_frame(frame, registry=registry,
+    out, _ = correct_frame(frame, registry=registry,
                         columns={"wavelength": "lambda", "abund": "A_X", "vmic": "xi"})
     assert out.ok.any()
 
@@ -131,7 +131,7 @@ def test_correct_frame_marks_lines_no_grid_covers(registry):
         "element": ["Fe"], "wavelength": [1234.5], "abund": [7.5],
         "teff": [5777], "logg": [4.44], "feh": [0.0], "vmic": [1.0],
     })
-    out = correct_frame(frame, registry=registry)
+    out, _ = correct_frame(frame, registry=registry)
     assert len(out) == 1 and not out.ok[0]
     assert "no grid" in out.note[0]
 
@@ -213,7 +213,7 @@ def test_correct_frame_accepts_a_species_column(registry):
         "teff": [5966] * 3, "logg": [3.76] * 3,
         "feh": [-0.51] * 3, "vmic": [1.27] * 3,
     })
-    out = correct_frame(frame, registry=registry)
+    out, _ = correct_frame(frame, registry=registry)
     assert out.ok.any()
     # An element no grid covers must not abandon the rest of the table.
     scandium = out[out.row == 2]
@@ -226,7 +226,7 @@ def test_correct_frame_reports_an_unrecognised_species(registry):
         "species": ["Xx"], "wavelength": [5000.0], "abund": [1.0],
         "teff": [5777], "logg": [4.4], "feh": [0.0], "vmic": [1.0],
     })
-    out = correct_frame(frame, registry=registry)
+    out, _ = correct_frame(frame, registry=registry)
     assert len(out) == 1 and not out.ok[0]
     assert "unrecognised species" in out.note[0]
 
@@ -238,7 +238,7 @@ def test_correct_frame_handles_many_rows_and_species(registry):
     if not example.exists():
         pytest.skip("example input not present")
     frame = pd.read_csv(example, encoding="utf-8-sig")
-    out = correct_frame(frame, registry=registry, keep=["id"])
+    out, _ = correct_frame(frame, registry=registry, keep=["id"])
     assert len(out) >= len(frame)
     assert out.ok.sum() > 200
     assert set(out.row) == set(range(len(frame)))
@@ -277,7 +277,7 @@ def test_keep_can_carry_the_species_column_through(registry):
         "abund": [6.94], "teff": [5966], "logg": [3.76],
         "feh": [-0.513], "vmic": [1.265],
     })
-    out = correct_frame(frame, registry=registry, keep=["id", "species"])
+    out, _ = correct_frame(frame, registry=registry, keep=["id", "species"])
     assert (out.species == "FeI").all()
     assert (out.id == "star1").all()
 

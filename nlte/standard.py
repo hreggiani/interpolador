@@ -106,10 +106,11 @@ class _Lookup:
 
 
 def standard_frame(full, frame, columns=None, registry=None):
-    """Reduce the full output of :func:`nlte.correct_frame` to the standard columns.
+    """Reduce a full output to the standard columns.
 
-    ``frame`` and ``columns`` are what ``correct_frame`` was given; ``full`` is
-    what it returned.  Every input row appears at least once: once per
+    :func:`nlte.correct_frame` already returns this as its second value; call it
+    directly to rebuild the standard table from a full one.  ``frame`` and
+    ``columns`` are what ``correct_frame`` was given; ``full`` is its first value.  Every input row appears at least once: once per
     recommended source for its species, or once with NaN when the species has
     none.  Rows follow the input order.
     """

@@ -407,7 +407,11 @@ def canonical_columns(frame, columns=None):
 def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
                   include_blends=True, sources=None, min_valid_weight=None,
                   registry=None, columns=None, keep=()):
-    """Corrections for a table of measurements, one output row per source.
+    """Corrections for a table of measurements: the full and the standard output.
+
+    Returns ``(full, standard)``.  ``full`` has one row per measurement and
+    source, with every diagnostic; ``standard`` is the short table of
+    :func:`nlte.standard_frame`, from the recommended sources only.
 
     ``frame`` needs ``element``, ``wavelength`` and ``abund`` columns plus
     whatever stellar parameters the grids require; ``columns`` renames them
@@ -467,7 +471,11 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
     out.insert(0, "row", [i for i, _ in rows])
     for col in keep:
         out[col] = [df.at[i, col] for i, _ in rows]
-    return out.sort_values(["row", "source"], kind="stable").reset_index(drop=True)
+    out = out.sort_values(["row", "source"], kind="stable").reset_index(drop=True)
+
+    from .standard import standard_frame     # imports this module
+
+    return out, standard_frame(out, frame, columns=columns, registry=registry)
 
 
 def to_frame(corrections):

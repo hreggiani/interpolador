@@ -30,8 +30,11 @@ def _standard(rows, registry, **kw):
     frame = pd.DataFrame(rows)
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        full = correct_frame(frame, registry=registry, **kw)
-    return standard_frame(full, frame, registry=registry, columns=kw.get("columns"))
+        full, std = correct_frame(frame, registry=registry, **kw)
+    # The pair is the same table standard_frame rebuilds from the full output.
+    pd.testing.assert_frame_equal(
+        std, standard_frame(full, frame, registry=registry, columns=kw.get("columns")))
+    return std
 
 
 @pytest.mark.grids
