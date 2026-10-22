@@ -61,6 +61,44 @@ nlte-validate                    # load every manifest, report coverage, verify 
 nlte-lines -o coverage.md        # every line that can be corrected, per element
 ```
 
+### Standard output
+
+Every run also writes a standard table beside the full one — `corrected.csv`
+gets `corrected_std.csv` — with ten columns and only the recommended sources:
+
+| Column | |
+|---|---|
+| `id` | the star, from an `id` or `star` column |
+| `wavelength` | as measured |
+| `species` | atomic number + (stage − 1)/10: Fe II = 26.1 |
+| `ep`, `gf` | lower excitation potential and log gf |
+| `A(X)` | the measured 1D LTE abundance |
+| `A(X)_corr` | the corrected abundance |
+| `DeltaA(X)` | `A(X)_corr − A(X)` |
+| `source`, `flavor` | the paper and what the correction is |
+
+| Species | Sources, one row each |
+|---|---|
+| Li I | Wang et al. 2021 (3D NLTE) |
+| C I, O I | Amarsi et al. 2019, 3D NLTE (dwarfs) and 1D NLTE |
+| Na I | Canocchi et al. 2026 (3D NLTE), Lind et al. 2022 (1D NLTE) |
+| Si I | Amarsi & Asplund 2017 |
+| K I | Reggiani et al. 2019 |
+| Ti II | Sitnova, Mashonkina & Ryabchikova 2016 |
+| Fe I, Fe II | Amarsi et al. 2022 (3D NLTE, dwarfs), Amarsi et al. 2016 (1D NLTE) |
+| Cu I | Caliskan et al. 2025 |
+| Zn I, Zn II | Sitnova et al. 2022 (MARCS, or LLmodels above 6600 K) |
+| Sr II | Mashonkina et al. 2022 |
+| Ba II | Mashonkina & Belyaev 2019 ([Fe/H] ≤ −2 only), Gallagher et al. 2020 (3D NLTE and 1D NLTE, [Fe/H] −3 to 0) |
+
+Each measurement gets one row per source listed for its species, and a source
+with no usable value keeps its row with NaN; a species with none listed gets a
+single NaN row. The full output says why a value is missing and what other
+grids offer. `ep` and `gf` come from the input (`ep`/`elo`, `gf`/`loggf`
+columns) when present, else from the Amarsi 2022 iron line list, else NaN. In
+Python: `standard_frame(out, df)`, with `out = correct_frame(df)`; the source
+choice is `nlte.STANDARD_SOURCES`.
+
 ## In a notebook or IPython
 
 Same functions, no files in between:

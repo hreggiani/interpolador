@@ -389,6 +389,21 @@ def correct(element, wavelength, abund, teff=None, logg=None, feh=None, vmic=Non
     return results
 
 
+def canonical_columns(frame, columns=None):
+    """Rename a measurement table's columns to the names the queries use.
+
+    ``columns`` maps canonical names to the table's own (``{"abund": "A_Fe"}``).
+    """
+    df = frame.rename(columns={v: k for k, v in (columns or {}).items()})
+    df.columns = [str(c).lstrip("﻿") for c in df.columns]
+    # "species" is the usual column name in a line list, and carries the
+    # ionisation stage; "element" is accepted as a plainer alias.
+    if "element" not in df.columns and "species" in df.columns:
+        # Copy rather than rename, so `keep=["species"]` still finds it.
+        df = df.assign(element=df["species"])
+    return df
+
+
 def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
                   include_blends=True, sources=None, min_valid_weight=None,
                   registry=None, columns=None, keep=()):
@@ -404,13 +419,7 @@ def correct_frame(frame, mode="selfconsistent", tol=DEFAULT_TOLERANCE,
     """
     import pandas as pd
 
-    df = frame.rename(columns={v: k for k, v in (columns or {}).items()})
-    df.columns = [str(c).lstrip("\ufeff") for c in df.columns]
-    # "species" is the usual column name in a line list, and carries the
-    # ionisation stage; "element" is accepted as a plainer alias.
-    if "element" not in df.columns and "species" in df.columns:
-        # Copy rather than rename, so `keep=["species"]` still finds it.
-        df = df.assign(element=df["species"])
+    df = canonical_columns(frame, columns)
     required = {"element", "wavelength", "abund"}
     if not required.issubset(df.columns):
         raise ValueError(f"frame is missing columns: {sorted(required - set(df.columns))}")

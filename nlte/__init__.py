@@ -20,6 +20,7 @@ from .api import (
 )
 from .registry import register_reader, register_source, set_grid_root
 from .solve import solve_delta, solve_ew_match
+from .standard import STANDARD_SOURCES, standard_frame
 from .source import GridSource, Line
 
 __all__ = [
@@ -29,6 +30,8 @@ __all__ = [
     "line_index",
     "sources",
     "to_frame",
+    "standard_frame",
+    "STANDARD_SOURCES",
     "Correction",
     "GridSource",
     "Line",

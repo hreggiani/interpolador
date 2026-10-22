@@ -2,7 +2,9 @@
 
 ``nlte-correct``
     Corrects a table of measurements, writing one row per measurement and
-    source (or one column per source with ``--wide``).
+    source (or one column per source with ``--wide``), and beside it the
+    standard output, ``<output>_std``: the recommended sources only, in a
+    fixed set of columns.
 
 ``nlte-validate``
     Loads manifests, prints what each source covers, and re-queries the grids at
@@ -20,6 +22,7 @@ import numpy as np
 from .api import DEFAULT_TOLERANCE, correct_frame, line_index
 from .interp import RectGrid
 from .registry import get_registry, set_grid_root
+from .standard import standard_frame
 
 
 def _read_any(path: Path):
@@ -93,6 +96,7 @@ def main_correct(argv=None) -> int:
         set_grid_root(args.grids)
 
     df = _read_any(args.input)
+    col_map = _parse_col_map(args.col_map)
     out = correct_frame(
         df,
         mode=args.mode,
@@ -100,9 +104,10 @@ def main_correct(argv=None) -> int:
         include_blends=not args.no_blends,
         sources=[s.strip() for s in args.sources.split(",") if s.strip()] or None,
         min_valid_weight=args.min_valid_weight,
-        columns=_parse_col_map(args.col_map),
+        columns=col_map,
         keep=[c.strip() for c in args.keep.split(",") if c.strip()],
     )
+    std = standard_frame(out, df, columns=col_map)
 
     if args.wide:
         # Pivot on the row number alone.  Including element or wavelength in the
@@ -122,7 +127,16 @@ def main_correct(argv=None) -> int:
     _write_any(out, args.output)
     usable = int(out.filter(like="delta").notna().to_numpy().sum()) if args.wide else int(out.ok.sum())
     print(f"wrote {args.output} ({len(out)} rows, {usable} usable corrections)")
+    std_path = standard_path(args.output)
+    _write_any(std, std_path)
+    print(f"wrote {std_path} ({len(std)} rows, "
+          f"{int(std['DeltaA(X)'].notna().sum())} usable corrections)")
     return 0
+
+
+def standard_path(output: Path) -> Path:
+    """Where the standard output goes: ``corrected.csv`` -> ``corrected_std.csv``."""
+    return output.with_name(f"{output.stem}_std{output.suffix}")
 
 
 MAX_MARKDOWN_LINES = 60
