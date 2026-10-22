@@ -281,6 +281,10 @@ def main_validate(argv=None) -> int:
             if args.quick:
                 print()
                 continue
+            if not np.isfinite(src.coverage()) and src.geometry() not in ("rectilinear", "hybrid"):
+                # Networks and package-backed models have no nodes to re-query.
+                print("  round-trip: n/a (model-backed)\n")
+                continue
             errs = []
             for grid in src.grids[:8]:
                 for part in (grid if isinstance(grid, tuple) else (grid,)):

@@ -71,6 +71,10 @@ class GridSource:
     fixed: dict = field(default_factory=dict)   # collapsed length-1 axes
     alias: dict = field(default_factory=dict)   # axis name -> query parameter it reads
     abund_nodes: np.ndarray | None = None       # native nodes, for "ew_pair"
+    #: Delta does not depend on abundance.  The grid still carries an abundance
+    #: axis -- flat and clipped -- so every source has the same layout; the
+    #: abundance it was computed at, if the table says, is in ``fixed``.
+    abund_independent: bool = False
     notes: str = ""
     path: str = ""
 
@@ -179,18 +183,25 @@ class GridSource:
 
     def describe(self) -> str:
         b = self.bounds()
+        if self.abund_independent:
+            b.pop("abund", None)
         axes = ", ".join(f"{k}=[{v[0]:g}, {v[1]:g}]" for k, v in b.items())
         fixed = "".join(f"\n  fixed:      {k} = {v:g}" for k, v in self.fixed.items())
         wl = [ln.wavelength for ln in self.lines if np.isfinite(ln.wavelength)]
         span = f"{min(wl):.1f}-{max(wl):.1f} A" if wl else "n/a"
+        if self.abund_independent:
+            abundance = "not an axis (Delta does not depend on it)"
+        else:
+            abundance = self.abund_kind + (
+                f" (zero point {self._zero():g})" if self.abund_kind != "logeps" else ""
+            )
         return (
             f"{self.id}\n"
             f"  reference:  {self.reference}\n"
             f"  species:    {self.species}   flavour: {self.flavor}"
             f"   scattering: {self.scattering}\n"
             f"  kind:       {self.kind}   geometry: {self.geometry()}\n"
-            f"  abundance:  {self.abund_kind}"
-            + (f" (zero point {self._zero():g})" if self.abund_kind != "logeps" else "")
+            f"  abundance:  {abundance}"
             + f"\n  axes:       {axes}{fixed}\n"
             f"  lines:      {len(self.lines)} ({span})\n"
             + (f"  coverage:   {self.coverage() * 100:.1f}% of nodes valid"

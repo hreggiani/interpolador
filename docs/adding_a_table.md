@@ -104,7 +104,7 @@ coverage figure `nlte-validate` prints: silicon reads 100% when parametrised
 correctly and 29% when not.
 
 **Splitting by ionisation stage:** `ion_column = "species"` yields one source per
-ion, with the ion parsed from values like `Fe1`, `Fe2`.
+ion, with the ion parsed from values like `Fe1`, `Fe2`, `Ca I`, `Ca II`.
 
 **Which abundance is Delta indexed by?** Most published grids tabulate Δ against
 the *model* (non-LTE) abundance, so a measured LTE abundance has to be solved
@@ -141,6 +141,62 @@ about 60 s to about 5 s.
 **Archives:** if the manifest names `foo.txt` and only `foo.tar.gz` is present,
 it is extracted on first use.
 
+**Several files:** a grid published as one file per metallicity, per line or per
+model takes `files` instead of `file` — a list, a glob, or both — and the frames
+are concatenated before gridding. Parameters that live only in the file name come
+from `[file_params]`, a regex with named groups; `scale` turns digits into
+numbers. The Gallagher et al. barium set:
+
+```toml
+files = "barium_corrections_v5/g*mm*_5601_corrected_corrections.txt"
+
+[file_params]
+pattern = '^g(?P<logg>\d+)mm(?P<feh>\d+)_'     # g45mm10 -> log g 4.5, [Fe/H] -1.0
+scale   = { logg = 0.1, feh = -0.1 }
+```
+
+A group named `line` (Merle et al. 2011: `mgi5528.dat`) supplies the line label.
+
+**CDS fixed-width tables:** `[read] format = "cds"` with `readme = "ReadMe"`
+takes column names and byte ranges from the ReadMe's "Byte-by-byte Description"
+block for that file (patterns like `tablea[12345].dat` and `*.dat` are
+honoured). Use it rather than a whitespace split whenever a column can be blank
+(`?` in the ReadMe) or a flag sits against a number (`-2.0a`): either shifts every
+later column under a split. Gzipped tables are read as they are.
+
+**One column per line and abundance:** `[melt]` stacks columns such as
+Korotin et al.'s `d1-0.2 ... d4+0.4` into a long table. The pattern's named
+groups become columns, the values go into `value`, and `line_labels` maps group
+values to labels:
+
+```toml
+[melt]
+pattern     = 'd(?P<line>\d)(?P<abund>[-+]\d\.\d)'
+value       = "delta"
+line_labels = { 1 = "4554.03", 2 = "5853.70", 3 = "6141.71", 4 = "6496.90" }
+```
+
+**A node tabulated twice:** `[read] where` is a pandas query applied to the raw
+table, before anything else, to pick one of two versions of the same node —
+Korotin et al. give [Fe/H] = -0.5 with and without alpha enhancement. Columns it
+tests need not be mapped in `[columns]`. Say in the manifest which version you
+kept and why.
+
+**An axis printed with too few decimals:** `[snap]` rounds an axis column onto
+its true step. Lind et al. 2022 tabulate [X/Fe] every 0.25 dex in an F4.1 column,
+so -0.75 is printed -0.8; `snap = { abund = 0.25 }` puts the nodes back.
+
+**Grids that do not depend on abundance:** many tables were computed at one
+abundance per model — at a fixed [X/Fe], or with [α/Fe] following [Fe/H]. Declare
+`[abundance] independent = true` and leave `abund` out of `[columns]`. The source
+then reads Delta directly, returns the same value at any abundance, and
+`describe()` says `abundance: not an axis`. A table whose abundance column holds a
+single value is treated the same way, with that value recorded in `fixed`; prefer
+the explicit form when the column is nominal (the INASAN form's [X/Fe] for Fe I,
+Mg I and Ti II is not the value the grid was computed at). More generally, any
+axis with a single node becomes a fixed parameter: Takeda et al.'s ξ = 2 km/s
+column reads as `fixed: vmic = 2`.
+
 ## Several tables in one manifest
 
 `[[tables]]` describes a family that differs in only a few keys — the 22 Amarsi
@@ -175,6 +231,20 @@ nlte = "(?P<line>[0-9]+)NLTE"
 
 Use `[[ew_lines]]` entries (`label`, `lte`, `nlte`) instead if the column names
 do not follow a pattern.
+
+If the table has one row per line instead, with the two widths in two columns,
+name them in `[columns]` as `ew_lte` and `ew_nlte` next to `line`. This layout
+goes through the same gridding and cache as delta tables, which the 3.3M-row Lind
+et al. 2022 magnesium file needs. Either way the widths must be log10.
+
+## The INASAN block layout
+
+`format = "inasan_lst"` reads the plain-text grids the Moscow group distributes
+(Sitnova et al. 2022, zinc): per line, blocks per Teff with log g across the
+columns, and each [Fe/H] row given twice, equivalent widths then corrections.
+`EW = -1` marks nodes too weak to measure and is masked. Each ionisation stage in
+the file becomes a source, abundance-independent. The manifest needs only `id`,
+`reference`, `element`, `file` and `[wavelengths] unit = "nm"`.
 
 ## Grids that are not tables at all
 

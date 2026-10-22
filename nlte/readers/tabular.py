@@ -13,6 +13,7 @@ special cases.
 
 from __future__ import annotations
 
+import fnmatch
 import hashlib
 import json
 import re
@@ -24,7 +25,7 @@ import numpy as np
 import pandas as pd
 
 from ..registry import cache_dir, register_reader
-from ..solar import normalize_element
+from ..solar import normalize_element, parse_species
 from ..source import GridSource, Line, make_grid, resolve_solar
 
 CANONICAL_PARAMS = ("teff", "logg", "feh", "vmic")
@@ -71,6 +72,48 @@ def _is_separator_row(values) -> bool:
     return all(c == "" or set(c) <= {"-"} for c in cells)
 
 
+_CDS_FIELD = re.compile(
+    r"^\s*(?:(?P<start>\d+)\s*-\s*)?(?P<end>\d+)\s+(?P<fmt>[AIFE][\d.]*)\s+\S+\s+(?P<label>\S+)"
+)
+
+
+def cds_layout(readme: Path, filename: str):
+    """Column names and byte ranges for ``filename`` from a CDS ReadMe.
+
+    VizieR ReadMes describe each table in a "Byte-by-byte Description of file:"
+    block whose header may name several files or a pattern (``tablea[12345].dat``,
+    ``*.dat``).  Fixed-width parsing is the only safe way to read these tables:
+    optional fields are left blank, which shifts every later column under a
+    whitespace split, and flags can be glued to numbers (``-2.0a``).
+    """
+    name = Path(filename).name
+    if name.endswith(".gz"):
+        name = name[:-3]
+    lines = Path(readme).read_text(encoding="latin-1").splitlines()
+    for i, line in enumerate(lines):
+        if not line.startswith("Byte-by-byte Description of file:"):
+            continue
+        patterns = line.split(":", 1)[1].split()
+        if not any(fnmatch.fnmatch(name, p) for p in patterns):
+            continue
+        names, colspecs, rules = [], [], 0
+        for row in lines[i + 1:]:
+            if set(row.strip()) == {"-"}:
+                rules += 1
+                if rules == 3:          # header rule, column-title rule, closing rule
+                    break
+                continue
+            m = _CDS_FIELD.match(row)
+            if rules == 2 and m:
+                end = int(m.group("end"))
+                start = int(m.group("start") or end)
+                names.append(m.group("label"))
+                colspecs.append((start - 1, end))
+        if names:
+            return names, colspecs
+    raise ValueError(f"{readme}: no byte-by-byte description covers {name}")
+
+
 def read_table(path: Path, spec: dict, usecols=None) -> pd.DataFrame:
     """Read the data file into a DataFrame, honouring the manifest's read rules.
 
@@ -79,6 +122,16 @@ def read_table(path: Path, spec: dict, usecols=None) -> pd.DataFrame:
     the interpolator never touches.
     """
     path = _ensure_extracted(Path(path))
+    if spec.get("format") == "cds":
+        names, colspecs = cds_layout(path.parent / spec.get("readme", "ReadMe"), path.name)
+        # VizieR serves large tables gzipped; read_fwf does not infer that here.
+        df = pd.read_fwf(path, colspecs=colspecs, names=names, header=None,
+                         dtype=str, keep_default_na=False,
+                         compression="gzip" if path.suffix == ".gz" else None)
+        df = df.apply(lambda c: c.str.strip())
+        if usecols:
+            df = df[[c for c in df.columns if c in set(usecols)]]
+        return df
     kwargs = {
         "sep": _delimiter(spec),
         "comment": spec.get("comment"),
@@ -102,6 +155,87 @@ def read_table(path: Path, spec: dict, usecols=None) -> pd.DataFrame:
     if len(df) and _is_separator_row(df.iloc[0].values):
         df = df.iloc[1:]
     return df.reset_index(drop=True)
+
+
+def data_files(manifest: dict, path: Path) -> list:
+    """Every file a manifest reads, in a stable order.
+
+    ``files`` lists names or glob patterns relative to the manifest, for grids
+    published as one file per metallicity (Spite et al. 2012), per line (Merle et
+    al. 2011) or per (log g, [Fe/H]) pair (Gallagher et al. 2020).  Without it
+    the single ``file`` is used, as before.
+    """
+    spec = manifest.get("files")
+    if spec is None:
+        return [_ensure_extracted(Path(path))]
+    base = Path(path) if Path(path).is_dir() else Path(path).parent
+    found = []
+    for pattern in [spec] if isinstance(spec, str) else spec:
+        hits = sorted(base.glob(pattern))
+        if not hits:
+            raise FileNotFoundError(base / pattern)
+        found.extend(h for h in hits if h not in found)
+    return found
+
+
+def _file_params(manifest: dict, path: Path) -> dict:
+    """Columns carried by a file's name, e.g. ``g45mm10`` -> log g 4.5, [Fe/H] -1.0."""
+    spec = manifest.get("file_params")
+    if not spec:
+        return {}
+    m = re.search(spec["pattern"], Path(path).name)
+    if not m:
+        raise ValueError(f"{Path(path).name} does not match file_params {spec['pattern']!r}")
+    scale = spec.get("scale", {})
+    # "+ 0.0" turns the -0.0 of a negative scale on "00" into a plain zero.
+    return {k: (float(v) * float(scale[k]) + 0.0 if k in scale else v)
+            for k, v in m.groupdict().items()}
+
+
+def _melt(df: pd.DataFrame, spec: dict) -> pd.DataFrame:
+    """Stack columns that each hold one (line, abundance) combination.
+
+    Korotin et al. 2015 publish one correction column per line and [Ba/Fe]
+    (``d1-0.2``, ``d1+0.1``, ...).  The pattern's named groups become columns of
+    the long table and the stacked values go into ``value``.
+    """
+    rx = re.compile(spec["pattern"])
+    matched = {c: rx.fullmatch(c) for c in df.columns}
+    value_cols = [c for c, m in matched.items() if m]
+    if not value_cols:
+        raise ValueError(f"melt pattern {spec['pattern']!r} matches no column")
+    keep = [c for c in df.columns if c not in value_cols]
+    long = df.melt(id_vars=keep, value_vars=value_cols, var_name="__col",
+                   value_name=spec.get("value", "value"))
+    groups = pd.DataFrame([matched[c].groupdict() for c in long["__col"]], index=long.index)
+    labels = {str(k): v for k, v in spec.get("line_labels", {}).items()}
+    if "line" in groups and labels:
+        groups["line"] = groups["line"].map(lambda g: labels.get(g, g))
+    return pd.concat([long.drop(columns="__col"), groups], axis=1)
+
+
+def load_frame(manifest: dict, path: Path, usecols=None) -> pd.DataFrame:
+    """Read every data file of a manifest into one frame, before any cleaning."""
+    spec = manifest.get("read", {})
+    if manifest.get("melt") or spec.get("where"):
+        # The columns named in [columns] only exist after melting, and a row
+        # filter may test columns the grid itself does not use.
+        usecols = None
+    frames = []
+    for f in data_files(manifest, path):
+        df = read_table(f, spec, usecols=usecols)
+        for col, value in _file_params(manifest, f).items():
+            df[col] = value
+        frames.append(df)
+    df = frames[0] if len(frames) == 1 else pd.concat(frames, ignore_index=True)
+    if spec.get("where"):
+        # A pandas query on the raw table, for files that tabulate one node twice
+        # under different assumptions (Korotin et al. 2015 give [Fe/H] = -0.5 with
+        # and without alpha enhancement); the manifest picks one.
+        df = df.query(spec["where"]).reset_index(drop=True)
+    if manifest.get("melt"):
+        df = _melt(df, manifest["melt"])
+    return df
 
 
 _WL_IN_LABEL = re.compile(r"(\d+(?:\.\d+)?)\s*(nm|a|ang|angstrom)?", re.IGNORECASE)
@@ -156,12 +290,19 @@ def _make_lines(labels, spec: dict) -> list:
 # ---------------------------------------------------------------- gridding
 
 
+def _abundance_independent(manifest: dict) -> bool:
+    return bool(manifest.get("abundance", {}).get("independent", False))
+
+
 def _axis_columns(manifest: dict) -> dict:
     cols = manifest["columns"]
     axes = {p: cols[p] for p in CANONICAL_PARAMS if p in cols}
-    if "abund" not in cols:
-        raise ValueError("manifest [columns] must map 'abund'")
-    axes["abund"] = cols["abund"]
+    if "abund" in cols:
+        axes["abund"] = cols["abund"]
+    elif not _abundance_independent(manifest):
+        raise ValueError(
+            "manifest [columns] must map 'abund' (or set [abundance] independent = true)"
+        )
     return axes
 
 
@@ -258,6 +399,13 @@ def _clean_values(df: pd.DataFrame, manifest: dict, columns) -> pd.DataFrame:
             df[col] = pd.to_numeric(df[col], errors="coerce")
         df = df.dropna(subset=axis_cols)
 
+    # Axes printed with too few decimals: Lind et al. 2022 tabulate [X/Fe] in
+    # steps of 0.25 in an F4.1 column, so -0.75 reads as -0.8.  [snap] rounds an
+    # axis back onto its true step.
+    for axis, step in manifest.get("snap", {}).items():
+        col = _axis_columns(manifest)[axis]
+        df[col] = np.round(df[col].to_numpy(dtype=float) / float(step)) * float(step) + 0.0
+
     flag_col = quality.get("flag_column")
     if flag_col and manifest.get("require_flag", False):
         good = str(quality.get("flag_good", "yes"))
@@ -284,20 +432,20 @@ def _common_kwargs(manifest: dict, element: str) -> dict:
 # ---------------------------------------------------------------- caching
 
 
-def _cache_file(path: Path, manifest: dict) -> Path:
-    st = Path(path).stat()
+def _cache_file(files, manifest: dict) -> Path:
+    stamps = "|".join(
+        f"{p.name}:{p.stat().st_mtime_ns}:{p.stat().st_size}" for p in map(Path, files)
+    )
     payload = json.dumps(manifest, sort_keys=True, default=str)
-    digest = hashlib.sha1(
-        f"{_CACHE_VERSION}|{st.st_mtime_ns}|{st.st_size}|{payload}".encode()
-    ).hexdigest()[:16]
-    return cache_dir(Path(path).parent) / f"{manifest['id']}-{digest}.npz"
+    digest = hashlib.sha1(f"{_CACHE_VERSION}|{stamps}|{payload}".encode()).hexdigest()[:16]
+    return cache_dir(Path(files[0]).parent) / f"{manifest['id']}-{digest}.npz"
 
 
-def _load_cache(path: Path, manifest: dict):
-    """Parsed arrays from a previous load, if the file and manifest are unchanged."""
+def _load_cache(files, manifest: dict):
+    """Parsed arrays from a previous load, if the files and manifest are unchanged."""
     if not manifest.get("cache", False):
         return None
-    f = _cache_file(path, manifest)
+    f = _cache_file(files, manifest)
     if not f.exists():
         return None
     try:
@@ -307,11 +455,11 @@ def _load_cache(path: Path, manifest: dict):
         return None
 
 
-def _store_cache(path: Path, manifest: dict, payload: dict) -> None:
+def _store_cache(files, manifest: dict, payload: dict) -> None:
     if not manifest.get("cache", False):
         return
     try:
-        np.savez(_cache_file(path, manifest), **payload)
+        np.savez(_cache_file(files, manifest), **payload)
     except Exception:  # a cache failure must never break a load
         pass
 
@@ -322,8 +470,8 @@ def _prepare(manifest: dict, path: Path, value_columns: dict, element: str, ion_
     The Amarsi 2016 iron tables are 8.2M rows each; parsing them takes seconds,
     while reloading the gridded arrays takes milliseconds.
     """
-    path = _ensure_extracted(Path(path))   # before stat()-ing it for the cache key
-    cached = _load_cache(path, manifest)
+    files = data_files(manifest, path)    # extracts archives before stat()-ing them
+    cached = _load_cache(files, manifest)
 
     def needed():
         cols = set(_axis_columns(manifest).values()) | set(value_columns.values())
@@ -354,11 +502,11 @@ def _prepare(manifest: dict, path: Path, value_columns: dict, element: str, ion_
             ))
         return blocks
 
-    df = read_table(path, manifest.get("read", {}), usecols=needed())
+    df = load_frame(manifest, path, usecols=needed())
     df = _clean_values(df, manifest, value_columns.values())
     df = _to_native_abundance(df, manifest, element)
     groups = (
-        [(int(re.search(r"(\d+)$", str(k)).group(1)), g) for k, g in df.groupby(ion_col)]
+        [(_ion_number(k), g) for k, g in df.groupby(ion_col)]
         if ion_col else [(int(manifest.get("ion", 1)), df)]
     )
 
@@ -376,8 +524,65 @@ def _prepare(manifest: dict, path: Path, value_columns: dict, element: str, ion_
             payload[f"g{gi}_axis_{n}"] = v
         for k, v in arrays.items():
             payload[f"g{gi}_val_{k}"] = v
-    _store_cache(path, manifest, payload)
+    _store_cache(files, manifest, payload)
     return blocks
+
+
+def _ion_number(value) -> int:
+    """Ionisation stage from an ion-column value: ``Fe1``, ``Fe 2``, ``Ca II``."""
+    _, ion = parse_species(str(value).strip())
+    if ion is None:
+        m = re.search(r"(\d+)$", str(value).strip())
+        if not m:
+            raise ValueError(f"cannot read an ionisation stage from {value!r}")
+        ion = int(m.group(1))
+    return int(ion)
+
+
+# ---------------------------------------------------------------- axis shaping
+
+#: Abundance nodes given to a grid that does not depend on abundance.  The axis
+#: is clipped, so any query lands on the (duplicated) values; the span only has
+#: to be wider than any real abundance in any parametrisation.
+FREE_ABUNDANCE_SPAN = (-99.0, 99.0)
+
+
+def _shape_axes(nodes: dict, scattered: tuple, arrays: dict, manifest: dict):
+    """Fold length-1 axes into fixed parameters and handle abundance-free grids.
+
+    Returns ``(nodes, arrays, fixed, independent)``.  A grid whose abundance
+    axis has a single node -- the INASAN Fe I grid is tabulated at [Fe/Fe] = 0
+    only -- or that declares ``[abundance] independent = true`` gets a flat,
+    clipped abundance axis, so the rest of the package sees the usual layout.
+    """
+    lead = 1 + (1 if scattered else 0)          # line axis, then the scattered block
+    nodes, fixed = dict(nodes), {}
+    for j in reversed(range(len(nodes))):
+        name = list(nodes)[j]
+        if nodes[name].size == 1:
+            fixed[name] = float(nodes[name][0])
+            arrays = {k: np.take(v, 0, axis=lead + j) for k, v in arrays.items()}
+            del nodes[name]
+    independent = _abundance_independent(manifest) or "abund" in fixed
+    if independent:
+        if "abund" in nodes:
+            raise ValueError(
+                f"{manifest['id']}: declared abundance-independent, but its abundance "
+                f"column has {nodes['abund'].size} nodes"
+            )
+        nodes["abund"] = np.array(FREE_ABUNDANCE_SPAN)
+        arrays = {k: np.repeat(v[..., None], 2, axis=-1) for k, v in arrays.items()}
+    return nodes, arrays, dict(reversed(list(fixed.items()))), independent
+
+
+def _independent_kwargs(manifest: dict, element: str, independent: bool) -> dict:
+    kw = _common_kwargs(manifest, element)
+    if independent:
+        # Nothing is solved and nothing is converted: Delta is read directly and
+        # the query abundance only rides along.
+        kw.update(indexed_by="lte", abund_kind="logeps", abund_solar=None,
+                  abund_zero_point=None, abund_independent=True)
+    return kw
 
 
 # ---------------------------------------------------------------- reader
@@ -401,8 +606,9 @@ def read_tabular(manifest: dict, path: Path) -> list:
 
     sources = []
     for ion, nodes, scattered, scat_nodes, labels, arrays in blocks:
+        nodes, arrays, fixed, independent = _shape_axes(nodes, scattered, arrays, manifest)
         lines = _make_lines(labels, manifest.get("wavelengths", {}))
-        clip = tuple(manifest.get("clip_axes", ()))
+        clip = tuple(manifest.get("clip_axes", ())) + (("abund",) if independent else ())
         axis_names = tuple(scattered) + tuple(nodes)
 
         for vi, variant in enumerate(variants):
@@ -426,13 +632,16 @@ def read_tabular(manifest: dict, path: Path) -> list:
                 axis_names=axis_names,
                 lines=lines,
                 grids=grids,
-                **_common_kwargs(manifest, element),
+                fixed=fixed,
+                **_independent_kwargs(manifest, element, independent),
             ))
     return sources
 
 
 def _read_ew_pair(manifest: dict, path: Path, element: str) -> list:
     """Grids publishing LTE and non-LTE equivalent widths per line as columns."""
+    if "ew_lte" in manifest["columns"]:
+        return _read_ew_pair_long(manifest, path, element)
     df = read_table(path, manifest.get("read", {}))
     pattern = manifest.get("ew_pattern", {})
     if pattern:
@@ -483,5 +692,43 @@ def _read_ew_pair(manifest: dict, path: Path, element: str) -> list:
         lines=lines,
         grids=grids,
         abund_nodes=nodes["abund"],
+        **_common_kwargs(manifest, element),
+    )]
+
+
+def _read_ew_pair_long(manifest: dict, path: Path, element: str) -> list:
+    """Equivalent-width grids with one row per line (Lind et al. 2022).
+
+    ``[columns]`` names ``ew_lte`` and ``ew_nlte`` -- log10 equivalent widths,
+    as the matching solver expects -- alongside a ``line`` column.  Unlike the
+    wide layout this goes through the same gridding and cache as delta tables,
+    which matters for the 3.3M-row magnesium file.
+    """
+    cols = manifest["columns"]
+    value_columns = {"lte": cols["ew_lte"], "nlte": cols["ew_nlte"]}
+    (ion, nodes, scattered, scat_nodes, labels, arrays), = _prepare(
+        manifest, path, value_columns, element
+    )
+    nodes, arrays, fixed, independent = _shape_axes(nodes, scattered, arrays, manifest)
+    if independent:
+        raise ValueError(f"{manifest['id']}: an equivalent-width grid needs an abundance axis")
+    clip = tuple(manifest.get("clip_axes", ()))
+    kw = dict(scattered_names=scattered, scattered_nodes=scat_nodes, clip_axes=clip,
+              min_valid_weight=manifest.get("min_valid_weight"),
+              max_node_distance=manifest.get("max_node_distance"))
+    grids = [
+        (make_grid(nodes, arrays["lte"][i], **kw), make_grid(nodes, arrays["nlte"][i], **kw))
+        for i in range(len(labels))
+    ]
+    return [GridSource(
+        id=manifest["id"],
+        ion=ion,
+        flavor=manifest.get("flavor", "NLTE - LTE"),
+        kind="ew_pair",
+        axis_names=tuple(scattered) + tuple(nodes),
+        lines=_make_lines(labels, manifest.get("wavelengths", {})),
+        grids=grids,
+        abund_nodes=nodes["abund"],
+        fixed=fixed,
         **_common_kwargs(manifest, element),
     )]

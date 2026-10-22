@@ -324,11 +324,15 @@ def _corrections_for(match, params, a_lte, mode, wavelength, min_valid_weight=No
             note = "outside grid coverage"
         elif not note and not np.isfinite(delta[i]):
             # Distinguish "the grid has nothing here" from "the grid has values
-            # but no abundance in range satisfies A - Delta(A) = A_lte".
-            note = (
-                "no self-consistent solution within the grid's abundance range"
-                if weight[i] > 0 else "grid nodes here are masked"
-            )
+            # but no abundance in range satisfies A - Delta(A) = A_lte".  A grid
+            # read directly was never solved, so only the first can apply.
+            solved = src.kind == "delta" and src.indexed_by == "nlte" and mode != "direct"
+            if weight[i] <= 0:
+                note = "grid nodes here are masked"
+            elif solved:
+                note = "no self-consistent solution within the grid's abundance range"
+            else:
+                note = "too few valid grid nodes around this point"
         out.append(Correction(
             source=src.id, reference=src.reference,
             species=format_species(src.element, src.ion), element=src.element, ion=src.ion,

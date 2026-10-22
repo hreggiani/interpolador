@@ -63,8 +63,9 @@ def test_unknown_line_returns_nothing(registry):
 
 
 def test_line_matching_respects_the_tolerance(registry):
-    assert find_lines("Mg", 5711.09, tol=1.0, registry=registry)
-    assert not find_lines("Mg", 5711.09, tol=0.001, registry=registry)
+    # 0.2 A off Mg I 5711.09, which several grids list to the hundredth.
+    assert find_lines("Mg", 5711.30, tol=1.0, registry=registry)
+    assert not find_lines("Mg", 5711.30, tol=0.001, registry=registry)
 
 
 def test_self_consistent_and_direct_modes_differ_where_delta_varies(registry):
