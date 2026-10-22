@@ -40,6 +40,11 @@ class Line:
     label: str                 # as published, e.g. "505.2nm" or "517nm(combined)"
     blend: bool = False
     match: tuple = ()
+    #: Per-line atomic data, for grids that take it as an input rather than
+    #: identifying a line: the Amarsi 2022 iron networks are functions of the
+    #: excitation potentials and oscillator strength.  Keys are reader-defined.
+    #: compare=False keeps Line hashable despite the dict.
+    atomic: dict = field(default_factory=dict, compare=False)
 
     def __post_init__(self):
         if not self.match:

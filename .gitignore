@@ -12,6 +12,14 @@ __pycache__/
 grids/**
 !grids/**/
 !grids/**/*.toml
+# The Amarsi 2022 iron networks are small and MIT-licensed, so this one grid is
+# vendored rather than downloaded. Only the extracted weights, the line list and
+# the licence are tracked -- not the upstream pickles, which execute code on load
+# and are reproducible with tools/vendor_amarsi2022_fe.py.
+!grids/amarsi2022_fe/*.npz
+!grids/amarsi2022_fe/fe_lines.csv
+!grids/amarsi2022_fe/LICENSE
+!grids/amarsi2022_fe/PROVENANCE.md
 
 # Local Claude Code settings.
 .claude/settings.local.json

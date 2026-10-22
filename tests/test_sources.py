@@ -364,3 +364,93 @@ def test_abundance_independent_sources_say_so(registry):
                 "bergemann2012_sr_sr2", "sitnova2022_zn_marcs_zn1"):
         src = registry.get(sid)
         assert src.abund_independent and src.indexed_by == "lte", sid
+
+
+def _amarsi2022_available(registry) -> bool:
+    try:
+        return bool(registry.get("amarsi2022_fe_fe1"))
+    except KeyError:
+        return False
+
+
+def test_amarsi2022_reproduces_the_value_upstream_documents(registry):
+    # Upstream's README documents aberr = -0.136 for this line and star; its
+    # sign convention is A(1D LTE) - A(3D NLTE), the opposite of `delta`.
+    if not _amarsi2022_available(registry):
+        pytest.skip("Amarsi 2022 networks not vendored")
+    from pathlib import Path
+
+    from nlte.readers.amarsi_fe_ffnn import IronNetworkGrid
+
+    root = Path(registry.root) / "amarsi2022_fe"
+    grid = IronNetworkGrid(
+        root / "fe1_gt02.npz",
+        {"elo": 2.998045, "eup": 5.586893, "loggf": -2.563},
+        {"teff": (5000.0, 6500.0), "logg": (4.0, 4.5),
+         "vmic": (0.0, 3.0), "abund": (4.5, 7.5)},
+    )
+    assert grid([[5051, 4.0, 0.0, 4.5]]).value[0] == pytest.approx(0.136, abs=5e-4)
+
+
+def test_amarsi2022_is_dwarfs_only(registry):
+    if not _amarsi2022_available(registry):
+        pytest.skip("Amarsi 2022 networks not vendored")
+    from nlte.api import correct
+
+    def ask(logg):
+        got = [c for c in correct("FeI", 5232.94, abund=6.2, teff=5900, logg=logg,
+                                  feh=-1.3, vmic=1.2, registry=registry)
+               if c.source == "amarsi2022_fe_fe1"]
+        assert got
+        return got[0]
+
+    assert ask(4.3).ok                     # dwarf, inside log g 4.0-4.5
+    assert not ask(3.76).ok                # subgiant
+    assert not ask(3.76).in_range
+    assert not ask(2.0).ok                 # giant
+
+
+def test_amarsi2022_splits_fe1_on_excitation_potential(registry):
+    if not _amarsi2022_available(registry):
+        pytest.skip("Amarsi 2022 networks not vendored")
+    src = registry.get("amarsi2022_fe_fe1")
+    models = {ln.atomic["elo"] < 2.0: set() for ln in src.lines}
+    for line, grid in zip(src.lines, src.grids):
+        models[line.atomic["elo"] < 2.0].add(grid.model_path.name)
+    assert models[True] == {"fe1_lt02.npz"}
+    assert models[False] == {"fe1_gt02.npz"}
+    # Every line carries the atomic data the networks take as inputs.
+    assert all({"elo", "eup", "loggf"} <= set(ln.atomic) for ln in src.lines)
+
+
+def test_amarsi2022_is_solved_against_the_nlte_abundance(registry):
+    # The corrections are functions of A(Fe;3N), so a measured LTE abundance has
+    # to be solved for -- upstream asks the user to iterate by hand.
+    if not _amarsi2022_available(registry):
+        pytest.skip("Amarsi 2022 networks not vendored")
+    from nlte.api import correct
+
+    src = registry.get("amarsi2022_fe_fe1")
+    assert src.indexed_by == "nlte"
+    got = [c for c in correct("FeI", src.lines[500].wavelength, abund=6.2, teff=5900,
+                              logg=4.3, feh=-1.3, vmic=1.2, registry=registry)
+           if c.source == "amarsi2022_fe_fe1"][0]
+    assert got.ok and got.converged
+    index = src.lines.index(src.lines[500])
+    delta_at_solution = src.delta_at(index, {"teff": 5900, "logg": 4.3, "vmic": 1.2},
+                                     got.a_nlte).value[0]
+    assert abs(got.a_nlte - delta_at_solution - got.a_lte) < 1e-3
+
+
+def test_vendored_iron_directory_is_self_contained(registry):
+    if not _amarsi2022_available(registry):
+        pytest.skip("Amarsi 2022 networks not vendored")
+    from pathlib import Path
+
+    root = Path(registry.root) / "amarsi2022_fe"
+    for name in ("fe1_lt02.npz", "fe1_gt02.npz", "fe2.npz", "fe_lines.csv",
+                 "LICENSE", "PROVENANCE.md", "amarsi2022_fe.toml"):
+        assert (root / name).exists(), f"{name} missing from the vendored directory"
+    # Nothing in the manifest may point outside the repository.
+    text = (root / "amarsi2022_fe.toml").read_text()
+    assert "~" not in text and "/Users/" not in text

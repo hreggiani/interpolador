@@ -1,0 +1,48 @@
+# Amarsi et al. 2022 -- 3D non-LTE iron, via trained neural networks.
+#
+# Published as three networks rather than a table (Fe I below 2 eV, Fe I at or
+# above 2 eV, Fe II), which take the line's atomic data as inputs: lower and
+# upper excitation potential in eV and log gf.  The vendored line list supplies
+# those per line, so queries work by wavelength like every other source.
+#
+# Everything this needs is in this directory -- see PROVENANCE.md for how the
+# weights and the line list were produced, and LICENSE for upstream's terms.
+#
+# Two conventions, both covered by tests:
+#   * upstream returns A(1D LTE) - A(3D NLTE); the reader negates it so `delta`
+#     means A(NLTE) - A(LTE) as everywhere else here;
+#   * the corrections are functions of the 3D non-LTE abundance, so a measured
+#     LTE abundance is solved for -- the project default, and exactly the
+#     iteration upstream's README asks the user to perform by hand.
+#
+# The grid is dwarfs only: log g 4.0-4.5.  Subgiants and giants fall outside it
+# and are reported out of range rather than extrapolated.  Upstream offers an
+# extrapolation switch but declines to vouch for the results, so it is off here;
+# set extrapolate = true to turn it on.
+
+id         = "amarsi2022_fe"
+format     = "amarsi2022_fe_ffnn"
+reference  = "Amarsi et al. 2022, A&A 668, A68"
+element    = "Fe"
+file       = "."
+kind       = "delta"
+flavor     = "3D NLTE - 1D LTE"
+line_list  = "fe_lines.csv"
+extrapolate = false
+notes      = "Trained networks, not a tabulated grid. Dwarfs only (log g 4.0-4.5) and no [Fe/H] axis -- A(Fe) carries the metallicity. Line coverage comes from a vendored list; other Fe lines need their own Elo, Eup and log gf."
+
+[axes]
+teff  = [5000.0, 6500.0]
+logg  = [4.0, 4.5]
+vmic  = [0.0, 3.0]
+abund = [4.5, 7.5]
+
+[[species]]
+tag = "Fe1"
+ion = 1
+models = { lt = "fe1_lt02.npz", ge = "fe1_gt02.npz" }
+
+[[species]]
+tag = "Fe2"
+ion = 2
+models = { only = "fe2.npz" }

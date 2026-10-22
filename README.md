@@ -138,9 +138,12 @@ matching equivalent widths, and saturated lines are flagged instead of
 extrapolated.
 
 **Not every grid is a table.** Canocchi et al. 2026 publish 3D non-LTE sodium as
-trained networks mapping (Teff, log g, [Fe/H], REW) to A(Na), and Wang et al.
-publish 3D non-LTE lithium through the Breidablik package. Both are wrapped
-behind the same interface and reproduce their authors' own routines exactly.
+trained networks mapping (Teff, log g, [Fe/H], REW) to A(Na), Wang et al.
+publish 3D non-LTE lithium through the Breidablik package, and Amarsi et al.
+2022 publish 3D non-LTE iron as networks that take the *line's* atomic data
+(excitation potentials, log gf) as inputs rather than naming a line. All three
+are wrapped behind the same interface and reproduce their authors' own routines
+exactly — the iron networks to the last digit of the value upstream documents.
 Install them with `pip install -e '.[lithium,sodium]'`; a source whose models
 are absent is skipped with a warning rather than breaking the element.
 
@@ -179,7 +182,7 @@ exist only as typeset tables and are regenerated from the papers' LaTeX
 | Ca I, Ca II | Amarsi 2020; Mashonkina et al. 2017 (INASAN); Merle et al. 2011 (giants) |
 | Ti II | Sitnova et al. 2016 (INASAN) |
 | Mn | Amarsi 2020 |
-| Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE; Mashonkina et al. 2011 Fe I (INASAN) |
+| Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2022 3D NLTE (dwarfs only, vendored networks); Amarsi et al. 2019 Fe II 3D LTE; Mashonkina et al. 2011 Fe I (INASAN) |
 | Cu | Caliskan et al. 2025 (LCAO+Free collision rates) |
 | Zn I, Zn II | Sitnova et al. 2022, MARCS and hot-star grids; Takeda et al. 2005 |
 | Sr I, Sr II | Bergemann et al. 2012; Mashonkina et al. 2022 (INASAN) |
