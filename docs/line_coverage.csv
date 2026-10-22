@@ -67,77 +67,51 @@ CI,C,1,9406.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9603.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9628.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9658.0,2,False,amarsi_c1_1d amarsi_c1_3d
-CaI,Ca,1,4108.53,1,False,spite2012_ca_ca1
-CaI,Ca,1,4226.728,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,4283.011,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,4289.37,1,False,spite2012_ca_ca1
-CaI,Ca,1,4302.53,1,False,spite2012_ca_ca1
-CaI,Ca,1,4318.652,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,4355.08,1,False,spite2012_ca_ca1
-CaI,Ca,1,4425.437,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,4434.96,1,False,spite2012_ca_ca1
-CaI,Ca,1,4435.679,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,4454.779,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,4456.62,1,False,spite2012_ca_ca1
-CaI,Ca,1,4512.27,1,False,spite2012_ca_ca1
-CaI,Ca,1,4526.93,1,False,spite2012_ca_ca1
-CaI,Ca,1,4578.55,2,False,merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,4685.27,1,False,spite2012_ca_ca1
-CaI,Ca,1,5188.84,1,False,spite2012_ca_ca1
-CaI,Ca,1,5260.39,1,False,spite2012_ca_ca1
-CaI,Ca,1,5261.7,1,False,spite2012_ca_ca1
-CaI,Ca,1,5265.556,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5349.465,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5512.98,2,False,merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,5581.965,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5588.749,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5590.114,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5594.46,1,False,spite2012_ca_ca1
-CaI,Ca,1,5601.277,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5857.451,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,5867.56,4,False,amarsi2020_ca1 amarsi2020_ca1_scatt merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6097.26,1,False,spite2012_ca_ca1
-CaI,Ca,1,6102.73,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6122.23,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6156.03,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,6161.29,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6162.17,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6163.75,1,False,spite2012_ca_ca1
-CaI,Ca,1,6166.44,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6169.04,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6169.56,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6439.08,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,6455.6,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6462.56,1,False,spite2012_ca_ca1
-CaI,Ca,1,6471.67,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,6493.79,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,6499.65,4,False,amarsi2020_ca1 amarsi2020_ca1_scatt mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,4226.728,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,4283.011,1,False,mashonkina2017_ca
+CaI,Ca,1,4318.652,1,False,mashonkina2017_ca
+CaI,Ca,1,4425.437,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,4435.679,1,False,mashonkina2017_ca
+CaI,Ca,1,4454.779,1,False,mashonkina2017_ca
+CaI,Ca,1,4578.0,1,False,merle2011_ca1
+CaI,Ca,1,5265.556,1,False,mashonkina2017_ca
+CaI,Ca,1,5349.465,1,False,mashonkina2017_ca
+CaI,Ca,1,5512.98,1,False,merle2011_ca1
+CaI,Ca,1,5581.965,1,False,mashonkina2017_ca
+CaI,Ca,1,5588.749,1,False,mashonkina2017_ca
+CaI,Ca,1,5590.114,1,False,mashonkina2017_ca
+CaI,Ca,1,5601.277,1,False,mashonkina2017_ca
+CaI,Ca,1,5857.451,1,False,mashonkina2017_ca
+CaI,Ca,1,5868.0,3,False,amarsi2020_ca1 amarsi2020_ca1_scatt merle2011_ca1
+CaI,Ca,1,6102.73,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6122.23,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6156.03,1,False,mashonkina2017_ca
+CaI,Ca,1,6161.3,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6162.17,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6166.44,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6169.04,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6169.56,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6439.08,1,False,mashonkina2017_ca
+CaI,Ca,1,6455.6,2,False,mashonkina2017_ca merle2011_ca1
+CaI,Ca,1,6471.67,1,False,mashonkina2017_ca
+CaI,Ca,1,6493.79,1,False,mashonkina2017_ca
+CaI,Ca,1,6499.65,3,False,amarsi2020_ca1 amarsi2020_ca1_scatt mashonkina2017_ca
 CaI,Ca,1,6508.84,1,False,mashonkina2017_ca
-CaI,Ca,1,6572.78,2,False,merle2011_ca1 spite2012_ca_ca1
-CaI,Ca,1,6717.681,2,False,mashonkina2017_ca spite2012_ca_ca1
-CaI,Ca,1,7148.15,1,False,spite2012_ca_ca1
-CaI,Ca,1,7202.2,1,False,spite2012_ca_ca1
-CaI,Ca,1,7326.14,2,False,merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6572.0,1,False,merle2011_ca1
+CaI,Ca,1,6717.681,1,False,mashonkina2017_ca
+CaI,Ca,1,7326.0,1,False,merle2011_ca1
 CaI,Ca,1,8525.707,1,False,merle2011_ca1
 CaI,Ca,1,8583.318,1,False,merle2011_ca1
 CaI,Ca,1,8633.929,1,False,merle2011_ca1
-CaI,Ca,1,10343.81,1,False,spite2012_ca_ca1
-CaII,Ca,2,3933.66,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,3968.47,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,6456.87,1,False,spite2012_ca_ca2
-CaII,Ca,2,8201.72,1,False,spite2012_ca_ca2
-CaII,Ca,2,8248.79,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,8254.72,1,False,spite2012_ca_ca2
-CaII,Ca,2,8498.018,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,8542.086,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,8662.135,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,8912.06,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,8927.35,1,False,spite2012_ca_ca2
-CaII,Ca,2,9854.75,2,False,merle2011_ca2 spite2012_ca_ca2
-CaII,Ca,2,9890.62,1,False,spite2012_ca_ca2
-CaII,Ca,2,9931.37,1,False,spite2012_ca_ca2
-CaII,Ca,2,11838.99,1,False,spite2012_ca_ca2
-CaII,Ca,2,11949.74,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,3933.0,1,False,merle2011_ca2
+CaII,Ca,2,3968.0,1,False,merle2011_ca2
+CaII,Ca,2,8248.0,1,False,merle2011_ca2
+CaII,Ca,2,8498.018,1,False,merle2011_ca2
+CaII,Ca,2,8542.086,1,False,merle2011_ca2
+CaII,Ca,2,8662.135,1,False,merle2011_ca2
+CaII,Ca,2,8912.0,1,False,merle2011_ca2
+CaII,Ca,2,9854.0,1,False,merle2011_ca2
+CaII,Ca,2,11949.0,1,False,merle2011_ca2
 CuI,Cu,1,3011.0,1,False,caliskan2025_cu
 CuI,Cu,1,3248.0,1,False,caliskan2025_cu
 CuI,Cu,1,3274.0,1,False,caliskan2025_cu

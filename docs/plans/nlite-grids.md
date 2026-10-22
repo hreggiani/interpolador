@@ -128,6 +128,8 @@ line coverage, references.
 
 ## Implementation notes (what changed relative to the plan)
 
+- **Spite 2012 was later removed from the package** (2026-10-22, at the user's
+  request); the note below records how it had been read.
 - **Spite 2012 is abundance-independent, not a [Ca/Fe] axis.** [Ca/Fe] follows
   [Fe/H] in that grid (0 at [Fe/H] >= -1, +0.3 below); the [Ca/Fe] = 0 rows at
   [Fe/H] = -2 are a sensitivity test and are dropped. As an axis it left every

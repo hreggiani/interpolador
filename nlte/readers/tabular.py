@@ -161,9 +161,9 @@ def data_files(manifest: dict, path: Path) -> list:
     """Every file a manifest reads, in a stable order.
 
     ``files`` lists names or glob patterns relative to the manifest, for grids
-    published as one file per metallicity (Spite et al. 2012), per line (Merle et
-    al. 2011) or per (log g, [Fe/H]) pair (Gallagher et al. 2020).  Without it
-    the single ``file`` is used, as before.
+    published as one file per line (Merle et al. 2011) or per (log g, [Fe/H])
+    pair (Gallagher et al. 2020).  Without it the single ``file`` is used, as
+    before.
     """
     spec = manifest.get("files")
     if spec is None:

@@ -5,7 +5,7 @@ interface. More than a dozen incompatible on-disk formats — IDL `.sav`
 structs, VizieR exports with three different delimiters, CDS fixed-width
 tables, plain CSVs, whitespace tables inside tarballs, one-file-per-line and
 one-file-per-model sets, the Moscow group's block layout, and two independent
-sets of trained neural networks — become 78 queryable sources covering 18
+sets of trained neural networks — become 76 queryable sources covering 18
 elements.
 
 Several elements are covered by more than one grid, computed with different
@@ -89,7 +89,7 @@ A whole line list, then reshaped however you like:
 
 ```python
 df  = pd.read_csv("teste_interpolador_in.csv", encoding="utf-8-sig")
-out = correct_frame(df, keep=["id"])                  # 459 rows, 350 usable
+out = correct_frame(df, keep=["id"])                  # 450 rows, 341 usable
 
 out[out.ok].groupby(["species", "source"]).delta.agg(["mean", "count"]).round(3)
 out[out.ok].pivot_table(index="row", columns="source", values="delta")
@@ -176,7 +176,7 @@ exist only as typeset tables and are regenerated from the papers' LaTeX
 | Si | Amarsi 2020; Amarsi & Asplund 2017; Bergemann et al. 2013 (J band, red supergiants) |
 | S | Takeda et al. 2005 (30 representative models) |
 | K | Amarsi 2020; Reggiani et al. 2019; Takeda et al. 2002 |
-| Ca I, Ca II | Amarsi 2020; Mashonkina et al. 2017 (INASAN); Spite et al. 2012; Merle et al. 2011 (giants) |
+| Ca I, Ca II | Amarsi 2020; Mashonkina et al. 2017 (INASAN); Merle et al. 2011 (giants) |
 | Ti II | Sitnova et al. 2016 (INASAN) |
 | Mn | Amarsi 2020 |
 | Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE; Mashonkina et al. 2011 Fe I (INASAN) |
@@ -186,7 +186,7 @@ exist only as typeset tables and are regenerated from the papers' LaTeX
 | Ba II | Amarsi 2020; Mashonkina & Belyaev 2019 (INASAN); Korotin et al. 2015; Gallagher et al. 2020 1D and 3D NLTE |
 | Eu II | Mashonkina & Gehren 2000 (INASAN) |
 
-**2725 lines over 24 species.** [docs/line_coverage.md](docs/line_coverage.md)
+**2699 lines over 24 species.** [docs/line_coverage.md](docs/line_coverage.md)
 lists every one with the grids that cover it, and
 [docs/line_coverage.csv](docs/line_coverage.csv) is the machine-readable version;
 both are regenerated with `nlte-lines`. From Python, `nlte.line_index()` returns
