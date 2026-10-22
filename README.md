@@ -1,10 +1,12 @@
 # nlte
 
 Interpolation over published non-LTE abundance-correction grids, behind one
-interface. Ten incompatible on-disk formats — IDL `.sav` structs, VizieR
-exports with three different delimiters, plain CSVs, whitespace tables inside
-tarballs, and two independent sets of trained neural networks — become 44
-queryable sources covering 14 elements.
+interface. More than a dozen incompatible on-disk formats — IDL `.sav`
+structs, VizieR exports with three different delimiters, CDS fixed-width
+tables, plain CSVs, whitespace tables inside tarballs, one-file-per-line and
+one-file-per-model sets, the Moscow group's block layout, and two independent
+sets of trained neural networks — become 78 queryable sources covering 18
+elements.
 
 Several elements are covered by more than one grid, computed with different
 model atmospheres and assumptions, so a query returns **every** source that
@@ -87,7 +89,7 @@ A whole line list, then reshaped however you like:
 
 ```python
 df  = pd.read_csv("teste_interpolador_in.csv", encoding="utf-8-sig")
-out = correct_frame(df, keep=["id", "species"])       # 402 rows, 325 usable
+out = correct_frame(df, keep=["id"])                  # 459 rows, 350 usable
 
 out[out.ok].groupby(["species", "source"]).delta.agg(["mean", "count"]).round(3)
 out[out.ok].pivot_table(index="row", columns="source", values="delta")
@@ -101,7 +103,7 @@ Checking what exists before you rely on it:
 
 ```python
 line_index("MgI")                    # every Mg I line and the grids covering it
-[s.id for s in sources("MgI")]       # 5 grids
+[s.id for s in sources("MgI")]       # 8 grids
 print(sources("MgI")[0].describe())  # axes, ranges, coverage, caveats
 ```
 
@@ -149,23 +151,42 @@ rectilinear. Where a grid was computed as two disjoint blocks — the copper gri
 covers giants and dwarfs but nothing between — `max_node_distance` stops the
 triangulation filling the gap with confident nonsense.
 
+**Grids that do not depend on abundance are still grids.** Many tables were
+computed at one abundance per model — the Moscow group's Fe I at [Fe/Fe] = 0,
+Merle et al.'s Mg and Ca with [α/Fe] tied to [Fe/H]. Those sources say
+`abundance: not an axis` and return the same correction whatever abundance is
+passed, rather than rejecting every query that does not sit on the one node.
+
+**Not every grid is published as a file.** The INASAN_NLTE database
+(Mashonkina, Sitnova, Alexeeva et al.) is only a query form; its eight grids
+were rebuilt by querying it at every node (`tools/inasan_pull.py`). Three more
+exist only as typeset tables and are regenerated from the papers' LaTeX
+(`tools/latex_tables.py`). Each manifest says where its numbers came from.
+
 ## Coverage
 
 | Element | Sources |
 |---|---|
-| Mn, Ba, Ca, Al (6699/7835) | Amarsi et al. 2020, with and without scattering |
-| Li | Amarsi 2020; Wang et al. 2021/2024 3D NLTE via [Breidablik](https://github.com/ellawang44/Breidablik) |
-| K | Amarsi 2020; Reggiani et al. 2019 (resonance doublet + 1.5 µm lines) |
+| Li | Amarsi 2020; Lind et al. 2009; Wang et al. 2021/2024 3D NLTE via [Breidablik](https://github.com/ellawang44/Breidablik) |
 | C | Amarsi 2020; Amarsi et al. 2019 1D and 3D |
 | O | Amarsi 2020; Amarsi et al. 2019 1D and 3D; Amarsi et al. 2016 MARCS |
-| Na | Amarsi 2020; Canocchi et al. 2026 3D NLTE and 3D LTE (neural networks) |
+| Na | Amarsi 2020; Alexeeva et al. 2014 (INASAN); Lind et al. 2022 (EW-matched); Canocchi et al. 2026 3D NLTE and 3D LTE (neural networks) |
+| Mg I, Mg II | Amarsi 2020; Mashonkina 2013 (INASAN); Merle et al. 2011 (giants); Osorio & Barklem 2016 and Lind et al. 2022 (EW-matched); Matsuno et al. 2024 1D and 3D |
+| Al I, Al II | Amarsi 2020; Nordlander & Lind 2017 MARCS and ⟨3D⟩, Lind et al. 2022 (EW-matched) |
+| Si | Amarsi 2020; Amarsi & Asplund 2017; Bergemann et al. 2013 (J band, red supergiants) |
+| S | Takeda et al. 2005 (30 representative models) |
+| K | Amarsi 2020; Reggiani et al. 2019; Takeda et al. 2002 |
+| Ca I, Ca II | Amarsi 2020; Mashonkina et al. 2017 (INASAN); Spite et al. 2012; Merle et al. 2011 (giants) |
+| Ti II | Sitnova et al. 2016 (INASAN) |
+| Mn | Amarsi 2020 |
+| Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE; Mashonkina et al. 2011 Fe I (INASAN) |
 | Cu | Caliskan et al. 2025 (LCAO+Free collision rates) |
-| Mg | Amarsi 2020; Osorio \& Barklem 2016 (EW-matched); Matsuno et al. 2024 1D and 3D |
-| Al (3961 etc.) | Nordlander & Lind 2017, MARCS and ⟨3D⟩ (EW-matched) |
-| Si | Amarsi 2020; Amarsi & Asplund 2017 |
-| Fe I, Fe II | Amarsi et al. 2016, three atmosphere combinations; Amarsi et al. 2019 Fe II 3D LTE |
+| Zn I, Zn II | Sitnova et al. 2022, MARCS and hot-star grids; Takeda et al. 2005 |
+| Sr I, Sr II | Bergemann et al. 2012; Mashonkina et al. 2022 (INASAN) |
+| Ba II | Amarsi 2020; Mashonkina & Belyaev 2019 (INASAN); Korotin et al. 2015; Gallagher et al. 2020 1D and 3D NLTE |
+| Eu II | Mashonkina & Gehren 2000 (INASAN) |
 
-**2346 lines over 13 species.** [docs/line_coverage.md](docs/line_coverage.md)
+**2725 lines over 24 species.** [docs/line_coverage.md](docs/line_coverage.md)
 lists every one with the grids that cover it, and
 [docs/line_coverage.csv](docs/line_coverage.csv) is the machine-readable version;
 both are regenerated with `nlte-lines`. From Python, `nlte.line_index()` returns
@@ -194,9 +215,11 @@ the paper to cite for that particular number.
 ## Adding a table
 
 New grids usually need a TOML manifest and no code. See
-[docs/adding_a_table.md](docs/adding_a_table.md), and
+[docs/adding_a_table.md](docs/adding_a_table.md),
 [docs/plans/nlte-interpolator.md](docs/plans/nlte-interpolator.md) for the
-design and the full grid inventory.
+design and the original grid inventory, and
+[docs/plans/nlite-grids.md](docs/plans/nlite-grids.md) for the grids added from
+the [NLiTE](https://nlite.pythonanywhere.com/) list.
 
 ## Caveats
 

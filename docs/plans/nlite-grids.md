@@ -125,3 +125,40 @@ only where the paper says so. Ba/Sr INASAN notes record the dwarf/giant [X/Fe] u
 1. Plan doc. 2. Reader features + tests + docs. 3. `inasan_lst` reader. 4. Manifests
 (INASAN; CDS family; Gallagher; Takeda/Bergemann tidy CSVs + `tools/`). 5. README,
 line coverage, references.
+
+## Implementation notes (what changed relative to the plan)
+
+- **Spite 2012 is abundance-independent, not a [Ca/Fe] axis.** [Ca/Fe] follows
+  [Fe/H] in that grid (0 at [Fe/H] >= -1, +0.3 below); the [Ca/Fe] = 0 rows at
+  [Fe/H] = -2 are a sensitivity test and are dropped. As an axis it left every
+  query above [Fe/H] = -1 with [Ca/Fe] > 0 on masked nodes. The test rows put the
+  cost at -0.03 +- 0.035 dex per 0.3 dex in [Ca/Fe].
+- **Two manifest keys beyond the plan.** `[read] where` (a pandas query on the raw
+  table) picks one of two versions of a node — Korotin 2015 gives [Fe/H] = -0.5
+  with and without alpha enhancement; the alpha-enhanced rows are kept.
+  `[snap]` rounds an axis onto its true step — Lind 2022 prints [X/Fe] (0.25 dex
+  steps) with one decimal.
+- **INASAN Na I lines are listed twice by the server** (5682.64 / 5682.6401 etc.):
+  one entry is the dwarf grid, the other the giant grid, identical where they
+  overlap. `tools/inasan_pull.py` merges them; before that, Na I looked as if it
+  stopped at 5000 K and log g 2.
+- **Lind 2022 line identifiers** are rounded wavelengths with collisions shifted by
+  one; Mg 7877/7878 were assigned to Mg II 7877.054 / Mg I 7877.48 from how their
+  widths change with Teff. The Mg and Al files also carry Mg II and Al II lines,
+  split off with `where`.
+- **Note wording.** A failed query on a grid that is read directly (indexed by
+  A(LTE), abundance-independent, or `mode="direct"`) now says "too few valid grid
+  nodes around this point" instead of "no self-consistent solution", since no
+  solve was attempted.
+- **Gallagher's solar model** sits at log g 4.40 (from the `g44` file name) rather
+  than 4.44.
+- `tests/test_api.py::test_line_matching_respects_the_tolerance` queried Mg 5711.09,
+  which the INASAN Mg grid now lists exactly; it queries 0.2 A off the line instead.
+- The README notebook example passed `keep=["id", "species"]` for an input with no
+  `species` column; it now keeps `id` only (the output carries `species` anyway).
+- Result spot checks: INASAN Fe I node reproduces the server (+0.156); Gallagher's
+  solar model reproduces the file (3D +0.049); Korotin, Mashonkina and Gallagher 1D
+  agree within 0.02 dex on Ba II 5853 in a metal-poor giant; Lind 2009 sits 0.05 dex
+  below Amarsi 2020 on Li 6708, as NLiTE reports. Lind 2022 and Nordlander 2017
+  disagree by 0.4 dex on Al 3961 at 5000/2.5/-2.5; a by-hand EW match on the raw
+  Lind table reproduces the pipeline, so that is the published data.

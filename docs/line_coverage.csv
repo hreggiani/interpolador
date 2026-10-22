@@ -1,30 +1,55 @@
 species,element,ion,wavelength,n_sources,blend,sources
-AlI,Al,1,3944.004,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,3961.519,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,6696.021,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,6698.671,4,False,amarsi2020_al1 amarsi2020_al1_scatt nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,7835.314,4,False,amarsi2020_al1 amarsi2020_al1_scatt nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,7836.134,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,8772.871,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,8773.9,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,10768.35,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,10782.046,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,2118.341,1,False,lind2022_al1
+AlI,Al,1,2134.747,1,False,lind2022_al1
+AlI,Al,1,2145.555,1,False,lind2022_al1
+AlI,Al,1,2204.626,1,False,lind2022_al1
+AlI,Al,1,2210.095,1,False,lind2022_al1
+AlI,Al,1,2269.158,1,False,lind2022_al1
+AlI,Al,1,2567.982,1,False,lind2022_al1
+AlI,Al,1,2575.095,1,False,lind2022_al1
+AlI,Al,1,2652.475,1,False,lind2022_al1
+AlI,Al,1,2660.386,1,False,lind2022_al1
+AlI,Al,1,3082.153,1,False,lind2022_al1
+AlI,Al,1,3092.774,1,False,lind2022_al1
+AlI,Al,1,3944.004,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,3961.519,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,5557.062,1,False,lind2022_al1
+AlI,Al,1,6696.021,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,6698.671,5,False,amarsi2020_al1 amarsi2020_al1_scatt lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,6905.646,1,False,lind2022_al1
+AlI,Al,1,6906.287,1,False,lind2022_al1
+AlI,Al,1,7084.643,1,False,lind2022_al1
+AlI,Al,1,7361.568,1,False,lind2022_al1
+AlI,Al,1,7362.296,1,False,lind2022_al1
+AlI,Al,1,7835.314,5,False,amarsi2020_al1 amarsi2020_al1_scatt lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,7836.134,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,8772.871,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,8773.9,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,10768.35,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,10782.046,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
 AlI,Al,1,10786.745,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,10872.972,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,10891.726,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,11253.199,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,11254.898,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,13123.42,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,13150.753,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,16718.952,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,16750.534,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,16763.331,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,21093.082,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-AlI,Al,1,21163.762,2,False,nordlander2017_al_marcs nordlander2017_al_mean3d
-BaII,Ba,2,4554.0,2,False,amarsi2020_ba2 amarsi2020_ba2_scatt
-BaII,Ba,2,5854.0,2,False,amarsi2020_ba2 amarsi2020_ba2_scatt
-BaII,Ba,2,6142.0,2,False,amarsi2020_ba2 amarsi2020_ba2_scatt
-BaII,Ba,2,6497.0,2,False,amarsi2020_ba2 amarsi2020_ba2_scatt
+AlI,Al,1,10872.972,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,10891.726,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,11253.199,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,11254.898,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,12749.835,1,False,lind2022_al1
+AlI,Al,1,12757.26,1,False,lind2022_al1
+AlI,Al,1,13123.42,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,13150.753,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,15968.287,1,False,lind2022_al1
+AlI,Al,1,16718.952,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,16750.534,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,16763.331,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,17699.092,1,False,lind2022_al1
+AlI,Al,1,21093.082,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlI,Al,1,21163.762,3,False,lind2022_al1 nordlander2017_al_marcs nordlander2017_al_mean3d
+AlII,Al,2,2669.157,1,False,lind2022_al2
+AlII,Al,2,2816.185,1,False,lind2022_al2
+BaII,Ba,2,4554.033,6,False,amarsi2020_ba2 amarsi2020_ba2_scatt gallagher2020_ba_1dnlte gallagher2020_ba_3dnlte korotin2015_ba mashonkina2019_ba
+BaII,Ba,2,4934.08,3,False,gallagher2020_ba_1dnlte gallagher2020_ba_3dnlte mashonkina2019_ba
+BaII,Ba,2,5853.7,6,False,amarsi2020_ba2 amarsi2020_ba2_scatt gallagher2020_ba_1dnlte gallagher2020_ba_3dnlte korotin2015_ba mashonkina2019_ba
+BaII,Ba,2,6141.727,6,False,amarsi2020_ba2 amarsi2020_ba2_scatt gallagher2020_ba_1dnlte gallagher2020_ba_3dnlte korotin2015_ba mashonkina2019_ba
+BaII,Ba,2,6496.91,6,False,amarsi2020_ba2 amarsi2020_ba2_scatt gallagher2020_ba_1dnlte gallagher2020_ba_3dnlte korotin2015_ba mashonkina2019_ba
 CI,C,1,5052.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,5380.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,6588.0,4,False,amarsi2020_c1 amarsi2020_c1_scatt amarsi_c1_1d amarsi_c1_3d
@@ -42,8 +67,77 @@ CI,C,1,9406.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9603.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9628.0,2,False,amarsi_c1_1d amarsi_c1_3d
 CI,C,1,9658.0,2,False,amarsi_c1_1d amarsi_c1_3d
-CaI,Ca,1,5868.0,2,False,amarsi2020_ca1 amarsi2020_ca1_scatt
-CaI,Ca,1,6500.0,2,False,amarsi2020_ca1 amarsi2020_ca1_scatt
+CaI,Ca,1,4108.53,1,False,spite2012_ca_ca1
+CaI,Ca,1,4226.728,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,4283.011,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,4289.37,1,False,spite2012_ca_ca1
+CaI,Ca,1,4302.53,1,False,spite2012_ca_ca1
+CaI,Ca,1,4318.652,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,4355.08,1,False,spite2012_ca_ca1
+CaI,Ca,1,4425.437,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,4434.96,1,False,spite2012_ca_ca1
+CaI,Ca,1,4435.679,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,4454.779,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,4456.62,1,False,spite2012_ca_ca1
+CaI,Ca,1,4512.27,1,False,spite2012_ca_ca1
+CaI,Ca,1,4526.93,1,False,spite2012_ca_ca1
+CaI,Ca,1,4578.55,2,False,merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,4685.27,1,False,spite2012_ca_ca1
+CaI,Ca,1,5188.84,1,False,spite2012_ca_ca1
+CaI,Ca,1,5260.39,1,False,spite2012_ca_ca1
+CaI,Ca,1,5261.7,1,False,spite2012_ca_ca1
+CaI,Ca,1,5265.556,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5349.465,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5512.98,2,False,merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,5581.965,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5588.749,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5590.114,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5594.46,1,False,spite2012_ca_ca1
+CaI,Ca,1,5601.277,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5857.451,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,5867.56,4,False,amarsi2020_ca1 amarsi2020_ca1_scatt merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6097.26,1,False,spite2012_ca_ca1
+CaI,Ca,1,6102.73,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6122.23,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6156.03,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,6161.29,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6162.17,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6163.75,1,False,spite2012_ca_ca1
+CaI,Ca,1,6166.44,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6169.04,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6169.56,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6439.08,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,6455.6,3,False,mashonkina2017_ca merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6462.56,1,False,spite2012_ca_ca1
+CaI,Ca,1,6471.67,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,6493.79,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,6499.65,4,False,amarsi2020_ca1 amarsi2020_ca1_scatt mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,6508.84,1,False,mashonkina2017_ca
+CaI,Ca,1,6572.78,2,False,merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,6717.681,2,False,mashonkina2017_ca spite2012_ca_ca1
+CaI,Ca,1,7148.15,1,False,spite2012_ca_ca1
+CaI,Ca,1,7202.2,1,False,spite2012_ca_ca1
+CaI,Ca,1,7326.14,2,False,merle2011_ca1 spite2012_ca_ca1
+CaI,Ca,1,8525.707,1,False,merle2011_ca1
+CaI,Ca,1,8583.318,1,False,merle2011_ca1
+CaI,Ca,1,8633.929,1,False,merle2011_ca1
+CaI,Ca,1,10343.81,1,False,spite2012_ca_ca1
+CaII,Ca,2,3933.66,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,3968.47,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,6456.87,1,False,spite2012_ca_ca2
+CaII,Ca,2,8201.72,1,False,spite2012_ca_ca2
+CaII,Ca,2,8248.79,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,8254.72,1,False,spite2012_ca_ca2
+CaII,Ca,2,8498.018,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,8542.086,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,8662.135,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,8912.06,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,8927.35,1,False,spite2012_ca_ca2
+CaII,Ca,2,9854.75,2,False,merle2011_ca2 spite2012_ca_ca2
+CaII,Ca,2,9890.62,1,False,spite2012_ca_ca2
+CaII,Ca,2,9931.37,1,False,spite2012_ca_ca2
+CaII,Ca,2,11838.99,1,False,spite2012_ca_ca2
+CaII,Ca,2,11949.74,2,False,merle2011_ca2 spite2012_ca_ca2
 CuI,Cu,1,3011.0,1,False,caliskan2025_cu
 CuI,Cu,1,3248.0,1,False,caliskan2025_cu
 CuI,Cu,1,3274.0,1,False,caliskan2025_cu
@@ -56,6 +150,17 @@ CuI,Cu,1,5220.0,1,False,caliskan2025_cu
 CuI,Cu,1,5700.0,1,False,caliskan2025_cu
 CuI,Cu,1,5782.0,1,False,caliskan2025_cu
 CuI,Cu,1,8093.0,1,False,caliskan2025_cu
+EuII,Eu,2,3724.93,1,False,mashonkina2000_eu
+EuII,Eu,2,3819.67,1,False,mashonkina2000_eu
+EuII,Eu,2,3907.11,1,False,mashonkina2000_eu
+EuII,Eu,2,3930.5,1,False,mashonkina2000_eu
+EuII,Eu,2,3971.97,1,False,mashonkina2000_eu
+EuII,Eu,2,4129.7,1,False,mashonkina2000_eu
+EuII,Eu,2,4205.02,1,False,mashonkina2000_eu
+EuII,Eu,2,4435.58,1,False,mashonkina2000_eu
+EuII,Eu,2,4522.58,1,False,mashonkina2000_eu
+EuII,Eu,2,6437.64,1,False,mashonkina2000_eu
+EuII,Eu,2,6645.06,1,False,mashonkina2000_eu
 FeI,Fe,1,2250.79,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,2259.51,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,2265.054,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -673,27 +778,27 @@ FeI,Fe,1,3381.334,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3382.402,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3383.692,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3383.979,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3392.305,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3392.652,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3392.305,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3392.652,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3394.077,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3394.583,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3396.976,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3397.638,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3399.333,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3399.333,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3401.518,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3402.256,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3403.29,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3404.27,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3404.354,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3406.799,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3407.459,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3406.799,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3407.459,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3407.532,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3410.169,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3410.895,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3413.132,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3413.132,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3415.531,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3417.841,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3418.507,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3418.507,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3422.656,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3424.284,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3426.325,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -701,46 +806,46 @@ FeI,Fe,1,3426.379,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3426.628,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3426.666,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3426.988,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3427.119,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3428.193,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3427.119,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3428.193,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3431.812,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3440.606,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3440.988,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3440.606,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3440.989,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3442.669,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3443.876,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3445.149,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3443.876,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3445.149,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3447.278,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3450.328,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3451.613,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3451.914,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3452.274,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3452.275,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3458.303,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3459.426,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3459.914,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3463.302,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3465.86,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3465.861,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3466.28,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3468.844,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3469.012,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3469.83,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3471.265,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3471.343,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3475.45,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3475.45,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3475.651,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3476.344,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3476.702,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3476.702,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3476.854,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3483.007,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3484.849,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3484.979,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3485.34,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3489.667,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3490.574,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3490.574,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3493.689,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3495.286,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3497.103,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3497.148,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3497.84,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3497.841,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3500.565,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3504.861,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3505.058,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -757,7 +862,7 @@ FeI,Fe,1,3516.556,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3518.683,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3518.868,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3520.846,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3521.261,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3521.261,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3521.837,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3522.268,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3522.899,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -776,12 +881,12 @@ FeI,Fe,1,3531.437,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3533.006,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3533.198,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3534.525,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3536.556,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3536.556,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3537.492,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3537.729,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3540.121,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3540.709,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3541.083,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3541.083,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3542.075,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3543.385,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3545.64,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -982,7 +1087,7 @@ FeI,Fe,1,3737.131,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3738.305,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3739.115,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3742.616,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3743.362,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3743.362,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3743.468,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3743.776,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3744.102,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -995,20 +1100,20 @@ FeI,Fe,1,3748.965,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3749.485,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3751.821,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3753.138,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3753.61,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3753.611,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3754.5,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3756.068,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3757.454,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3758.233,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3758.233,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3759.154,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3760.049,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3760.532,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3761.408,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3763.789,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3765.538,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3763.789,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3765.539,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3765.698,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3766.658,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3767.191,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3767.192,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3768.027,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3769.987,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3770.301,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1031,8 +1136,8 @@ FeI,Fe,1,3782.448,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3785.706,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3785.948,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3786.149,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3786.677,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3787.88,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3786.677,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3787.88,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3789.175,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3790.093,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3790.654,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1050,7 +1155,7 @@ FeI,Fe,1,3798.511,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3799.547,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3801.679,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3802.278,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3805.342,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3805.343,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3806.695,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3807.537,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3808.281,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1065,17 +1170,17 @@ FeI,Fe,1,3813.634,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3813.883,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3813.932,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3814.523,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3815.84,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3815.84,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3816.34,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3820.425,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3820.425,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3821.177,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3821.834,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3824.443,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3824.444,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3825.402,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3825.88,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3825.881,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3826.841,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3827.571,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3827.822,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3827.823,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3828.504,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3829.452,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3830.757,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1085,7 +1190,7 @@ FeI,Fe,1,3834.222,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3836.33,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3837.134,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3839.256,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3840.437,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3840.438,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3841.047,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3842.896,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3842.989,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1095,15 +1200,15 @@ FeI,Fe,1,3845.694,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3846.409,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3846.8,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3846.934,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3849.966,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3850.818,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3849.967,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3850.818,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3852.572,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3854.366,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3856.371,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3856.372,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3859.212,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3859.911,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3859.911,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3863.741,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3865.523,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3865.523,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3867.216,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3867.92,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3869.558,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1113,16 +1218,16 @@ FeI,Fe,1,3872.501,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3872.921,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3873.76,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3876.04,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3878.018,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3878.573,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3878.018,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3878.573,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3878.671,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3878.726,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3883.28,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3884.358,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3885.145,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3885.51,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3886.282,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3887.048,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3886.282,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,3887.048,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3888.513,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3888.821,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3890.84,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1131,12 +1236,12 @@ FeI,Fe,1,3893.309,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3893.39,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3893.912,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3894.011,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3895.656,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3895.656,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3897.448,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3897.889,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3898.009,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3899.028,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3899.707,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3899.707,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3900.515,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3902.945,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3903.898,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1154,10 +1259,10 @@ FeI,Fe,1,3918.314,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3918.415,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3918.641,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3919.065,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3920.257,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3920.258,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3920.836,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3921.272,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3922.911,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3922.912,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3925.643,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3925.941,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3926.013,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1217,12 +1322,12 @@ FeI,Fe,1,3994.112,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,3995.983,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3996.26,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,3996.963,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,3997.391,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,3997.392,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,3998.052,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4000.457,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4001.661,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4003.761,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4005.241,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4005.242,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4006.624,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4007.272,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4009.712,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1232,18 +1337,18 @@ FeI,Fe,1,4014.531,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4017.082,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4017.148,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4018.267,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4021.866,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4021.867,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4024.095,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4024.724,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4030.184,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4030.488,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4030.889,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4032.627,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4032.628,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4033.185,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4043.977,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4044.609,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4045.593,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4045.812,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4045.812,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4046.062,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4047.302,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4049.326,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1253,19 +1358,19 @@ FeI,Fe,1,4057.343,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4058.216,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4058.753,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4059.713,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4062.44,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4062.441,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4063.275,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4063.593,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4063.594,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4066.585,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4067.27,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4067.977,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4067.978,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4070.77,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4071.519,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4071.737,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4071.738,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4073.762,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4074.785,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4076.489,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4076.629,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4076.629,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4076.881,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4078.353,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4079.167,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1283,12 +1388,12 @@ FeI,Fe,1,4100.737,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4101.261,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4104.113,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4106.422,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4107.488,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4107.488,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4108.13,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4109.056,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4109.801,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4112.318,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4114.444,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4114.445,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4114.937,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4118.544,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4120.206,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1299,31 +1404,31 @@ FeI,Fe,1,4125.88,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmar
 FeI,Fe,1,4127.607,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4127.784,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4131.934,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4132.057,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4132.899,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4132.058,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4132.899,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4133.855,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4134.335,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4134.419,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4134.677,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4134.678,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4136.52,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4136.997,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4136.998,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4139.926,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4140.402,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4141.862,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4143.414,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4143.497,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4143.867,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4143.868,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4146.064,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4147.668,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4147.669,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4149.364,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4150.248,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4152.168,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4153.899,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4154.498,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4154.805,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4154.499,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4154.806,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4156.671,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4156.798,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4157.779,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4156.799,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4157.779,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4158.792,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4161.484,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4167.858,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1334,26 +1439,27 @@ FeI,Fe,1,4172.64,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmar
 FeI,Fe,1,4172.744,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4173.314,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4173.92,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4174.912,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4175.635,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4174.913,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4175.636,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4176.566,1,False,mashonkina2011_fe
 FeI,Fe,1,4177.593,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4181.754,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4182.382,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4184.891,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4187.038,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4181.755,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4182.383,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4184.892,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4187.039,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4187.587,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4187.794,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4191.43,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4187.795,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4191.431,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4191.676,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4195.328,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4195.329,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4195.617,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4196.208,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4198.246,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4198.303,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4198.633,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4199.094,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4199.095,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4200.924,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4202.028,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4202.029,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4202.752,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4203.568,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4203.938,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1362,23 +1468,24 @@ FeI,Fe,1,4205.538,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4206.696,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4210.343,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4210.383,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4213.647,1,False,mashonkina2011_fe
 FeI,Fe,1,4215.423,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4216.183,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4217.545,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4219.359,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4219.414,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4220.341,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4222.212,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4222.213,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4224.171,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4224.512,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4225.454,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4225.955,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4227.426,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4227.427,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4229.509,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4233.602,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4233.603,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4235.385,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4235.936,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4238.809,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4238.809,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4239.732,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4239.847,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4240.37,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1389,7 +1496,7 @@ FeI,Fe,1,4246.084,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4247.305,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4247.425,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4248.223,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4250.118,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4250.119,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4250.786,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4254.944,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4255.5,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1397,17 +1504,17 @@ FeI,Fe,1,4258.315,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4258.951,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4259.998,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4260.135,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4260.473,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4260.474,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4264.203,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4266.964,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4267.826,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4268.748,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4271.153,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4271.759,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4271.154,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4271.761,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4275.697,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4276.674,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4278.229,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4282.402,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4282.403,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4285.441,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4286.863,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4287.939,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1428,18 +1535,18 @@ FeI,Fe,1,4307.901,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4309.03,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4309.374,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4315.084,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4325.761,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4325.762,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4325.94,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4326.752,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4327.095,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4327.903,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4337.045,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4337.046,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4344.498,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4346.552,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4347.232,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4348.936,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4351.543,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4352.734,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4352.735,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4358.5,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4365.896,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4367.577,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1448,44 +1555,44 @@ FeI,Fe,1,4369.735,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4369.771,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4373.56,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4374.488,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4375.929,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4375.929,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4376.772,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4382.767,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4383.544,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4383.545,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4387.89,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4388.406,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4389.244,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4390.95,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4401.289,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4401.442,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4404.749,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4404.749,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4405.018,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4407.708,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4408.413,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4415.122,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4415.123,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4422.567,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4423.84,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4427.309,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4430.188,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4430.613,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4430.614,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4433.781,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4435.148,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4436.92,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4439.633,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4442.338,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4442.339,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4442.83,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4443.193,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4443.194,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4445.47,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4447.129,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4447.716,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4447.717,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4450.315,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4454.38,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4456.325,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4459.116,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4461.652,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4459.118,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4461.653,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4461.968,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4464.765,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4466.55,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4466.552,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4469.375,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4476.018,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4476.075,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1496,14 +1603,14 @@ FeI,Fe,1,4482.252,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4482.738,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4484.219,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4488.905,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4489.738,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4494.562,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4489.739,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4494.563,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4495.39,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4495.952,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4517.523,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4528.613,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4528.614,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4528.756,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4531.147,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4531.148,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4547.846,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4554.45,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4556.125,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1560,7 +1667,7 @@ FeI,Fe,1,4728.545,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4729.018,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4733.59,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4735.842,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4736.772,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4736.773,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4737.634,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4740.339,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4741.068,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1590,9 +1697,9 @@ FeI,Fe,1,4855.672,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4859.74,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4860.976,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4870.035,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4871.317,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4871.318,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4871.927,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4872.136,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4872.138,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4875.876,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4878.21,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4881.716,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1602,39 +1709,39 @@ FeI,Fe,1,4885.429,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,4889.0,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4889.101,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4890.754,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4891.491,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4891.492,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4896.437,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4903.309,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4903.309,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4905.131,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4907.73,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4910.015,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4911.529,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4911.777,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4918.992,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4920.501,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4918.994,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4920.503,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4924.768,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4927.417,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4930.314,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4933.872,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4938.813,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4939.685,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4938.814,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,4939.687,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4942.457,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4946.386,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4950.104,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4957.297,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4957.595,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4962.57,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4966.087,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4966.087,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,4970.495,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4973.1,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4978.602,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4985.251,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,4985.545,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,4994.128,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5001.862,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,4994.128,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5001.864,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5002.791,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5005.711,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5006.117,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5006.117,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5012.066,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5014.941,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5021.588,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1645,28 +1752,29 @@ FeI,Fe,1,5027.224,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,5028.125,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5030.777,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5039.25,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5041.07,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5041.754,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5041.072,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5041.756,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5044.209,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5048.434,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5049.818,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5051.633,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5049.818,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5051.635,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5054.641,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5060.077,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5065.191,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5068.764,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5068.766,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5074.748,1,False,mashonkina2011_fe
 FeI,Fe,1,5079.221,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5079.738,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5083.337,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5079.738,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5083.339,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5098.571,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5098.697,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5099.075,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5107.446,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5107.639,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5110.357,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5110.411,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5123.718,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5127.357,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5110.413,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5123.718,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5127.359,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5127.679,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5129.63,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5131.466,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1676,97 +1784,108 @@ FeI,Fe,1,5139.461,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,5141.737,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5142.927,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5145.092,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5150.838,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5151.909,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5150.838,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5151.911,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5154.099,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5166.28,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5159.05,1,False,mashonkina2011_fe
+FeI,Fe,1,5162.273,1,False,mashonkina2011_fe
+FeI,Fe,1,5165.41,1,False,mashonkina2011_fe
+FeI,Fe,1,5166.28,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5167.486,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5168.896,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5171.595,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5171.595,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5171.67,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5187.913,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5191.453,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5192.342,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5194.94,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5191.455,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5192.342,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5194.942,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5196.08,1,False,mashonkina2011_fe
 FeI,Fe,1,5198.709,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5202.334,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5204.581,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5208.592,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5215.179,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5216.272,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5217.388,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5215.179,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5216.272,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5217.388,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5217.917,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5223.181,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5225.525,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5225.526,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5226.86,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5227.148,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5227.187,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5232.938,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5232.938,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5235.385,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5236.2,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5242.489,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5247.048,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5250.207,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5250.207,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5250.644,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5253.46,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5254.954,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5253.46,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5254.955,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5263.304,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5263.863,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5266.553,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5266.555,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5267.267,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5269.535,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5269.537,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5270.354,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5273.162,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5273.371,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5280.359,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5281.788,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5283.619,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5281.788,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5283.621,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5284.423,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5285.125,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5288.525,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5298.774,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5302.298,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5307.359,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5302.302,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5307.359,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5321.106,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5322.039,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5324.177,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5324.177,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5326.141,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5328.036,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5328.529,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5328.039,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5328.532,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5329.988,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5332.898,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5339.927,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5339.927,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5341.022,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5353.372,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5364.869,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5364.869,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5365.397,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5367.464,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5369.959,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5371.487,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5367.464,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5369.959,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5371.487,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5373.707,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5379.572,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5383.366,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5383.366,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5386.34,1,False,mashonkina2011_fe
 FeI,Fe,1,5387.481,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5393.165,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5397.126,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5389.48,1,False,mashonkina2011_fe
+FeI,Fe,1,5393.165,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5395.22,1,False,mashonkina2011_fe
+FeI,Fe,1,5397.126,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5400.51,1,False,mashonkina2011_fe
 FeI,Fe,1,5403.82,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5404.149,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5405.348,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5405.773,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5405.773,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5407.38,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5410.907,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5412.782,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5415.197,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5415.197,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5417.04,1,False,mashonkina2011_fe
+FeI,Fe,1,5424.07,1,False,mashonkina2011_fe
 FeI,Fe,1,5429.501,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5429.694,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5434.521,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5436.586,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5429.697,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5434.524,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5436.586,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5446.87,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5446.914,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5446.917,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5455.452,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5455.607,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5464.278,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5455.609,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5464.278,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5466.985,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5470.09,1,False,mashonkina2011_fe
 FeI,Fe,1,5472.707,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5473.899,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5476.287,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1777,25 +1896,26 @@ FeI,Fe,1,5483.097,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,5491.832,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5493.32,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5493.497,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5497.514,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5501.463,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5506.777,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5497.516,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5501.463,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5506.777,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5525.541,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5535.416,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5538.514,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5538.514,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5554.892,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5563.598,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5567.389,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5569.616,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5572.84,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5569.618,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,5572.842,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5573.1,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5586.753,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5576.089,1,False,mashonkina2011_fe
+FeI,Fe,1,5586.756,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5594.653,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5600.222,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5602.765,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5602.943,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5615.294,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5615.642,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5615.642,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,5618.63,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5624.54,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5638.26,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -1828,83 +1948,103 @@ FeI,Fe,1,5855.073,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lma
 FeI,Fe,1,5856.085,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5909.97,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,5916.245,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,5956.691,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6003.008,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,5956.691,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6003.008,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6008.553,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6012.207,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6027.048,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6056.002,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6024.05,1,False,mashonkina2011_fe
+FeI,Fe,1,6027.048,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6056.002,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6065.479,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6082.707,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6078.5,1,False,mashonkina2011_fe
+FeI,Fe,1,6079.01,1,False,mashonkina2011_fe
+FeI,Fe,1,6082.707,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6085.255,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6103.291,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6120.243,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6120.243,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6127.903,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6136.612,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6136.612,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6136.991,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6137.688,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6137.688,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6141.728,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6147.831,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6151.614,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6151.614,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6157.75,1,False,mashonkina2011_fe
+FeI,Fe,1,6159.38,1,False,mashonkina2011_fe
 FeI,Fe,1,6163.541,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6165.357,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6173.331,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6180.199,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6191.555,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6200.309,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6213.426,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6165.357,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6173.331,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6180.199,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6187.99,1,False,mashonkina2011_fe
+FeI,Fe,1,6191.555,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6200.309,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6213.426,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6215.14,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6219.277,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6229.223,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6230.719,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6219.277,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6226.74,1,False,mashonkina2011_fe
+FeI,Fe,1,6229.223,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6230.719,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6232.637,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6240.643,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6240.643,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6246.315,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6252.552,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6252.552,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6254.255,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6256.358,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6265.129,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6265.129,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6270.22,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6271.275,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6271.275,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6280.614,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6297.79,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6301.497,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6311.496,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6290.97,1,False,mashonkina2011_fe
+FeI,Fe,1,6297.79,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6301.497,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6302.49,1,False,mashonkina2011_fe
+FeI,Fe,1,6307.85,1,False,mashonkina2011_fe
+FeI,Fe,1,6311.496,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6315.303,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6315.808,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6322.682,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6335.327,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6336.82,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6344.145,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6322.682,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6330.85,1,False,mashonkina2011_fe
+FeI,Fe,1,6335.327,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6336.82,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6344.145,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6353.833,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6355.025,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6355.025,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6358.629,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6358.693,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6380.74,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6393.597,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6399.997,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6380.75,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6392.54,1,False,mashonkina2011_fe
+FeI,Fe,1,6393.597,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6400.001,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6400.313,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6408.014,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6408.014,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6411.645,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6421.347,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6430.842,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6419.96,1,False,mashonkina2011_fe
+FeI,Fe,1,6421.347,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6430.842,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6462.722,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6475.621,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6481.866,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6494.977,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6498.935,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6518.362,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6481.866,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6494.977,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6498.935,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6518.362,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6533.93,1,False,mashonkina2011_fe
 FeI,Fe,1,6546.234,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6574.223,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6556.81,1,False,mashonkina2011_fe
+FeI,Fe,1,6569.22,1,False,mashonkina2011_fe
+FeI,Fe,1,6574.223,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6575.012,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6581.206,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6581.206,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6592.909,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6593.866,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6609.106,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6593.866,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6597.56,1,False,mashonkina2011_fe
+FeI,Fe,1,6608.03,1,False,mashonkina2011_fe
+FeI,Fe,1,6609.106,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
 FeI,Fe,1,6625.018,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6627.54,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
-FeI,Fe,1,6633.745,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6627.54,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6633.745,4,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1 mashonkina2011_fe
+FeI,Fe,1,6646.93,1,False,mashonkina2011_fe
 FeI,Fe,1,6648.076,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
+FeI,Fe,1,6653.85,1,False,mashonkina2011_fe
 FeI,Fe,1,6663.228,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6663.438,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
 FeI,Fe,1,6667.707,3,False,amarsi2016_fe_nmarcs_lmarcs_fe1 amarsi2016_fe_nmtd_lmarcs_fe1 amarsi2016_fe_nmtd_lmtd_fe1
@@ -2285,49 +2425,202 @@ FeII,Fe,2,7515.826,4,False,amarsi2016_fe_nmarcs_lmarcs_fe2 amarsi2016_fe_nmtd_lm
 FeII,Fe,2,7655.486,4,False,amarsi2016_fe_nmarcs_lmarcs_fe2 amarsi2016_fe_nmtd_lmarcs_fe2 amarsi2016_fe_nmtd_lmtd_fe2 amarsi_fe2_3d
 FeII,Fe,2,7711.716,4,False,amarsi2016_fe_nmarcs_lmarcs_fe2 amarsi2016_fe_nmtd_lmarcs_fe2 amarsi2016_fe_nmtd_lmtd_fe2 amarsi_fe2_3d
 KI,K,1,7664.9,1,False,reggiani2019_k
-KI,K,1,7698.96,3,False,amarsi2020_k1 amarsi2020_k1_scatt reggiani2019_k
+KI,K,1,7698.98,4,False,amarsi2020_k1 amarsi2020_k1_scatt reggiani2019_k takeda2002_k
 KI,K,1,15163.1,1,False,reggiani2019_k
 KI,K,1,15163.2,1,False,reggiani2019_k
 KI,K,1,15168.4,1,False,reggiani2019_k
-LiI,Li,1,6103.608,3,False,amarsi2020_li1 amarsi2020_li1_scatt wang2021_li
-LiI,Li,1,6707.807,3,False,amarsi2020_li1 amarsi2020_li1_scatt wang2021_li
+LiI,Li,1,6103.608,4,False,amarsi2020_li1 amarsi2020_li1_scatt lind2009_li_6104 wang2021_li
+LiI,Li,1,6707.807,4,False,amarsi2020_li1 amarsi2020_li1_scatt lind2009_li_6708 wang2021_li
 LiI,Li,1,8126.371,3,False,amarsi2020_li1 amarsi2020_li1_scatt wang2021_li
-MgI,Mg,1,3829.0,1,False,osorio2016_mg
-MgI,Mg,1,3832.0,1,False,osorio2016_mg
-MgI,Mg,1,3838.0,1,False,osorio2016_mg
-MgI,Mg,1,4167.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
+MgI,Mg,1,2025.824,1,False,lind2022_mg1
+MgI,Mg,1,2531.458,1,False,lind2022_mg1
+MgI,Mg,1,2546.302,1,False,lind2022_mg1
+MgI,Mg,1,2554.565,1,False,lind2022_mg1
+MgI,Mg,1,2564.936,1,False,lind2022_mg1
+MgI,Mg,1,2776.638,1,False,lind2022_mg1
+MgI,Mg,1,2779.831,1,False,lind2022_mg1
+MgI,Mg,1,2781.349,1,False,lind2022_mg1
+MgI,Mg,1,2782.972,1,False,lind2022_mg1
+MgI,Mg,1,2846.717,1,False,lind2022_mg1
+MgI,Mg,1,2848.345,1,False,lind2022_mg1
+MgI,Mg,1,2852.126,1,False,lind2022_mg1
+MgI,Mg,1,2938.473,1,False,lind2022_mg1
+MgI,Mg,1,2941.994,1,False,lind2022_mg1
+MgI,Mg,1,3091.064,1,False,lind2022_mg1
+MgI,Mg,1,3092.984,1,False,lind2022_mg1
+MgI,Mg,1,3096.887,1,False,lind2022_mg1
+MgI,Mg,1,3329.919,1,False,lind2022_mg1
+MgI,Mg,1,3332.146,1,False,lind2022_mg1
+MgI,Mg,1,3336.674,1,False,lind2022_mg1
+MgI,Mg,1,3829.357,3,False,lind2022_mg1 mashonkina2013_mg osorio2016_mg
+MgI,Mg,1,3832.304,3,False,lind2022_mg1 mashonkina2013_mg osorio2016_mg
+MgI,Mg,1,3838.287,3,False,lind2022_mg1 mashonkina2013_mg osorio2016_mg
+MgI,Mg,1,3843.698,1,False,lind2022_mg1
+MgI,Mg,1,3858.86,1,False,lind2022_mg1
+MgI,Mg,1,3878.306,1,False,lind2022_mg1
+MgI,Mg,1,3903.859,1,False,lind2022_mg1
+MgI,Mg,1,3938.4,1,False,lind2022_mg1
+MgI,Mg,1,3986.753,1,False,lind2022_mg1
+MgI,Mg,1,4057.505,1,False,lind2022_mg1
+MgI,Mg,1,4167.271,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,4351.906,2,False,lind2022_mg1 mashonkina2013_mg
 MgI,Mg,1,4481.0,2,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l
-MgI,Mg,1,4571.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,4703.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,4730.0,2,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l
-MgI,Mg,1,5167.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
+MgI,Mg,1,4571.096,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,4621.301,1,False,lind2022_mg1
+MgI,Mg,1,4702.991,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,4730.029,4,False,lind2022_mg1 matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1
+MgI,Mg,1,5167.322,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
 MgI,Mg,1,5170.0,2,True,matsuno2024_mg_1n1l matsuno2024_mg_3n1l
-MgI,Mg,1,5173.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,5184.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,5528.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,5711.0,5,False,amarsi2020_mg1 amarsi2020_mg1_scatt matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
-MgI,Mg,1,7691.0,1,False,osorio2016_mg
-MgI,Mg,1,8710.0,1,False,osorio2016_mg
-MgI,Mg,1,8712.0,1,False,osorio2016_mg
-MgI,Mg,1,8718.0,1,False,osorio2016_mg
-MgI,Mg,1,8736.0,1,False,osorio2016_mg
-MgI,Mg,1,8807.0,3,False,matsuno2024_mg_1n1l matsuno2024_mg_3n1l osorio2016_mg
+MgI,Mg,1,5172.684,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,5183.604,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,5222.925,1,False,lind2022_mg1
+MgI,Mg,1,5509.597,1,False,lind2022_mg1
+MgI,Mg,1,5528.405,6,False,lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,5711.088,8,False,amarsi2020_mg1 amarsi2020_mg1_scatt lind2022_mg1 mashonkina2013_mg matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,6318.717,2,False,lind2022_mg1 mashonkina2013_mg
+MgI,Mg,1,6319.237,1,False,lind2022_mg1
+MgI,Mg,1,6319.493,1,False,lind2022_mg1
+MgI,Mg,1,6630.833,1,False,lind2022_mg1
+MgI,Mg,1,6765.45,1,False,lind2022_mg1
+MgI,Mg,1,6799.001,1,False,lind2022_mg1
+MgI,Mg,1,6841.084,1,False,lind2022_mg1
+MgI,Mg,1,6894.918,1,False,lind2022_mg1
+MgI,Mg,1,6965.409,1,False,lind2022_mg1
+MgI,Mg,1,7060.412,1,False,lind2022_mg1
+MgI,Mg,1,7387.687,1,False,lind2022_mg1
+MgI,Mg,1,7547.309,1,False,lind2022_mg1
+MgI,Mg,1,7560.539,1,False,lind2022_mg1
+MgI,Mg,1,7657.603,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,7659.901,1,False,lind2022_mg1
+MgI,Mg,1,7691.551,2,False,lind2022_mg1 osorio2016_mg
+MgI,Mg,1,7722.59,1,False,lind2022_mg1
+MgI,Mg,1,7755.236,1,False,lind2022_mg1
+MgI,Mg,1,7759.298,1,False,lind2022_mg1
+MgI,Mg,1,7811.13,1,False,lind2022_mg1
+MgI,Mg,1,7877.48,1,False,lind2022_mg1
+MgI,Mg,1,7881.669,1,False,lind2022_mg1
+MgI,Mg,1,7930.801,1,False,lind2022_mg1
+MgI,Mg,1,8054.231,1,False,lind2022_mg1
+MgI,Mg,1,8098.715,1,False,lind2022_mg1
+MgI,Mg,1,8213.023,1,False,lind2022_mg1
+MgI,Mg,1,8305.591,1,False,lind2022_mg1
+MgI,Mg,1,8310.254,1,False,lind2022_mg1
+MgI,Mg,1,8346.113,1,False,lind2022_mg1
+MgI,Mg,1,8473.693,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,8710.175,3,True,lind2022_mg1 merle2011_mg1 osorio2016_mg
+MgI,Mg,1,8712.683,3,True,lind2022_mg1 merle2011_mg1 osorio2016_mg
+MgI,Mg,1,8715.255,1,True,merle2011_mg1
+MgI,Mg,1,8717.814,3,True,lind2022_mg1 merle2011_mg1 osorio2016_mg
+MgI,Mg,1,8736.015,3,False,lind2022_mg1 merle2011_mg1 osorio2016_mg
+MgI,Mg,1,8806.757,5,False,lind2022_mg1 matsuno2024_mg_1n1l matsuno2024_mg_3n1l merle2011_mg1 osorio2016_mg
+MgI,Mg,1,8923.569,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,8928.827,1,False,lind2022_mg1
+MgI,Mg,1,8997.153,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,9255.75,1,False,lind2022_mg1
+MgI,Mg,1,9414.959,1,False,lind2022_mg1
+MgI,Mg,1,9438.771,1,False,lind2022_mg1
+MgI,Mg,1,9983.188,1,False,lind2022_mg1
+MgI,Mg,1,9986.475,1,False,lind2022_mg1
+MgI,Mg,1,9993.209,1,False,lind2022_mg1
+MgI,Mg,1,10299.29,1,False,lind2022_mg1
+MgI,Mg,1,10312.531,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,10811.134,1,False,lind2022_mg1
+MgI,Mg,1,10953.32,1,False,lind2022_mg1
+MgI,Mg,1,10957.29,1,False,lind2022_mg1
+MgI,Mg,1,10965.417,1,False,lind2022_mg1
+MgI,Mg,1,11032.096,1,False,lind2022_mg1
+MgI,Mg,1,11033.678,1,False,lind2022_mg1
+MgI,Mg,1,11540.672,1,False,lind2022_mg1
+MgI,Mg,1,11811.558,1,False,lind2022_mg1
+MgI,Mg,1,11820.982,1,False,lind2022_mg1
+MgI,Mg,1,11828.171,2,False,lind2022_mg1 merle2011_mg1
+MgI,Mg,1,12039.822,1,False,lind2022_mg1
+MgI,Mg,1,12083.424,1,False,lind2022_mg1
+MgI,Mg,1,12417.937,1,False,lind2022_mg1
+MgI,Mg,1,12423.029,1,False,lind2022_mg1
+MgI,Mg,1,12426.174,1,False,lind2022_mg1
+MgI,Mg,1,12735.92,1,False,lind2022_mg1
+MgI,Mg,1,12740.204,1,False,lind2022_mg1
+MgI,Mg,1,13117.84,1,False,lind2022_mg1
+MgI,Mg,1,14615.619,1,False,lind2022_mg1
+MgI,Mg,1,14700.279,1,False,lind2022_mg1
+MgI,Mg,1,14877.807,1,False,lind2022_mg1
+MgI,Mg,1,15024.997,1,False,lind2022_mg1
+MgI,Mg,1,15040.246,1,False,lind2022_mg1
+MgI,Mg,1,15047.714,1,False,lind2022_mg1
+MgI,Mg,1,15231.648,1,False,lind2022_mg1
+MgI,Mg,1,15740.706,1,False,lind2022_mg1
+MgI,Mg,1,15748.937,1,False,lind2022_mg1
+MgI,Mg,1,15765.744,1,False,lind2022_mg1
+MgI,Mg,1,15879.562,1,False,lind2022_mg1
+MgI,Mg,1,15886.225,1,False,lind2022_mg1
+MgI,Mg,1,16364.817,1,False,lind2022_mg1
+MgI,Mg,1,16624.799,1,False,lind2022_mg1
+MgI,Mg,1,17108.631,1,False,lind2022_mg1
+MgI,Mg,1,19425.26,1,False,lind2022_mg1
 MgI,Mg,1,21059.0,1,False,osorio2016_mg
 MgI,Mg,1,21061.0,1,False,osorio2016_mg
+MgI,Mg,1,21458.863,1,False,lind2022_mg1
+MgI,Mg,1,22807.914,1,False,lind2022_mg1
+MgI,Mg,1,23736.711,1,False,lind2022_mg1
+MgI,Mg,1,24798.594,1,False,lind2022_mg1
+MgI,Mg,1,24818.918,1,False,lind2022_mg1
+MgI,Mg,1,24860.547,1,False,lind2022_mg1
+MgI,Mg,1,25410.967,1,False,lind2022_mg1
+MgI,Mg,1,26392.809,1,False,lind2022_mg1
+MgI,Mg,1,26495.756,1,False,lind2022_mg1
+MgI,Mg,1,27730.703,1,False,lind2022_mg1
+MgI,Mg,1,27751.189,1,False,lind2022_mg1
+MgII,Mg,2,2795.528,1,False,lind2022_mg2
+MgII,Mg,2,2802.705,1,False,lind2022_mg2
+MgII,Mg,2,2928.633,1,False,lind2022_mg2
+MgII,Mg,2,2936.51,1,False,lind2022_mg2
+MgII,Mg,2,3104.747,1,False,lind2022_mg2
+MgII,Mg,2,4481.2,1,False,lind2022_mg2
+MgII,Mg,2,7877.054,1,False,lind2022_mg2
+MgII,Mg,2,7896.258,1,False,lind2022_mg2
+MgII,Mg,2,10092.177,1,False,lind2022_mg2
+MgII,Mg,2,10914.244,1,False,lind2022_mg2
+MgII,Mg,2,10951.778,1,False,lind2022_mg2
 MnI,Mn,1,4754.0,2,False,amarsi2020_mn1 amarsi2020_mn1_scatt
 MnI,Mn,1,4760.0,2,False,amarsi2020_mn1 amarsi2020_mn1_scatt
 MnI,Mn,1,4762.0,2,False,amarsi2020_mn1 amarsi2020_mn1_scatt
-NaI,Na,1,4982.841,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
+NaI,Na,1,3302.368,1,False,lind2022_na1
+NaI,Na,1,4497.657,1,False,lind2022_na1
+NaI,Na,1,4668.558,1,False,lind2022_na1
+NaI,Na,1,4982.841,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,5148.838,1,False,lind2022_na1
+NaI,Na,1,5153.402,1,False,lind2022_na1
 NaI,Na,1,5680.0,2,False,amarsi2020_na1 amarsi2020_na1_scatt
-NaI,Na,1,5682.67,4,False,amarsi2020_na1 amarsi2020_na1_scatt canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,5688.229,3,False,amarsi2020_na1 amarsi2020_na1_scatt canocchi2026_na_3dnlte
-NaI,Na,1,5889.974,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,5895.952,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,6154.23,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,6160.75,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,8183.292,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,8194.826,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
-NaI,Na,1,10747.408,2,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte
+NaI,Na,1,5682.633,6,False,alexeeva2014_na amarsi2020_na1 amarsi2020_na1_scatt canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,5688.229,5,False,alexeeva2014_na amarsi2020_na1 amarsi2020_na1_scatt canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,5889.974,4,False,alexeeva2014_na canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,5895.952,4,False,alexeeva2014_na canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,6154.226,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,6160.747,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,8183.292,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,8194.826,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,9465.929,1,False,lind2022_na1
+NaI,Na,1,9961.272,1,False,lind2022_na1
+NaI,Na,1,10747.408,3,False,canocchi2026_na_3dlte canocchi2026_na_3dnlte lind2022_na1
+NaI,Na,1,10834.865,1,False,lind2022_na1
+NaI,Na,1,11381.442,1,False,lind2022_na1
+NaI,Na,1,11403.768,1,False,lind2022_na1
+NaI,Na,1,12311.479,1,False,lind2022_na1
+NaI,Na,1,12319.97,1,False,lind2022_na1
+NaI,Na,1,12679.187,1,False,lind2022_na1
+NaI,Na,1,14767.539,1,False,lind2022_na1
+NaI,Na,1,14779.72,1,False,lind2022_na1
+NaI,Na,1,16373.87,1,False,lind2022_na1
+NaI,Na,1,16388.85,1,False,lind2022_na1
+NaI,Na,1,18465.42,1,False,lind2022_na1
+NaI,Na,1,21452.268,1,False,lind2022_na1
+NaI,Na,1,22056.393,1,False,lind2022_na1
+NaI,Na,1,22083.654,1,False,lind2022_na1
+NaI,Na,1,23348.377,1,False,lind2022_na1
+NaI,Na,1,23379.049,1,False,lind2022_na1
+NaI,Na,1,25959.867,1,False,lind2022_na1
+NaI,Na,1,29892.0,1,False,lind2022_na1
 OI,O,1,6156.0,2,False,amarsi_o1_1d amarsi_o1_3d
 OI,O,1,6157.0,2,False,amarsi_o1_1d amarsi_o1_3d
 OI,O,1,6158.0,3,False,amarsi2016_o1_marcs amarsi_o1_1d amarsi_o1_3d
@@ -2345,6 +2638,8 @@ OI,O,1,9260.0,2,False,amarsi_o1_1d amarsi_o1_3d
 OI,O,1,9261.0,2,False,amarsi_o1_1d amarsi_o1_3d
 OI,O,1,9263.0,2,False,amarsi_o1_1d amarsi_o1_3d
 OI,O,1,9266.0,2,False,amarsi_o1_1d amarsi_o1_3d
+SI,S,1,8694.63,1,False,takeda2005_s1
+SI,S,1,9212.86,1,False,takeda2005_s1
 SiI,Si,1,3906.0,1,False,amarsi2017_si
 SiI,Si,1,4103.0,1,False,amarsi2017_si
 SiI,Si,1,5646.0,1,False,amarsi2017_si
@@ -2357,3 +2652,75 @@ SiI,Si,1,6742.0,1,False,amarsi2017_si
 SiI,Si,1,7035.0,1,False,amarsi2017_si
 SiI,Si,1,7226.0,1,False,amarsi2017_si
 SiI,Si,1,7680.0,2,False,amarsi2020_si1 amarsi2020_si1_scatt
+SiI,Si,1,11984.2,1,False,bergemann2013_si
+SiI,Si,1,11991.57,1,False,bergemann2013_si
+SiI,Si,1,12031.5,1,False,bergemann2013_si
+SiI,Si,1,12103.54,1,False,bergemann2013_si
+SrI,Sr,1,4607.33,1,False,bergemann2012_sr_sr1
+SrII,Sr,2,4077.71,2,False,bergemann2012_sr_sr2 mashonkina2022_sr
+SrII,Sr,2,4215.54,1,False,mashonkina2022_sr
+SrII,Sr,2,10036.65,1,False,bergemann2012_sr_sr2
+TiII,Ti,2,3380.279,1,False,sitnova2016_ti2
+TiII,Ti,2,3383.768,1,False,sitnova2016_ti2
+TiII,Ti,2,3387.846,1,False,sitnova2016_ti2
+TiII,Ti,2,3407.211,1,False,sitnova2016_ti2
+TiII,Ti,2,3409.821,1,False,sitnova2016_ti2
+TiII,Ti,2,3444.314,1,False,sitnova2016_ti2
+TiII,Ti,2,3456.388,1,False,sitnova2016_ti2
+TiII,Ti,2,3477.187,1,False,sitnova2016_ti2
+TiII,Ti,2,3489.741,1,False,sitnova2016_ti2
+TiII,Ti,2,3500.34,1,False,sitnova2016_ti2
+TiII,Ti,2,3504.896,1,False,sitnova2016_ti2
+TiII,Ti,2,3510.845,1,False,sitnova2016_ti2
+TiII,Ti,2,3759.296,1,False,sitnova2016_ti2
+TiII,Ti,2,3761.323,1,False,sitnova2016_ti2
+TiII,Ti,2,3913.468,1,False,sitnova2016_ti2
+TiII,Ti,2,4012.385,1,False,sitnova2016_ti2
+TiII,Ti,2,4028.343,1,False,sitnova2016_ti2
+TiII,Ti,2,4290.219,1,False,sitnova2016_ti2
+TiII,Ti,2,4300.049,1,False,sitnova2016_ti2
+TiII,Ti,2,4337.915,1,False,sitnova2016_ti2
+TiII,Ti,2,4394.051,1,False,sitnova2016_ti2
+TiII,Ti,2,4395.033,1,False,sitnova2016_ti2
+TiII,Ti,2,4395.85,1,False,sitnova2016_ti2
+TiII,Ti,2,4399.772,1,False,sitnova2016_ti2
+TiII,Ti,2,4417.719,1,False,sitnova2016_ti2
+TiII,Ti,2,4418.33,1,False,sitnova2016_ti2
+TiII,Ti,2,4443.794,1,False,sitnova2016_ti2
+TiII,Ti,2,4444.558,1,False,sitnova2016_ti2
+TiII,Ti,2,4450.482,1,False,sitnova2016_ti2
+TiII,Ti,2,4464.45,1,False,sitnova2016_ti2
+TiII,Ti,2,4468.507,1,False,sitnova2016_ti2
+TiII,Ti,2,4470.857,1,False,sitnova2016_ti2
+TiII,Ti,2,4501.273,1,False,sitnova2016_ti2
+TiII,Ti,2,4533.969,1,False,sitnova2016_ti2
+TiII,Ti,2,4563.761,1,False,sitnova2016_ti2
+TiII,Ti,2,4571.968,1,False,sitnova2016_ti2
+TiII,Ti,2,4583.41,1,False,sitnova2016_ti2
+TiII,Ti,2,4636.32,1,False,sitnova2016_ti2
+TiII,Ti,2,4657.2,1,False,sitnova2016_ti2
+TiII,Ti,2,4708.66,1,False,sitnova2016_ti2
+TiII,Ti,2,4798.53,1,False,sitnova2016_ti2
+TiII,Ti,2,4865.612,1,False,sitnova2016_ti2
+TiII,Ti,2,5129.16,1,False,sitnova2016_ti2
+TiII,Ti,2,5154.07,1,False,sitnova2016_ti2
+TiII,Ti,2,5185.913,1,False,sitnova2016_ti2
+TiII,Ti,2,5188.68,1,False,sitnova2016_ti2
+TiII,Ti,2,5226.55,1,False,sitnova2016_ti2
+TiII,Ti,2,5336.771,1,False,sitnova2016_ti2
+TiII,Ti,2,5381.01,1,False,sitnova2016_ti2
+TiII,Ti,2,5418.77,1,False,sitnova2016_ti2
+TiII,Ti,2,6219.94,1,False,sitnova2016_ti2
+TiII,Ti,2,6559.588,1,False,sitnova2016_ti2
+TiII,Ti,2,6606.95,1,False,sitnova2016_ti2
+TiII,Ti,2,6680.13,1,False,sitnova2016_ti2
+ZnI,Zn,1,2138.573,2,False,sitnova2022_zn_llhot_zn1 sitnova2022_zn_marcs_zn1
+ZnI,Zn,1,3075.895,1,False,sitnova2022_zn_marcs_zn1
+ZnI,Zn,1,3302.583,1,False,sitnova2022_zn_marcs_zn1
+ZnI,Zn,1,4680.134,2,False,sitnova2022_zn_llhot_zn1 sitnova2022_zn_marcs_zn1
+ZnI,Zn,1,4722.153,2,False,sitnova2022_zn_llhot_zn1 sitnova2022_zn_marcs_zn1
+ZnI,Zn,1,4810.528,3,False,sitnova2022_zn_llhot_zn1 sitnova2022_zn_marcs_zn1 takeda2005_zn1
+ZnI,Zn,1,6362.338,3,False,sitnova2022_zn_llhot_zn1 sitnova2022_zn_marcs_zn1 takeda2005_zn1
+ZnII,Zn,2,2025.484,2,False,sitnova2022_zn_llhot_zn2 sitnova2022_zn_marcs_zn2
+ZnII,Zn,2,2062.001,2,False,sitnova2022_zn_llhot_zn2 sitnova2022_zn_marcs_zn2
+ZnII,Zn,2,2557.948,1,False,sitnova2022_zn_llhot_zn2
