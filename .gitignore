@@ -24,6 +24,9 @@ grids/**
 # Local Claude Code settings.
 .claude/settings.local.json
 
-# Generated outputs from example runs.
+# Generated outputs from example runs, including the _std companion that
+# nlte-correct writes beside each output.
 teste_interpolador_out.csv
+teste_interpolador_out_std.csv
 teste_interpolador_wide.csv
+teste_interpolador_wide_std.csv
